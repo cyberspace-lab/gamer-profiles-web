@@ -1,0 +1,81 @@
+---
+import React from 'react';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import BartlePercentilesComponent from './../../components/ui/bartle-percentiles.jsx';
+import ReactTest from './../../components/react/ReactTest.jsx';
+import BartlePercentile from './../../components/vue/BartlePercentile.vue';
+
+const metadata = {
+  title: 'Výsledky Bartlova testu'
+};
+
+---
+<Layout metadata={metadata}>
+    <script>
+    import Chart from 'chart.js/auto';
+    function getURLPercentiles() {
+        const params = new URLSearchParams(window.location.search);
+        let searchParams = ['soc', 'kil', 'ach', 'exp'];
+        const values: number[] = [];
+        for(let i = 0; i < searchParams.length; i++) {
+            const val = parseInt(params.get(`${searchParams[i]}`) as string);
+            if (!isNaN(val) && val >= 0 && val <= 100) {
+                values.push(val as number);
+            } else {
+                // If parameter is missing or not within range, set default value
+                values.push(-1);
+            }
+        }
+        return values;
+    }
+    const [soc, kil, ach, exp] = getURLPercentiles();
+    const ctx = document.getElementById('skillChart')!.getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ['Socializer', 'Killer', 'Explorer', 'Achiever'],
+        datasets: [{
+            label: 'Skill Levels',
+            data: [soc, kil, exp, ach],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)' 
+            ],
+            borderColor: [ 
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true,
+            max: 100
+            }
+        }
+        }
+    });
+    </script>
+
+    <Hero
+      tagline="Výsledky Bartlova testu">
+      <Fragment slot="title">
+        Níže se můžete podívat na rozložení vašich typologií <br />
+          <span class="text-accent dark:text-white highlight"> </span>
+        </Fragment>
+        <Fragment slot = subtitle>
+            <canvas id="skillChart"></canvas>
+        </Fragment>
+    </Hero>
+
+    <BartlePercentile client:load />
+   
+</Layout>
