@@ -5,7 +5,7 @@
     </div>
     <div class="relative px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default max-w-6xl mx-auto">
       <div class="mb-8 md:mx-auto md:mb-12 text-center max-w-3xl">
-        <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl">Percentiles</h2>
+        <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl">Percentily</h2>
       </div>
       <div class="flex flex-wrap justify-center -m-4 text-center">
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500">

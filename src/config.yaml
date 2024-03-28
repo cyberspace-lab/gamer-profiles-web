@@ -3,13 +3,12 @@ site:
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
-
   googleSiteVerificationId: XXXX
 
 # Default SEO metadata
 metadata:
   title:
-    default: CyberspaceLab - Profiles
+    default: CyberspaceLab
     template: '%s — AstroWind'
   description: "\U0001F680 Web s informacemi o hereních typologiích a profilech s možností si udělat vlastní test"
   robots:

@@ -55,11 +55,6 @@ export const headerData = {
           text: 'Privacy policy',
           href: getPermalink('/privacy'),
         },
-      ],
-    },
-    {
-      text: 'Blog examples',
-      links: [
         {
           text: 'Blog List',
           href: getBlogPermalink(),
@@ -73,59 +68,29 @@ export const headerData = {
           href: getPermalink('markdown-elements-demo-post', 'post'),
         },
       ],
-    },
-    {
-      text: 'Cyberspacelab',
-      href: 'www.cyberspacelab.cz',
-    },
+    }
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [{ text: 'CyberspaceLab', href: 'www.cyberspacelab.cz', target: '_blank' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Typologie',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Bartlova Typologie', href: getPermalink('typologie/bartle') }
       ],
     },
     {
-      title: 'Platform',
+      title: 'Výsledky',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'Bartle test a výsledky', href: getPermalink('results/bartle')}
       ],
     },
     {
-      title: 'Support',
+      title: 'CyberspaceLab',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Web', href: 'https://www.cyberspacelab.cz' },
       ],
     },
   ],
