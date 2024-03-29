@@ -1,13 +1,13 @@
 ---
-import React from 'react';
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import BartlePercentilesComponent from './../../components/ui/bartle-percentiles.jsx';
-import ReactTest from './../../components/react/ReactTest.jsx';
+import BasicParagraph from '~/components/blog/BasicParagraph.astro';
 import BartlePercentile from './../../components/vue/BartlePercentile.vue';
+import BartleDominant from './../../components/vue/BartleDominant.vue';
+import Content from '../../components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Výsledky Bartlova testu'
+  title: 'Bartle výsledky'
 };
 
 ---
@@ -35,41 +35,44 @@ const metadata = {
     new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: ['Socializer', 'Killer', 'Explorer', 'Achiever'],
+        labels: ['Společník', 'Bojovník', 'Dobrodruh', 'Kolektor'],
         datasets: [{
             label: 'Skill Levels',
             data: [soc, kil, exp, ach],
             backgroundColor: [
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)' 
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
             ],
-            borderColor: [ 
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)'
-            ],
-            borderWidth: 1
         }]
         },
         options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100,
-                min: 0
+            indexAxis: 'y',
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 100,
+                    min: 0,
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+            legend: {
+                display: false
             }
         }
-        }
+        },
+
     });
     </script>
 
     <Hero
       tagline="Výsledky Bartlova testu">
       <Fragment slot="title">
-        Níže se můžete podívat na svůj typ <br />
+         Výsledky Bartlovy Typologie<br />
           <span class="text-accent dark:text-white highlight"> </span>
         </Fragment>
         <Fragment slot = subtitle>
@@ -77,6 +80,7 @@ const metadata = {
         </Fragment>
     </Hero>
 
+    <BartleDominant client:load />
     <BartlePercentile client:load />
-   
+
 </Layout>
