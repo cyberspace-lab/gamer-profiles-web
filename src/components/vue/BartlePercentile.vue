@@ -3,7 +3,7 @@
     <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
       <div class="absolute inset-0"></div>
     </div>
-    <div class="relative px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default max-w-6xl mx-auto">
+    <div class="relative px-4 md:px-6 pb-8 md:pb-12 lg:pb-16 text-default max-w-6xl mx-auto">
       <div class="mb-8 md:mx-auto md:mb-12 text-center max-w-3xl">
         <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl">Percentily</h2>
       </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
       <p class="text-muted text-center mt-8">
-        Percentil vyjadřuje, jak vysoko se nacházíte v porovnání s ostatními hráči. Pokud máte například percentil {{this.percentiles.socializer}} u Společníka, znamená to, že je u vás rys Společníka vyšší než u {{this.percentiles.socializer}} ti procent dalších hráčů.
+        Percentil vyjadřuje, jak vysoko se nacházíte v porovnání s ostatními hráči. Pokud máte například percentil {{ percentiles.socializer }} u Společníka, znamená to, že je u vás rys Společníka vyšší, než u {{ percentiles.socializer }}ti procent dalších hráčů.
       </p>
     </div>
   </section>

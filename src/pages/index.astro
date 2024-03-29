@@ -1,7 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
@@ -24,7 +23,6 @@ const metadata = {
 
     <Fragment slot="subtitle">
         Vítejte na stránkách věnujících se herním typologiím a testům, které vám pomohou poznat, jací jste hráči.
-
     </Fragment>
   </Hero>
 
@@ -110,19 +108,19 @@ const metadata = {
       {
         title: 'Krok 1: <span class="font-medium">Vymezení konstruktu</span>',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
+          "V první fázi se musíme rozhodnout, co vlastně chceme měřit. Při tom lze vycházet ze zavedené teorie <em>(např. Bartlova typologie hráčů)</em> nebo vytvořit něco zcela nového na základě zkušeností.",
         icon: 'tabler:package',
       },
       {
-        title: 'Krok 2: <span class="font-medium">Pilotní studie</em>',
+        title: 'Krok 2: <span class="font-medium">Tvorba otázek a pilotní studie</em>',
         description:
-          "Test se zadá menšímu vzorku respondentů, aby se ověřilo, zdali otázky jsou srozumitelné a sbírají se data na první etapy analýz.",
+          "V druhém kroku vytvoříme sérii otázek, které dle našeho názoru dobře vystihují konstrukt, který chceme měřit (například míru společenskosti ve videohrách). Test se zadá menšímu vzorku respondentů, aby se ověřilo, zdali otázky jsou srozumitelné a sbírají se data na první etapy analýz.",
         icon: 'tabler:letter-case',
       },
       {
-        title: 'Krok 3: <span class="font-medium">Analýza otázek</span>',
+        title: 'Krok 3: <span class="font-medium">Pilotní analýza</span>',
         description:
-          'V tomto kroku se díváme na to, jaké otázky jsou příli těžké či snadné, pomocí tzv. faktorové analýzy zjišťujeme, jaké otázky spolu souvisí a jaké ne. Následně si výběr otázek pro test upravíme tak, aby byl co nejlepší.',
+          'V tomto kroku se díváme na to, jaké otázky jsou příli těžké či snadné, pomocí tzv. faktorové analýzy zjišťujeme, jaké otázky spolu souvisí a jaké ne. Následně si výběr otázek pro test upravíme tak, aby byl co nejkratší, ale nejpřesnější.',
         icon: 'tabler:paint',
       },
       {

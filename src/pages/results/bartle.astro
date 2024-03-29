@@ -1,10 +1,8 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import BasicParagraph from '~/components/blog/BasicParagraph.astro';
 import BartlePercentile from './../../components/vue/BartlePercentile.vue';
 import BartleDominant from './../../components/vue/BartleDominant.vue';
-import Content from '../../components/widgets/Content.astro';
 
 const metadata = {
   title: 'Bartle výsledky'
@@ -69,8 +67,7 @@ const metadata = {
     });
     </script>
 
-    <Hero
-      tagline="Výsledky Bartlova testu">
+    <Hero>
       <Fragment slot="title">
          Výsledky Bartlovy Typologie<br />
           <span class="text-accent dark:text-white highlight"> </span>
@@ -80,7 +77,7 @@ const metadata = {
         </Fragment>
     </Hero>
 
-    <BartleDominant client:load />
     <BartlePercentile client:load />
+    <BartleDominant client:load />
 
 </Layout>
