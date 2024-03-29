@@ -1,0 +1,40 @@
+---
+import TypologyProfile from '~/components/mine/TypologyProfile.astro';
+import imgSoc from '~/assets/images/typology/socializer.png';
+import imgExp from '~/assets/images/typology/explorer.png';
+import imgKil from '~/assets/images/typology/killer.png';
+import imgAch from '~/assets/images/typology/achiever.png';
+import bartleTypes from '~/assets/data/bartleTypes.json';
+
+let images = {
+  socializer: imgSoc,
+  explorer: imgExp,
+  killer: imgKil,
+  achiever: imgAch,
+}
+
+let subtypeItems = [];
+
+const {
+    reverse,
+    type,
+    subtype
+} = Astro.props;
+
+if(subtype){
+    let sub = bartleTypes[type].subtypes[subtype];
+    let item = {title: sub.name, description: sub.description};
+    subtypeItems.push(item);
+}
+---
+<TypologyProfile
+type = {bartleTypes[type].name}
+isReversed = {reverse}
+items={subtypeItems}
+image={{
+    src: images[type],
+    alt: 'Socializer type image',
+}}
+>
+{bartleTypes[type].description}
+</TypologyProfile>
