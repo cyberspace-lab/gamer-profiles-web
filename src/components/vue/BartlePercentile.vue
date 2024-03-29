@@ -10,26 +10,31 @@
       <div class="flex flex-wrap justify-center -m-4 text-center">
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500">
           <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">{{ percentiles.socializer }}</div>
-          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Socializer</div>
+          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Společník</div>
         </div>
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500">
           <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">{{ percentiles.explorer }}</div>
-          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Explorer</div>
+          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Dobrodruh</div>
         </div>
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500">
           <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">{{ percentiles.killer }}</div>
-          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Killer</div>
+          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Bojovník</div>
         </div>
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500">
           <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">{{ percentiles.achiever }}</div>
-          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Achiever</div>
+          <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">Kolektor</div>
         </div>
       </div>
+      <p class="text-muted text-center mt-8">
+        Percentil vyjadřuje, jak vysoko se nacházíte v porovnání s ostatními hráči. Pokud máte například percentil {{this.percentiles.socializer}} u Společníka, znamená to, že je u vás rys Společníka vyšší než u {{this.percentiles.socializer}} ti procent dalších hráčů.
+      </p>
     </div>
   </section>
 </template>
 
 <script>
+import parseBartleParams from '../../utils/parseBartleParams';
+
 export default {
   data() {
     return {
@@ -42,20 +47,7 @@ export default {
     };
   },
   mounted() {
-    const params = new URLSearchParams(window.location.search);
-    let searchParams = ['soc', 'kil', 'ach', 'exp'];
-    const values = [];
-    for(let i = 0; i < searchParams.length; i++) {
-      const val = parseInt(params.get(`${searchParams[i]}`));
-      if (!isNaN(val) && val >= 0 && val <= 100) {
-        values.push(val);
-      } else {
-        // If parameter is missing or not within range, set default value
-        values.push(-1);
-      }
-    }
-    const [soc, kil, ach, exp] = values;
-    this.percentiles = {socializer: soc, killer:kil, achiever: ach, explorer: exp};
+    this.percentiles = parseBartleParams();
   }
 };
 </script>
