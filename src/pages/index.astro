@@ -16,31 +16,15 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
     image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
+      Herní typologie a <span class="text-accent dark:text-white highlight"> Psychologické testy </span> 
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-       Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages
-      & Blogs.
+        Vítejte na stránkách věnujících se herním typologiím a testům, které vám pomohou poznat, jací jste hráči.
+
     </Fragment>
   </Hero>
 
@@ -121,28 +105,46 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    title="Tvorba psychometrických testů"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'Krok 1: <span class="font-medium">Vymezení konstruktu</span>',
         description:
           "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
         icon: 'tabler:package',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
+        title: 'Krok 2: <span class="font-medium">Pilotní studie</em>',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
+          "Test se zadá menšímu vzorku respondentů, aby se ověřilo, zdali otázky jsou srozumitelné a sbírají se data na první etapy analýz.",
         icon: 'tabler:letter-case',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Krok 3: <span class="font-medium">Analýza otázek</span>',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
+          'V tomto kroku se díváme na to, jaké otázky jsou příli těžké či snadné, pomocí tzv. faktorové analýzy zjišťujeme, jaké otázky spolu souvisí a jaké ne. Následně si výběr otázek pro test upravíme tak, aby byl co nejlepší.',
         icon: 'tabler:paint',
       },
       {
-        title: 'Ready!',
+        title: 'Krok 4: <span class="font-medium">Reliabilita</span>',
+        description:
+          'Každý validní test musí být spolehlivý. To znamená, že pokud bychom testovali stejnou vlastnost dvakrát, měli bychom dostat stejné výsledky. V tomto kroku zjišťujeme, jak moc je test vnitřně konzistentní a jak moc se lze na jeho výsledky spolehnout.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Krok 5: <span class="font-medium">Validace testu</span>',
+        description:
+          'V tomto kroku se snažíme zjistit, zda test měří to, co má měřit. Snažíme se najít nějaké externí kritérium, které by mělo s naším testem souviset a ověřit, zda tomu tak skutečně je. Například optavdu Bojovníci v Bartlově typologii preferují PvP hry oproti PvE?.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Krok 6: <span class="font-medium">Standardizace</span>',
+        description:
+          'Když už je test hotový, je potřeba ho standardizovat a vytvořit normy. Ty nám poté umožňí porovnávat výsledky respondentů mezi sebou a zjišťovat, jak moc je u respondenta daný rys silný.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Hotovo!',
         icon: 'tabler:check',
       },
     ]}
@@ -152,108 +154,42 @@ const metadata = {
     }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
   <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    title="Nejčastější dotazy"
+    subtitle="Co by vás mohlo zajímat?"
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'Kdo za tím vším stojí?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          "Testy vznikají pod zášťitou výzkumné skupiny CyberspaceLab. Skupina působí na Fakultě Humanitních studií Univerzity Karlovy a při Psychologickém ústavu Akademie Věd ČR. Více na <a href='https://www.cyberspacelab.cz'>www.cyberspacelab.cz</a>."
       },
       {
-        title: 'What do I need to start?',
+        title: 'Musím se registrovat, abych si mohl/a testy udělat?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'Ne, registrace není nutná. Můžete jednoduše navštívit webovou stránku u jednotlivých typologií výše a vybrat si ten, který chcete absolvovat.',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: 'Můžu dotazníky sdílet?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          "Sdílejte sdílejte. Testy jsou zdarma a můžete je sdílet s kýmkoliv. Čím více respondentů, tím přesnější data budeme mít k dispozici.",
       },
       {
-        title: "What's something that you don't understand?",
+        title: 'Můžu využít dotazníky ve výzkumu?',
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+          "Pokud chcete použít dotazík ve výzkumu, prosím kontaktujte nás přes <a href='https://www.cyberspacelab.cz'>www.cyberspacelab.cz</a>. Rádi vám poskytneme podrobnější informace.",
       },
       {
-        title: 'What is something that you would like to try again?',
+        title: "Mohu se nějak podílet na výzkumu?",
         description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+          "Proč ne? :) Prosím kontaktujte nás přes <a href='https://www.cyberspacelab.cz'>www.cyberspacelab.cz</a>",
       },
       {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
+        title: "Co se stane s mými daty, když vyplním dotazník?",
         description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
+          "Vaše data jsou jsou použita pouze pro výzkumné účely. Ve dotaznících nesbíráme senzitivní údaje s výjimkou věku a pohlaví. Data mohou být identifikovatelná emailem, abychom mohli propojovat odpovědi z více studií naráz, ale pouze tehdy, pokud k tomu v dotazníku dáte explicitní souhlas. Data nebudou nikdy poskytnuta pro komerční účely třetí straně.",
+      }
     ]}
   />
-
-
 </Layout>
