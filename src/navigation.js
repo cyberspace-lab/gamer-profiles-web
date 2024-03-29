@@ -70,7 +70,7 @@ export const headerData = {
       ],
     }
   ],
-  actions: [{ text: 'CyberspaceLab', href: 'www.cyberspacelab.cz', target: '_blank' }],
+  actions: [{ text: 'CyberspaceLab', href: 'https://www.cyberspacelab.cz', target: '_blank' }],
 };
 
 export const footerData = {
