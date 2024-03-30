@@ -3,26 +3,12 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Typologie',
-      links: [
-        {
-          text: 'Bartle',
-          href: getPermalink('typologie/bartle'),
-        },
-        {
-          text: 'Brain Hex',
-          href: getPermalink('typologie/brainhex'),
-        }
-      ]
+      text: 'Bartlova Typologie',
+      href: getPermalink('typologie/bartle'),
     },
-    {
-      text: 'Výsledky',
-      links: [
-        {
-          text: 'Bartle',
-          href: getPermalink('results/bartle'),
-        }
-      ]
+    { 
+      text: 'Brain Hex Typologie',
+      href: getPermalink('typologie/brainhex'),
     },
     {
       text: 'Pages examples',
