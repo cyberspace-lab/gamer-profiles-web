@@ -95,6 +95,6 @@ export const footerData = {
 
 export const typology = {
   "bartle": {
-      "questionnaire": "https://surveys.cyberspacelab.cz/index.php/771382?lang=cs"
+      "questionnaire": "https://surveys.cyberspacelab.cz/bartleV1"
   }
 }
