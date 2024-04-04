@@ -1,5 +1,5 @@
 <template>
-  <section v-if="percentiles" class="relative not-prose scroll-mt-[72px]">
+  <section id="bartlePercentiles" v-if="percentiles" class="relative not-prose scroll-mt-[72px]">
     <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
       <div class="absolute inset-0"></div>
     </div>

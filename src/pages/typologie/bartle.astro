@@ -4,6 +4,7 @@ import BartleType from '~/components/mine/BartleType.astro';
 import BasicParagraph from '~/components/blog/BasicParagraph.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { typology } from '~/navigation';
 
 import typologyImage2 from '~/assets/images/typology-2.png';
 
@@ -19,7 +20,7 @@ const metadata = {
     title=" Bartlova typologie osobnosti"
     image={{
       src: typologyImage2,
-      alt: 'AstroWind Hero Image',
+      alt: 'Typology illustrative image',
     }}
   />
   <section class="mx-auto">
@@ -48,7 +49,7 @@ const metadata = {
     actions={[{
       variant: "primary",
       text: 'Jdu na to!',
-      href: '/',
+      href: typology.bartle.questionnaire,
     }]}
     title="Chcete zjistit svůj profil?"
     subtitle="Dotazník vám zabere cca 15 minut"

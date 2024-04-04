@@ -3,12 +3,16 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
+import BasicParagraph from '~/components/blog/BasicParagraph.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '../components/widgets/CallToAction.astro';
-import { getPermalink} from '../utils/permalinks';
 
+import { getPermalink} from '../utils/permalinks';
+import { typology } from '~/navigation';
 import psychometricImage from '~/assets/images/psychometrics-1.png';
 import typologyImage1 from '~/assets/images/typology-1.png';
+import variousControllersImage from '~/assets/images/various_controllers.png';
+import brainTypesImage from '~/assets/images/brainTypes.png';
 
 const metadata = {
   title: 'CyberspaceLab - Herní typologie',
@@ -36,32 +40,20 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Co jsou herní typologie? ',
+        description: `Herní typologie jsou klíčem k pochopení naší herní osobnosti. Odráží se v nich naše chování ve virtuálním prostředí a popisují, co nás ve hře zajímá. Zdali jsi průzkumník, co chce objevit každý kout herního světa a odkrýt veškerá jeho tajemství, nebo bojovník, hráč, který nedá dopustit na pořádnou bitvu a vyžívá se v porážení svých nepřátel. Hry často nabízejí nekonečné možnosti, a herní typologie nám pomáhají popsat různé způsoby, jakými k nim lidé přistupují a co od nich očekávají.`,
       },
       {
-        title: 'Multiple layout possibilities',
+        title: 'Jaké herní typologie existují? ',
         description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
+          'Na internetu najdete nepřeberné množství dotazníků, které vám slibují odhalit vaši herní identitu. Mnoho z nich však není vědecky podloženo a často se jedná o čistě humorné testíky. Nicméně existují také seriózní herní typologie, jako je Bartlova herní typologie, BrainHex nebo Gamer Motivation Profile, které jsou založeny na komplexním výzkumu a pozorování. A to je přesně to, co vám přinášíme – důkladnou a vědecky podloženou analýzu vaší herní identity. ',
+      }
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: variousControllersImage,
+      alt: 'Various types',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
@@ -74,46 +66,53 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Enhanced user engagement',
+        title: 'K čemu jsou herní typologie dobré? ',
         description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
+          'Stejně, jako se zajímáme o to, kdo vlastně jsme v reálném životě, tak nás zajímá, jací jsme ve virtuálním světě. Typologie nám otevírají dveře k pochopení toho, co lidi na hrách nejvíce baví a co je pro ně důležité. Díky nim můžeme i můžeme objevovat takové hry, které nám skvěle sednou. Herní typologie mohou také posloužit k vylepšení samotného herního zážitku. Pokud vás něco ve hře nudí a nevíte proč, váš typ vám může osvětlit, proč tomu tak je. Typologie neslouží pouze hráčům, ale i vývojářům. Poskytují totiž cenné informace, které jim pomáhají lépe porozumět potřebám hráčů a vytvářet hry lepší a zábavnější.',
       },
       {
-        title: 'Continuous improvement',
+        title: 'Proč to zajímá nás?',
         description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
+          'My se o typologie zajímáme zejména z vědeckého hlediska výzkumu videoher. Od počátku 21. století se věda systematicky zabývá světem videoher a jejich vlivem na člověka. Při studiu her se však často setkáváme s jedním zásadním problémem – jak definovat samotného hráče videoher? Někteří mluví o hráči jako o jedinci, který tráví v herním světě alespoň dvě hodiny denně, zatímco jiní hráče rozdělují podle oblíbených herních žánrů. Tyto různé přístupy pak mohou při výzkumu dělat „paseku“, zejména v případě, kdy se snažíme jejich výsledky zopakovat. Jsme přesvědčeni, že zásadním faktorem je přístup k definici hráče videoher. A právě herní typologie mohou být klíčovou odpovědí na tento složitý problém.',
+      }
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: brainTypesImage,
+      alt: 'Brain Types Image',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
+  
   <CallToAction
     actions={[{
       variant: "secondary",
-      text: 'Barltova typologie',
+      text: 'O Bartlově typologii',
       href: getPermalink('typologie/bartle'),
+    },
+    {
+      variant: "primary",
+      text: 'Rovnou na dotazník',
+      href: typology.bartle.questionnaire
     }]}
     title="Chcete zjistit svůj profil?"
     subtitle="V současné chvíli nabízíme test pro Bartlovu typologii hráčů"
   />
+
+  <section class="mx-auto text-center my-10">
+    <article>
+      <header>
+        <h1 class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
+          A co děláme my? 
+        </h1>
+      </header>
+        <BasicParagraph
+          content = "Snažíme vytvářet typologické dotazníky, které se opírají o reálná data. A k tomu potřebujeme právě vás! Všechny typologické dotazníky jsou bohužel v angličtině. Mnohé z nich jsou zároveň zastaralé a potřebují upravit pro potřeby dnešního hráče. A o to se snažíme. Překládáme, upravujeme, inovujeme a zdokonalujeme existující typologie pro českou populaci. Naším cílem je vytvořit funkční a spolehlivé dotazníky, které budou sloužit nejen vám, ale i budoucímu výzkumu videoher!"
+          />
+    </article>
+  </section>
 
   <Steps
     title="Jak takový test vzniká?"
@@ -179,7 +178,12 @@ const metadata = {
       {
         title: 'Musím se registrovat, abych si mohl/a testy udělat?',
         description:
-          'Ne, registrace není nutná. Můžete jednoduše navštívit webovou stránku u jednotlivých typologií výše a vybrat si ten, který chcete absolvovat.',
+          'Ne, registrace není nutná. Můžete jednoduše navštívit webovou stránku u jednotlivých typologií výše a vybrat si ten, který chcete absolvovat. Je však nutné zadat nějakou emailovou adresu, na kterou přijsou vypočítané výsledky. Adresu však neukládáme, pokud k tomu nedáte vysloveně svolení.',
+      },
+      {
+        title: "Co se stane s mými daty, když vyplním dotazník?",
+        description:
+          "Vaše data jsou jsou použita pouze pro výzkumné účely. V dotaznících nesbíráme senzitivní údaje s výjimkou věku a pohlaví. Data mohou být identifikovatelná emailem, abychom mohli propojovat odpovědi z více studií naráz, ale pouze tehdy, pokud k tomu v dotazníku dáte explicitní souhlas. Data nebudou nikdy poskytnuta pro komerční účely třetí straně, mohou být však sdílena mezi akademickými pracovišti pro účely výzkumu.",
       },
       {
         title: 'Můžu dotazníky sdílet?',
@@ -195,11 +199,6 @@ const metadata = {
         title: "Mohu se nějak podílet na výzkumu?",
         description:
           "Proč ne? :) Prosím kontaktujte nás přes <a href='https://www.cyberspacelab.cz'>www.cyberspacelab.cz</a>",
-      },
-      {
-        title: "Co se stane s mými daty, když vyplním dotazník?",
-        description:
-          "Vaše data jsou jsou použita pouze pro výzkumné účely. Ve dotaznících nesbíráme senzitivní údaje s výjimkou věku a pohlaví. Data mohou být identifikovatelná emailem, abychom mohli propojovat odpovědi z více studií naráz, ale pouze tehdy, pokud k tomu v dotazníku dáte explicitní souhlas. Data nebudou nikdy poskytnuta pro komerční účely třetí straně.",
       }
     ]}
   />

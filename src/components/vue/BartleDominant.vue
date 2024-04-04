@@ -1,5 +1,5 @@
 <template>
-    <section class="relative not-prose scroll-mt-[72px]">
+    <section id="bartleDominant" class="relative not-prose scroll-mt-[72px]">
         <div class="relative px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0">
             <div class="mx-auto max-w-7xl p-4 md:px-8">
                 <h1 class="text-3xl font-bold leading-tighter tracking-tighter font-heading text-heading text-center mb-8 md:mb-12">
