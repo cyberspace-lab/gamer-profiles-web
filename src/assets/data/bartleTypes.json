@@ -1,29 +1,29 @@
 {
     "socializer": {
         "name": "Společník",
-        "description":"Společníci si chtějí užívat společnost a komunitu, kterou hra může nabízet. Největší požitek ze hry získávají skrze interakci s ostatními hráči. Někdy jim stačí i pouhá společnost a komunikace s postavami v samotném virtuálním světě (NPC). Pro ně je hra pouze prostředkem, který jim umožňuje setkávat se s ostatními ve hře nebo mimo ni. Virtuální svět je pro ně tedy spíše společným prostorem, kde se setkávat. Důležité jsou vztahy mezi hráči: vcítění se do ostatních, sympatizovat s nimi, vtipkovat, bavit se, naslouchat. Hry, ať už se jedná o videohry, deskové hry a nebo hraní fotbalu za barákem, měly a mají společenský faktor. Mnozíé hráči na tento aspekt často zapomínají, ne však Společníci, pro které je společnost u her nepostradatelná. Rádi pomáhají ostatním hráčům, nabízejí své služby a budují svou virtuální komunitu. Poznávání nových lidí a prohloubení vztahů s nimi je pro ně klíčové. Herní svět je mdlý, ale ožívá díky ostatním hráčům, kteří mu dávají energii a smysl.",
+        "description":"Společníci si chtějí užívat společnost a komunitu, kterou hra může nabízet. Největší požitek ze hry získávají skrze interakci s ostatními hráči. Někdy jim stačí i pouhá společnost a komunikace s postavami v samotném virtuálním světě (NPC). Hra je pro ně pouze prostředkem, který jim umožňuje setkávat se s ostatními. Virtuální svět je pro ně tedy spíše společným prostorem, kde se setkávat. Důležité jsou vztahy mezi hráči: vcítění se do ostatních, sympatizovat s nimi, vtipkovat, bavit se, naslouchat. Hry, ať už se jedná o videohry, deskové hry a nebo hraní fotbalu za barákem, měly a mají společenský faktor. Mnozí hráči na tento aspekt často zapomínají, ne však Společníci, pro které je společnost u her nepostradatelná. Rádi pomáhají ostatním hráčům, nabízejí své služby a budují svou virtuální komunitu. Poznávání nových lidí a prohloubení vztahů s nimi je pro ně klíčové. Herní svět ožívá díky ostatním hráčům, kteří mu dávají energii a smysl.",
         "subtypes": {
             "killer": {
                 "name": "Společník Bojovník",
-                "description":"Společníci Bojovníci oceňují týmovou spolupráci v PvP. Důležitá je komunikace mezi nimi a snaha o lov ve smečce. Rádi se spojují a tvoří aliance a týmy, ve kterých pracují na strategiích a útočí na ostatní hráče. Největší potěšení mají, když porazí skupiny jiných hráčů."
+                "description":"Společníci Bojovníci oceňují týmovou spolupráci v PvP. Důležitá je komunikace mezi hráči a snaha o lov ve smečce. Rádi se spojují a tvoří aliance a týmy, ve kterých pracují na strategiích a útočí na ostatní. Největší potěšení mají, když porazí cizí klan či skupinu."
             },
             "achiever": {
                 "name": "Společník Kolektor",
-                "description":"Společníci Kolektoři jsou zaměřeni na sociální postavení, které získávají díky získání vzácných odměn, achievementů a trofejí. Kladou velký důraz na uznání od ostatních hráčů, ať už se jedná o úspěch vlastní nebo jejich herní skupiny, do   které vkládají stejné potěšení z úspěchu jako ze sebe samých. Rádi s ostatními sdílí svou tvorbu - pokud se ve hře vyskytuje možnost tvořit nebo budovat, chtějí, aby to viděli i ostatní."
+                "description":"Společníci Kolektoři jsou zaměřeni na sociální postavení, které získávají díky vzácným odměnám, achievementům a trofejím. Kladou velký důraz na uznání od ostatních hráčů, ať už se jedná o úspěch vlastní, nebo jejich herní skupiny, do které vkládají stejné potěšení z úspěchu. Rádi s ostatními sdílí svou tvorbu - pokud se ve hře vyskytuje možnost tvořit nebo budovat, chtějí, aby výsledky viděli i ostatní."
             },
             "explorer": {
                 "name": "Společník Dobrodruh",
-                "description":"Společníci Dobrodruzi spojují komunikaci s neprobádanými místy. Jejich zážitek pramení právě z interakce s lidmi a objevování virtuálního světa. Díky tendenci prozkoumávat a objevovat nejrůznější místa, mají znalosti hry v malíku a rádi se o ně podělí s jinými hráči. Až tolik se o získávání odměn, porážení ostatních hráčů a levlování nezajímají."
+                "description" : "Společníci Dobrodruzi spojují komunikaci s neprobádanými místy. Jejich zážitek pramení z interakce s lidmi při objevování virtuálního světa. Díky tendenci prozkoumávat a objevovat nejrůznější místa, mají znalost hry v malíku a rádi se o ni podělí s jinými hráči."
             }
         }
     },
     "achiever": {
         "name": "Kolektor",
-        "description":"Kolektoři jsou zaměřeni na získání určitého statutu, postavení, prestiže. Zároveň chtějí různými způsoby dosáhnout svých předem stanovených cílů. Například rychlou metodou, (speedrunneři, kteří chtějí hru nebo její část porazit tak rychle, jak jen je to možné) nebo kompletní sbírkou trofejí či achievementů. Chtějí dosáhnout jakéhosi elitního statutu, právě získáváním těchto odměn, a dát tak všem patřičně najevo, jaké jsou jejich schopnosti. Jádrem  každé hry je sada pravidel, které umožňují hráčům buď vyhrát, nebo prohrát. Kolektoři chápou tento princip více než kdokoli jiný. Samozřejmě, samotný proces hraní her je nesmírně zábavné, ale porazit hru a vyzrát nad ní, je ještě zábavnější. Vítězství samo o sobě je odměňující, ale svým způsobem je pro ně rovněž důležité, aby další hráči byly svědky jejich úspěchu (například mohou vidět trofeje a achievementy, kterých hráč dosáhl). Interakci s ostatními se spíše vyhýbají, ale neštítí se jí tehdy, pokud je to pro ně výhodné: například když jiný hráč ví, jak něčeho dosáhnout, nebo by zabití jiného hráče znamenalo benefit.",
+        "description":"Kolektoři jsou zaměřeni na získání statusu, postavení, prestiže. Zároveň chtějí různými způsoby dosáhnout svých předem stanovených cílů. Například rychlou metodou, (speedrunneři, kteří chtějí hru nebo její část splnit tak rychle, jak jen je to možné) nebo kompletní sbírkou trofejí či achievementů. Pávě získáváním těchto odměn dají všem patřičně najevo, jaké jsou jejich schopnosti. Jádrem  každé hry je sada pravidel, které umožňují hráčům buď vyhrát, nebo prohrát. Kolektoři chápou tento princip více než kdokoli jiný. Samozřejmě, samotný proces hraní her je nesmírně zábavný, ale porazit hru a vyzrát nad ní, je ještě zábavnější. Vítězství samo o sobě je odměňující, ale svým způsobem je pro ně rovněž důležité, aby další hráči byly svědky jejich úspěchu (například mohou vidět trofeje a achievementy, kterých hráč dosáhl). Interakci s ostatními se spíše vyhýbají, ale neštítí se jí tehdy, pokud je to pro ně výhodné: například když jiný hráč ví, jak něčeho dosáhnout, nebo by jeho odstranění znamenalo nějaký benefit.",
         "subtypes": {
             "explorer": {
                 "name": "Kolektor Dobrodruh",
-                "description":"Tito hráči se zajímají především o PvE, tedy hráč proti počítači. Kolektoři Dobrodruzi se zaměřují především na sólovou strategii hraní, kdy rádi prozkoumávají zákoutí mapy, objevují a všímají si sebemenšího detailu, které hra a herní mechanika přináší. O PvP se až tolik nezajímají, vidí v tom spíše přítěž."
+                "description":"Tito hráči se zajímají především o PvE, tedy hráč proti počítači. Kolektoři Dobrodruzi se zaměřují na sólové strategie, rádi prozkoumávají všelijaká zákoutí mapy, objevují a všímají si sebemenšího detailu, které hra přináší a zjišťují, co kde nasbírat či vylootovat."
             },
             "socializer": {
                 "name": "Kolektor Společník",
@@ -31,31 +31,31 @@
             },
             "killer": {
                 "name": "Kolektor Bojovník",
-                "description": "Kolektoři Společníci se rádi pohybují v klanech, týmech, gildech nebo aliancích. Narozdíl od Společníků, jim nejde o přátelskou interakci, ale prahnou po dosažení cílů a odměn, kterých by jako jednotlivci nedosáhli. Chtějí být členy skupiny, která má vysoké postavení a vliv."
+                "description": "Kolektoři Bojovníci se snaží vynikat ve všem, co hra nabízí, zejména PvP. V tomto případě dávají přednost místům, kde se mohou přímo porovnávat s ostatními hráči. Díky jejich potřebě dosáhnout čeho jde a být co nejúspěšnější, do arény se často vrhají jen s tím nejlepším vybavením a vždy řádně připravení."
             }
         }
     },
     "explorer": {
         "name": "Dobrodruh",
-        "description":"Dobrodruzi, jsou zaměřeni na objevování a odkrývání neznámého. Chtějí jít tam, kam se nikdo jiný nedostal a vědět to, co nikdo jiný neví. Dobrodruhy motivují okamžiky překvapení, které jim hra nabízí. Touží po okamžicích úžasu a ohromení. Sbírání zkušenostních bodů je pro ně spíše bezvýznamná činnost, jelikož se vzpírá podstatě her, kterou je volnost a otevřenost, díky kterým virtuální svět žije a dýchá. Hnaní se za předem danými achievementy či vývojíři nastolenými úkoly považují za vedlejší činnost. Dobrodruzi jsou hrdí na své znalosti o nejdrobnějších detailech hry. Jsou to zvědaví hráči, kteří se s chutí prokousávají každým centimetrem hry s cílem nalézt všechny “Easter eggs” a vzácné předměty, nehledě na jejich ceně či významu. Pro dobrodruhy neexistuje nic takového jako „selhání“, ale pouze objev. Pokaždé, když na své cestě zakopnou, udělají si mentální poznámku, aby se stejné chyby v budoucnu vyvarovali. Nenechají kámen na kameni a své cesty dokumentují metodou pokus-omyl.",
+        "description":"Dobrodruzi jsou zaměřeni na objevování a odkrývání neznámého. Chtějí jít tam, kam se nikdo jiný nedostal, a vědět to, co nikdo jiný neví. Dobrodruhy motivují okamžiky překvapení, které jim hra nabízí. Touží po okamžicích úžasu a ohromení. Sbírání zkušenostních bodů je pro ně spíše bezvýznamná činnost, jelikož se vzpírá podstatě her, kterou je volnost a otevřenost, díky kterým virtuální svět žije a dýchá. Hnaní se za předem danými achievementy či vývojáři nastolenými úkoly považují za vedlejší činnost. Dobrodruzi jsou hrdí na své znalosti o nejdrobnějších detailech hry. Jsou to zvědaví hráči, kteří se s chutí prokousávají každým centimetrem hry s cílem nalézt všechny “Easter eggs” a vzácné předměty, nehledě na jejich cenu či význam. Pro dobrodruhy neexistuje nic takového jako „selhání“, ale pouze objev. Když na své cestě zakopnou, stejné chyby se v budoucnu jistě vyvarují. Nenechají kámen na kameni a své cesty dokumentují metodou pokus-omyl.",
         "subtypes": {
             "achiever": {
                 "name": "Dobrodruh Kolektor",
-                "description":"Dobrodruzi Kolektoři se zaměřují na odměny, achievementy a trofeje. Rádi nacházejí nová místa, úkoly, Easter Eggs, odemykají nové předměty a všímají si sebemenšího detailu, která hra přináší. Většinou to jsou sólový hráči a o PvP se až tolik nezajímají."
+                "description": "Dobrodruzi Kolektoři se zaměřují na odměny, achievementy a trofeje. Rádi nacházejí nová místa, úkoly, Easter Eggs, odemykají nové předměty a všímají si sebemenšího detailu, která hra přináší. Většinou to jsou sóloví hráči, kteří se o okolí a ostatní zas tolik nezajímají."
             },
             "socializer": {
                 "name": "Dobrodruh Společník",
-                "description":"Dobrodruzi Společníci spojují komunikaci s objevováním světa. O všechny své znalosti, které zvládnou ze hry pochytit, se rádi dělí s ostatními hráči a jsou tak uznávanými členy týmu. Rádi zkoumají mapy, fóra a stránky se znalostmi hráčského světa."
+                "description":"Dobrodruzi Společníci spojují komunikaci s objevováním světa. O všechny své znalosti, které zvládnou ve hře pochytit, se rádi dělí s ostatními, a jsou tak uznávanými členy týmu. Rádi zkoumají mapy, fóra a stránky s informacemi o hrách a dychtivě o nich diskutují s dalšími hráči."
             },
             "killer": {
                 "name": "Dobrodruh Bojovník",
-                "description": "Dobrodruzi Bojovníci jsou silně ponoření do prostředí hry. Díky jejich zvědavosti znají veškeré zákoutí a dost pravděpodobně budou znát i všechny vychytávky jako kde najít vzácné předměty nebo protivníky a jak je zneškodnit několika různými způsoby. Objevování virtuálního světa využívají ve svůj prospěch a k přepadávání ostatních hráčů."
+                "description": "Dobrodruzi Bojovníci jsou silně ponoření do prostředí hry. Díky jejich zvědavosti znají všechna zákoutí a dost pravděpodobně budou znát i leckteré vychytávky, jako kde najít vzácné předměty nebo protivníky, kde na koho počíhat a jak nepřátele zneškodnit různými způsoby. Objevování virtuálního světa využívají ve svůj prospěch a k přepadávání ostatních hráčů."
             }
         }
     },
     "killer":{
         "name": "Bojovník",
-        "description":"Bojovníci jsou zaměřeni na vítězství, umisťování v tabulkách a žebříčcích a na přímou konkurenci mezi ostatními hráči. Nachází se v neustálé a nekončící snaze překonat ostatní. Nejraději by viděli své jméno vysoko na tabulce vítězů. Nejde jim ani tak o splnění běžných herních výzev, jako porážka bosse či speedrun, jako o prokázání, že si ve hře, či alespoň její části vedou lépe, nežli ostatní. Jejich hlavním posláním je dominance nad ostatními hráči a hnacím motorem Bojovníků je přímé ovlivnění herního světa kolem nich. Přestože nejsou nutně hnaní pomstychtivostí či zlomyslností, ve hrách mají jen jeden jediný cíl: vítězství za každou cenu. Chtějí demonstrovat svou schopnost a jak vynikají nad ostatními hráči.",
+        "description":"Bojovníci jsou zaměřeni na vítězství, umisťování v tabulkách a žebříčcích a na přímou kompetici mezi ostatními hráči. Nachází se v neustálé a nekončící snaze překonat ostatní. Nejraději by viděli své jméno vysoko v tabulce vítězů. Nejde jim ani tak o splnění běžných herních výzev, jako je porážka bosse či speedrun, jako o prokázání, že si ve hře vedou lépe, než ostatní. Jejich hlavním posláním je dominance nad ostatními hráči a hnacím motorem Bojovníků je přímé ovlivnění herního světa kolem nich. Přestože nejsou nutně hnaní pomstychtivostí či zlomyslností, ve hrách mají jen jeden jediný cíl: vítězství za každou cenu. Chtějí demonstrovat svou schopnost vynikat nad ostatními hráči.",
         "subtypes": {
             "achiever": {
                 "name": "Bojovník Kolektor",
@@ -63,11 +63,11 @@
             },
             "explorer": {
                 "name": "Bojovník Dobrodruh",
-                "description": "Tito hráči jsou silně ponoření do prostředí hry. Hledají nejrůznější výzvy proti ostatním, ale zároveň se soustředí na objev virtuálního světa, který potom využívají ve svůj prospěch. Jejich snaha o znalost terénu není dána tolik zvědavostí, jako plánováním, aby mohli získat výhodu nad ostatními a například zaútočit ze zálohy."
+                "description": "Tito hráči hledají nejrůznější výzvy proti ostatním, ale zároveň se soustředí na objev virtuálního světa, který se snaží využít ve svůj prospěch. Jejich snaha o znalost terénu není dána tolik zvědavostí, jako plánováním, aby mohli získat výhodu nad ostatními a například zaútočit ze zálohy."
             },
             "socializer": {
                 "name": "Bojovník Společník",
-                "description": "Bojovníci Společníci vvyhledávají týmy a aliance, kde by se mohli stýkat s lidmi se stejným zájmem a společně se spojit proti ostatním hráčům v PvP. Důležitá je pro ně komunikace a snaha o lov ve smečce. Rádi probírají různé strategie a taktiky proti ostatním hráčům."
+                "description": "Bojovníci Společníci vyhledávají týmy a aliance, kde by se mohli stýkat s lidmi se stejným zájmem, a společně se spojit proti ostatním hráčům v PvP. Důležitá je pro ně komunikace a snaha o lov ve smečce. Rádi probírají různé strategie a taktiky proti ostatním."
             }
         }
     }

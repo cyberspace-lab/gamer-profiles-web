@@ -29,9 +29,8 @@ const metadata = {
     <Fragment slot="title">
       Herní typologie a <span class="text-accent dark:text-white highlight"> Psychologické testy </span> 
     </Fragment>
-
     <Fragment slot="subtitle">
-        Vítejte na stránkách věnujících se herním typologiím a testům, které vám pomohou poznat, jací jste hráči.
+        Vítejte na stránkách o herních typologiích a testech, které vám pomohou poznat, jací hráči jste!
     </Fragment>
   </Hero>
 
@@ -41,12 +40,12 @@ const metadata = {
     items={[
       {
         title: 'Co jsou herní typologie? ',
-        description: `Herní typologie jsou klíčem k pochopení naší herní osobnosti. Odráží se v nich naše chování ve virtuálním prostředí a popisují, co nás ve hře zajímá. Zdali jsi průzkumník, co chce objevit každý kout herního světa a odkrýt veškerá jeho tajemství, nebo bojovník, hráč, který nedá dopustit na pořádnou bitvu a vyžívá se v porážení svých nepřátel. Hry často nabízejí nekonečné možnosti, a herní typologie nám pomáhají popsat různé způsoby, jakými k nim lidé přistupují a co od nich očekávají.`,
-      },
+        description: `Herní typologie jsou klíčem k pochopení naší herní osobnosti. Odráží se v nich naše chování ve virtuálním prostředí a popisují, co nás ve hře zajímá. Zdali jsi průzkumník, co chce objevit každý kout herního světa a odkrýt veškerá jeho tajemství, nebo bojovník, který nedá dopustit na pořádnou bitvu a vyžívá se v porážení svých nepřátel. Hry často nabízejí nekonečné možnosti a herní typologie nám pomáhají popsat různé způsoby, jakými k nim lidé přistupují, a co od nich očekávají.`,
+      },      
       {
-        title: 'Jaké herní typologie existují? ',
+        title: 'K čemu jsou herní typologie dobré? ',
         description:
-          'Na internetu najdete nepřeberné množství dotazníků, které vám slibují odhalit vaši herní identitu. Mnoho z nich však není vědecky podloženo a často se jedná o čistě humorné testíky. Nicméně existují také seriózní herní typologie, jako je Bartlova herní typologie, BrainHex nebo Gamer Motivation Profile, které jsou založeny na komplexním výzkumu a pozorování. A to je přesně to, co vám přinášíme – důkladnou a vědecky podloženou analýzu vaší herní identity. ',
+          'Podobně, jako se zajímáme o to, kdo vlastně jsme v reálném životě, tak nás zajímá, jací jsme ve virtuálním světě. Typologie nám otevírají dveře k pochopení toho, co lidi na hrách nejvíce baví a co je pro ně důležité. Díky nim můžeme i můžeme objevovat takové hry, které nám skvěle sednou. Herní typologie mohou také posloužit k vylepšení samotného herního zážitku. Pokud vás něco ve hře nudí a nevíte proč, váš typ vám může osvětlit, proč tomu tak je. Typologie neslouží pouze hráčům, ale i vývojářům. Poskytují totiž cenné informace, které jim pomáhají lépe porozumět potřebám hráčů a vytvářet lepší a zábavnější hry.',
       }
     ]}
     image={{
@@ -66,14 +65,9 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'K čemu jsou herní typologie dobré? ',
+        title: 'Jaké herní typologie existují? ',
         description:
-          'Stejně, jako se zajímáme o to, kdo vlastně jsme v reálném životě, tak nás zajímá, jací jsme ve virtuálním světě. Typologie nám otevírají dveře k pochopení toho, co lidi na hrách nejvíce baví a co je pro ně důležité. Díky nim můžeme i můžeme objevovat takové hry, které nám skvěle sednou. Herní typologie mohou také posloužit k vylepšení samotného herního zážitku. Pokud vás něco ve hře nudí a nevíte proč, váš typ vám může osvětlit, proč tomu tak je. Typologie neslouží pouze hráčům, ale i vývojářům. Poskytují totiž cenné informace, které jim pomáhají lépe porozumět potřebám hráčů a vytvářet hry lepší a zábavnější.',
-      },
-      {
-        title: 'Proč to zajímá nás?',
-        description:
-          'My se o typologie zajímáme zejména z vědeckého hlediska. Od konce 20. století se věda systematicky zabývá světem videoher a jejich vlivem na člověka. Při jejich studiu se však často setkáváme s jedním zásadním problémem – jak definovat samotné hráče? Někteří mluví o hráči jako o jedinci, který tráví v herním světě alespoň dvě hodiny denně, zatímco jiní hráče rozdělují podle oblíbených herních žánrů. Tyto různé přístupy pak mohou při výzkumu dělat „paseku“, zejména v případě, kdy se snažíme jejich výsledky zopakovat. Jsme přesvědčeni, že zásadním faktorem je přístup k definici hráče videoher, co od her očekávají, a jak konkrétně svůj čas ve hrách tráví. A právě herní typologie mohou být klíčové.',
+          'Na internetu najdete nepřeberné množství dotazníků, které vám slibují odhalit vaši herní identitu. Mnoho z nich však není vědecky podloženo a často se jedná o čistě humorné testíky. Nicméně existují také seriózní herní typologie, jako je Bartlova herní typologie, BrainHex nebo Gamer Motivation Profile, které jsou založeny na komplexním výzkumu a pozorování. A to je přesně to, co vám přinášíme – důkladnou a vědecky podloženou analýzu vaší herní identity. ',
       }
     ]}
     image={{
@@ -86,20 +80,7 @@ const metadata = {
     </Fragment>
   </Content>
   
-  <CallToAction
-    actions={[{
-      variant: "secondary",
-      text: 'O Bartlově typologii',
-      href: getPermalink('typologie/bartle'),
-    },
-    {
-      variant: "primary",
-      text: 'Rovnou na dotazník',
-      href: typology.bartle.questionnaire
-    }]}
-    title="Chcete zjistit svůj profil?"
-    subtitle="V současné chvíli nabízíme test pro Bartlovu typologii hráčů"
-  />
+
 
   <section class="mx-auto text-center my-10">
     <article>
@@ -113,6 +94,21 @@ const metadata = {
           />
     </article>
   </section>
+  
+  <CallToAction
+    actions={[{
+      variant: "secondary",
+      text: 'Více o Bartlově typologii',
+      href: getPermalink('typologie/bartle'),
+    },
+    {
+      variant: "primary",
+      text: 'Rovnou na dotazník',
+      href: typology.bartle.questionnaire
+    }]}
+    title = "Chcete zjistit svůj profil?"
+    subtitle="V současné chvíli nabízíme lokalizovanou a vylepšenou verzi dotazníku pro Bartlovu typologii hráčů"
+  />
 
   <Steps
     title="Jak takový test vzniká?"
@@ -126,13 +122,13 @@ const metadata = {
       {
         title: 'Krok 2: <span class="font-medium">Tvorba otázek a pilotní studie</em>',
         description:
-          "V druhém kroku vytvoříme sérii otázek, které dle našeho názoru dobře vystihují konstrukt, který chceme měřit (například míru společenskosti ve videohrách). Test se zadá menšímu vzorku respondentů, aby se ověřilo, zdali otázky jsou srozumitelné, a sbírají se data na první etapy analýz.",
+          "V druhém kroku vytvoříme sérii otázek, které dle našeho názoru dobře vystihují konstrukt, který chceme měřit (například míru společenskosti ve videohrách). Test se zadá menšímu vzorku respondentů, aby se ověřilo, zdali otázky jsou srozumitelné. Sbírají se data na první etapy analýz.",
         icon: 'tabler:letter-case',
       },
       {
         title: 'Krok 3: <span class="font-medium">Pilotní analýza</span>',
         description:
-          'V tomto kroku se díváme na to, jaké otázky jsou příliš těžké či moc snadné, pomocí tzv. faktorové analýzy zjišťujeme, jaké otázky spolu souvisí a jaké ne. Následně si výběr otázek pro test upravíme tak, aby byl co nejkratší, ale nejpřesnější.',
+          'V tomto kroku se díváme na to, jaké otázky jsou příliš těžké či moc snadné, pomocí tzv. faktorové analýzy zjišťujeme, jaké otázky spolu souvisí a jaké ne. Následně si výběr otázek pro test upravíme tak, aby byl co nejkratší a nejpřesnější.',
         icon: 'tabler:paint',
       },
       {
@@ -144,13 +140,13 @@ const metadata = {
       {
         title: 'Krok 5: <span class="font-medium">Validace testu</span>',
         description:
-          'V tomto kroku se snažíme zjistit, zda test měří to, co má měřit. Snažíme se najít nějaké externí kritérium, které by mělo s naším testem souviset a ověřit, zda tomu tak skutečně je. Například opravdu Bojovníci v Bartlově typologii preferují PvP hry oproti PvE?.',
+          'V tomto kroku se snažíme zjistit, zda test měří to, co má měřit. Snažíme se najít nějaké externí kritérium, které by mělo s naším testem souviset, a ověřit, zda tomu tak skutečně je. Například opravdu Bojovníci v Bartlově typologii preferují PvP hry oproti PvE?',
         icon: 'tabler:rocket',
       },
       {
         title: 'Krok 6: <span class="font-medium">Standardizace</span>',
         description:
-          'Když už je test hotový, je potřeba ho standardizovat a vytvořit normy. Ty nám poté umožňí porovnávat výsledky respondentů mezi sebou a zjišťovat, jak moc je u respondenta daný rys silný.',
+          'Když už je test hotový, je potřeba ho standardizovat a vytvořit normy. Ty nám poté umožní porovnávat výsledky respondentů mezi sebou a zjišťovat, jak moc je u respondenta daný rys silný.',
         icon: 'tabler:rocket',
       },
       {
@@ -173,12 +169,12 @@ const metadata = {
       {
         title: 'Kdo za tím vším stojí?',
         description:
-          "Testy vznikají pod zášťitou výzkumné skupiny CyberspaceLab. Skupina působí na Fakultě Humanitních studií Univerzity Karlovy a při Psychologickém ústavu Akademie Věd ČR. Více na <a href='https://www.cyberspacelab.cz'>www.cyberspacelab.cz</a>."
+          "Testy vznikají pod záštitou výzkumné skupiny CyberspaceLab. Skupina působí na Fakultě Humanitních studií Univerzity Karlovy a při Psychologickém ústavu Akademie Věd ČR. Více na <a href='https://www.cyberspacelab.cz'>www.cyberspacelab.cz</a>."
       },
       {
         title: 'Musím se registrovat, abych si mohl/a testy udělat?',
         description:
-          'Ne, registrace není nutná. Můžete jednoduše navštívit webovou stránku u jednotlivých typologií výše a vybrat si ten, který chcete absolvovat. Je však nutné zadat nějakou emailovou adresu, na kterou přijsou vypočítané výsledky. Adresu však neukládáme, pokud k tomu nedáte vysloveně svolení.',
+          'Ne, registrace není nutná. Můžete jednoduše navštívit webovou stránku u jednotlivých typologií výše a vybrat si ten, který chcete absolvovat. Je však nutné zadat nějakou emailovou adresu, na kterou přijdou vypočítané výsledky. Adresu však bez vaeho svolení neukládáme',
       },
       {
         title: "Co se stane s mými daty, když vyplním dotazník?",
