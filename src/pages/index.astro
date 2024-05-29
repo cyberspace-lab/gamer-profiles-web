@@ -159,6 +159,22 @@ const metadata = {
       alt: 'Steps image',
     }}
   />
+  
+  <CallToAction
+    actions={[{
+      variant: "secondary",
+      text: 'Více o BrainHex typologii',
+      href: getPermalink('typologie/brainhex'),
+    },
+    {
+      variant: "primary",
+      text: 'Rovnou na dotazník',
+      href: typology.brainhex.questionnaire
+    }]}
+    isDark={true}
+    title = "Chcete nám pomoci s vývojem nové typologie?"
+    subtitle="V současné chvíli vyvíjíme dotazník pro BrainHex typologii a budeme rádi za vaši pomoc!"
+  />
 
   <FAQs
     title="Nejčastější dotazy"

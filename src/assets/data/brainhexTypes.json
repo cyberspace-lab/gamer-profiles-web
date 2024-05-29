@@ -1,0 +1,36 @@
+{
+    "seeker": {
+        "namecz": "Hledač",
+        "nameeng": "Seeker",
+        "description":"Hledač je motivován mechanismem zájmu, který souvisí s oblastí mozku zpracovávající senzorické informace a epizodické paměti. Když narazí na něco, co je dostatečně fascinuje a vyvolá v nich zvědavost, začne jejich mozek produkovat pořádnou dávku endorfinu, hormonu štěstí. Hledači jsou zvídaví, chtějí objevovat herní svět a znát veškerá jeho tajemství. Není proto divu, že preferují hry s otevřeným světem, který chtějí projít křížem krážem. "
+    },
+    "achiever": {
+        "namecz": "Dosažitel",
+        "nameeng": "Achiever",
+        "description":""
+    },
+    "socialiser": {
+        "namecz": "Společník",
+        "nameeng": "Socialiser",
+        "description":""
+    },
+    "conqueror":{
+        "namecz": "Dobyvatel",
+        "description":"Někteří hráči nejsou spokojení s jednoduchým vítězstvím - chtějí bojovat proti překážkám. Tento typ hráče se cítí dobře, když porazí nemožné nepřátele a bojují, dokud nedosáhnou vítězství. Chovají se silně, kanalizují svůj hněv k vítězství a krev jim vře. Když se savci potýkají s obtížnými situacemi, jejich tělo produkuje epinefrin a norepinefrin, které jsou spojeny s vzrušením a vztekem. Vztek slouží k motivaci a povzbuzení k vytrvalosti v tváři výzvě."
+    },
+    "mastermind":{
+        "namecz":"Myslitel",
+        "nameeng":"Mastermind",
+        "description":""
+    },
+    "daredevil":{
+        "namecz":"Troufalec",
+        "nameeng":"Daredevil",
+        "description":"Troufalci jsou tak trochu jako hrdinové akčních filmů - neustále na hraně života a smrti. Troufalci milují pocit vzrušení, jdou do všeho po hlavě a nad svým jednáním příliš nepřemýšlí. Netaktizují, hrají tak jak je napadne, aniž by pomysleli na důsledky svého jednání. Právě riskování, které je pro jejich rychlý styl hraní charakteristický, jim přináší pocit blaha a spokojenosti. Ať už je to rychlá jízda v ulicích fiktivního města, nebo přímí útok na nepřátelskou základnu. Troufalci žijí pro adrenalin!"
+    },
+    "survivor":{
+        "namecz":"Přežívající",
+        "nameeng":"Survivor",
+        "description":"Pro někoho je strach negativní emoce, někteří si ve strachu přímo libují. Jsou to Přeživší, kteří milují pocity strachu, děsu a teroru! Z neurologického hlediska za vším stojí epinefrin, chemická složka vzrušení, která zvyšuje účinky dopaminu. A co že je to vlastně baví? Rádi se bojí, vyžívají se v teroru, například když prchají před děsivým monstrem. Milují ale i pocit úlevy, pocit vítězství, když se jim před virtuálním nebezpečím podaří utéct. "
+    }
+}

@@ -1,0 +1,38 @@
+---
+import TypologyProfile from '~/components/mine/TypologyProfile.astro';
+import brainhexTypes from '~/assets/data/brainhexTypes.json';
+import imgAchiever from '~/assets/images/typology/brainhex/achiever.png';
+import imgSocialiser from '~/assets/images/typology/brainhex/socialiser.png';
+import imgDaredevil from '~/assets/images/typology/brainhex/daredevil.png';
+import imgConqueror from '~/assets/images/typology/brainhex/conqueror.png';
+import imMastermind from '~/assets/images/typology/brainhex/mastermind.png';
+import imgSurvivor from '~/assets/images/typology/brainhex/survivor.png';
+import imgSeeker from '~/assets/images/typology/brainhex/seeker.png';
+
+let images = {
+    achiever: imgAchiever,
+    socialiser: imgSocialiser,
+    daredevil: imgDaredevil,
+    conqueror: imgConqueror,
+    mastermind: imMastermind,
+    survivor: imgSurvivor,
+    seeker: imgSeeker
+}
+
+const {
+    reverse,
+    type,
+} = Astro.props;
+
+---
+<TypologyProfile
+    type = {brainhexTypes[type].namecz}
+    isReversed = {reverse}
+    items={[]}
+    image={{
+        src: images[type],
+        alt: 'Type Image',
+    }}
+    >
+    {brainhexTypes[type].description}
+</TypologyProfile>

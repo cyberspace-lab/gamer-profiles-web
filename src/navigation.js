@@ -6,10 +6,10 @@ export const headerData = {
       text: 'Bartlova Typologie',
       href: getPermalink('typologie/bartle'),
     },
-    /*{ 
-      text: 'Brain Hex Typologie',
+    { 
+      text: 'BrainHex Typologie',
       href: getPermalink('typologie/brainhex'),
-    },*/
+    },
     /* {
       text: 'Pages examples',
       links: [
@@ -95,6 +95,9 @@ export const footerData = {
 
 export const typology = {
   "bartle": {
-      "questionnaire": "https://surveys.cyberspacelab.cz/bartleV1"
+    "questionnaire": "https://surveys.cyberspacelab.cz/bartleV1"
+  },
+  "brainhex": {
+    "questionnaire": "https://surveys.cyberspacelab.cz/brainhexPilotV1"
   }
 }
