@@ -7,30 +7,31 @@
     "achiever": {
         "namecz": "Dosažitel",
         "nameeng": "Achiever",
-        "description":""
+        "description":"Dosažitelé jsou cílevědomým typem hráče. Zaměřují se na dosahování různých cílů a herních milníků a jsou motivováni vidinou dlouhodobého úspěchu. Jejich herní styl připomíná odškrtávání položek z nákupního seznamu. Vše, co již dokázali, našli nebo splnili, si odškrtávají ze svého pomyslného herního plánu. Každou hru musí dohrát na 100 %. Příběh, vedlejší mise, sběratelské předměty nebo výzvy - pro Dosažitele je klíčové splnit vše a mít všeho nejvíc."
     },
     "socialiser": {
         "namecz": "Společník",
         "nameeng": "Socialiser",
-        "description":""
+        "description":"Člověk je tvorem společenským a právě interakce s ostatními hráči je důležitým aspektem pro Společníky. Ve svém živlu jsou ve chvíli, kdy mohou trávit čas s ostatními, bavit se s nimi, vydávat se na výpravy a zažívat společná dobrodružství. Jsou rádi, když mohou někomu pomoci a nesnáší, když někdo zneužije jejich dobrosrdečnosti. Společníci mají tendenci důvěřovat a spoléhat se na ostatní členy herní komunity. "
     },
     "conqueror":{
         "namecz": "Dobyvatel",
-        "description":"Někteří hráči nejsou spokojení s jednoduchým vítězstvím - chtějí bojovat proti překážkám. Tento typ hráče se cítí dobře, když porazí nemožné nepřátele a bojují, dokud nedosáhnou vítězství. Chovají se silně, kanalizují svůj hněv k vítězství a krev jim vře. Když se savci potýkají s obtížnými situacemi, jejich tělo produkuje epinefrin a norepinefrin, které jsou spojeny s vzrušením a vztekem. Vztek slouží k motivaci a povzbuzení k vytrvalosti v tváři výzvě."
+        "nameeng": "Conqueror",
+        "description":"Dobyvatelům nestačí lehce vydobyté vítězství, hledají výzvu a chtějí se poprat s těmi nejtěžšími překážkami. Hledají nejsilnější nepřátele, silná a těžce porazitelná monstra. Pro dobyvatele neexistuje žádný výzva, která by se nedala zdolat, ať se může zdát sebevíc nepřekonatelná. Opakovaně se budou pokoušet zničit každého bosse, ať je jakkoli bezvýznamný a pro pokrok ve hře nedůležitý, i kdyby jim mělo zabrat celý den. Nic se nevyrovná pocitu, kdy se jim nakonec podaří nepřítele skolit. Svůj vztek využívají na cestě k vítězství. "
     },
     "mastermind":{
         "namecz":"Myslitel",
         "nameeng":"Mastermind",
-        "description":""
+        "description":"Myslitele zajímá jediné, vyřešit každý problém, každou hádanku, každý hlavolam, které hra nabízí. Čím těžší se problém zdá být, tím lepší. Chtějí nad hrou vyzrát, chtějí ji přehrát. To je jejich herní styl, to je to, co ve hrách hledají a čím se baví. Důležitou součástí herního stylu Myslitelů je promýšlení strategie a taktiky. Chtějí přijít s nejdůmyslnějším řešením. Jednu misi budou opakovat klidně 20 krát, dokud nebude mistrovsky provedena. Jejich cílem je mít co nejlepší plán a perfektně jej provést. I kdyby to mělo trvat věky."
     },
     "daredevil":{
         "namecz":"Troufalec",
         "nameeng":"Daredevil",
-        "description":"Troufalci jsou tak trochu jako hrdinové akčních filmů - neustále na hraně života a smrti. Troufalci milují pocit vzrušení, jdou do všeho po hlavě a nad svým jednáním příliš nepřemýšlí. Netaktizují, hrají tak jak je napadne, aniž by pomysleli na důsledky svého jednání. Právě riskování, které je pro jejich rychlý styl hraní charakteristický, jim přináší pocit blaha a spokojenosti. Ať už je to rychlá jízda v ulicích fiktivního města, nebo přímí útok na nepřátelskou základnu. Troufalci žijí pro adrenalin!"
+        "description":"Troufalci jsou tak trochu jako hrdinové akčních filmů - neustále na hraně života a smrti. Milují pocit vzrušení, jdou do všeho po hlavě a nad svým jednáním příliš nepřemýšlí. Netaktizují, hrají tak jak je napadne, aniž by pomysleli na důsledky svého jednání. Právě riskování, které je pro jejich rychlý styl hraní charakteristický, jim přináší pocit blaha a spokojenosti. Ať už je to rychlá jízda v ulicích fiktivního města, nebo přímí útok na nepřátelskou základnu. Troufalci žijí pro rychlou a bezmyšlenkovitou akci!"
     },
     "survivor":{
         "namecz":"Přežívající",
         "nameeng":"Survivor",
-        "description":"Pro někoho je strach negativní emoce, někteří si ve strachu přímo libují. Jsou to Přeživší, kteří milují pocity strachu, děsu a teroru! Z neurologického hlediska za vším stojí epinefrin, chemická složka vzrušení, která zvyšuje účinky dopaminu. A co že je to vlastně baví? Rádi se bojí, vyžívají se v teroru, například když prchají před děsivým monstrem. Milují ale i pocit úlevy, pocit vítězství, když se jim před virtuálním nebezpečím podaří utéct. "
+        "description":"Pro někoho je strach negativní emoce, někteří si ve strachu přímo libují. Jsou to Přežívající, kteří milují pocity strachu, děsu a teroru! Z neurologického hlediska za vším stojí epinefrin, neboli adrenalin, chemická molekula, která se vyplavuje ve chvílích vzrušení či strachu. A co že Přežívající na hrách vlastně baví? Rádi se bojí, vyžívají se v teroru, například když prchají před děsivým monstrem. Milují ale i pocit úlevy, pocit vítězství, když se jim před virtuálním nebezpečím podaří utéct."
     }
 }
