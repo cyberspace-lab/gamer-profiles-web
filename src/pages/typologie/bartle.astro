@@ -1,6 +1,6 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import BartleType from '~/components/mine/BartleType.astro';
+import CallToAction from './../../components/widgets/CallToAction.astro';
+import BartleType from './../../components/mine/BartleType.astro';
 import BasicParagraph from '~/components/blog/BasicParagraph.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -45,13 +45,11 @@ const metadata = {
 <BartleType type="explorer" reverse/>
 <BartleType type="achiever"/>
 
+
   <CallToAction
-    actions={[{
-      variant: "primary",
-      text: 'Jdu na to!',
-      href: typology.bartle.questionnaire,
-    }]}
+    actions={[]}
     title="Chcete zjistit svůj profil?"
-    subtitle="Dotazník vám zabere cca 15 minut"
+    subtitle="Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
   />
+
 </Layout>

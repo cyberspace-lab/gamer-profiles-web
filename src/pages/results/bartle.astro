@@ -6,7 +6,6 @@ import BartleDominant from './../../components/vue/BartleDominant.vue';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import SocialShare from '../../components/common/SocialShare.astro';
 import { typology } from '~/navigation';
-import SocialShare from '../../components/common/SocialShare.astro';
 
 const metadata = {
   title: 'Bartle výsledky'
@@ -16,6 +15,7 @@ const metadata = {
 <Layout metadata={metadata}>
     <script>
     import Chart from 'chart.js/auto';
+
     function getURLPercentiles() {
         const params = new URLSearchParams(window.location.search);
         let searchParams = ['soc', 'kil', 'ach', 'exp'];
@@ -101,14 +101,9 @@ const metadata = {
 
     <div id="bartleInvite" style ="display:none">
         <CallToAction
-            actions={[
-            {
-            variant: "primary",
-            text: 'Vyplnit dotazník',
-            href: typology.bartle.questionnaire
-            }]}
-            title="Zdá se, že se něco nezdařilo."
-            subtitle="Pokud jste ještě dotazník nevyplnili, můžete tak učinit níže. Pokud máte jiný problém, prosím kontaktujte nás na surveys@cyberspacelab.cz."
+            actions={[]}
+            title="Zdá se, že se něco nezdařilo"
+            subtitle="😿"
         />
     </div>
 </Layout>

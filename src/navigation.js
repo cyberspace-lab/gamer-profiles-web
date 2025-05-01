@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -95,9 +95,9 @@ export const footerData = {
 
 export const typology = {
   "bartle": {
-    "questionnaire": "https://surveys.cyberspacelab.cz/index.php/459843?newtest=Y&lang=cs"
+    "questionnaire": "#",
   },
   "brainhex": {
-    "questionnaire": "https://surveys.cyberspacelab.cz/index.php/284187?newtest=Y&lang=cs"
+    "questionnaire": "#",
   }
 }
