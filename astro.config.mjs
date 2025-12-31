@@ -1,6 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
@@ -45,9 +45,19 @@ export default defineConfig({
     JavaScript: true,
     SVG: false,
     Logger: 1
-  }), tasks(), solidJs(), react(), vue()],
+  }), tasks(),
+  solidJs({
+    include: ['**/solid/**/*.jsx', '**/solid/**/*.tsx']
+  }),
+  react({
+    include: ['**/react/**/*.jsx', '**/react/**/*.tsx', '**/ui/**/*.jsx']
+  }),
+  vue({
+    include: ['**/vue/**/*.vue']
+  })],
   image: {
-    service: squooshImageService()
+    // Astro 5 uses Sharp by default
+    // service: 'sharp'
   },
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],

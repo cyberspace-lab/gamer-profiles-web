@@ -1,60 +1,187 @@
 ---
 import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
 ---
 
 <style is:inline is:global>
   :root {
+    /* Typography */
     --aw-font-sans: 'Inter Variable';
     --aw-font-serif: var(--aw-font-sans);
     --aw-font-heading: var(--aw-font-sans);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Gaming-inspired professional color palette */
+    --aw-color-primary: rgb(124 58 237); /* Vibrant purple - gaming energy */
+    --aw-color-secondary: rgb(59 130 246); /* Bright blue - tech/digital */
+    --aw-color-accent: rgb(236 72 153); /* Pink accent - personality */
 
-    --aw-color-text-heading: rgb(0 0 0); 
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    /* Semantic colors */
+    --aw-color-success: rgb(34 197 94);
+    --aw-color-warning: rgb(251 146 60);
+    --aw-color-info: rgb(14 165 233);
+
+    /* Text colors */
+    --aw-color-text-heading: rgb(15 23 42);
+    --aw-color-text-default: rgb(30 41 59);
+    --aw-color-text-muted: rgb(100 116 139);
+
+    /* Background colors */
     --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-bg-section: rgb(248 250 252);
+    --aw-color-bg-section-alt: rgb(241 245 249);
+    --aw-color-bg-page-dark: rgb(15 23 42);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, rgb(124 58 237 / 0.1) 0%, rgb(59 130 246 / 0.1) 100%);
+    --gradient-card: linear-gradient(to bottom right, rgb(124 58 237 / 0.05), rgb(236 72 153 / 0.05));
 
-    ::selection {background-color: lavender;}
-
+    ::selection {
+      background-color: rgb(124 58 237 / 0.2);
+      color: rgb(15 23 42);
+    }
   }
 
   .dark {
+    /* Typography stays the same */
     --aw-font-sans: 'Inter Variable';
     --aw-font-serif: var(--aw-font-sans);
     --aw-font-heading: var(--aw-font-sans);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Enhanced dark mode colors */
+    --aw-color-primary: rgb(147 51 234); /* Brighter purple for dark mode */
+    --aw-color-secondary: rgb(96 165 250); /* Brighter blue for dark mode */
+    --aw-color-accent: rgb(244 114 182); /* Brighter pink for dark mode */
 
-    --aw-color-text-heading: rgb(0 0 0); 
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: var(--aw-color-bg-page-dark);
+    /* Semantic colors (brighter for dark mode) */
+    --aw-color-success: rgb(74 222 128);
+    --aw-color-warning: rgb(251 191 36);
+    --aw-color-info: rgb(56 189 248);
 
-    ::selection {background-color: black; color: snow}
+    /* Dark mode text colors */
+    --aw-color-text-heading: rgb(248 250 252);
+    --aw-color-text-default: rgb(226 232 240);
+    --aw-color-text-muted: rgb(148 163 184);
 
+    /* Dark mode backgrounds */
+    --aw-color-bg-page: rgb(15 23 42);
+    --aw-color-bg-section: rgb(30 41 59);
+    --aw-color-bg-section-alt: rgb(51 65 85);
+
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, rgb(147 51 234 / 0.15) 0%, rgb(96 165 250 / 0.15) 100%);
+    --gradient-card: linear-gradient(to bottom right, rgb(147 51 234 / 0.1), rgb(244 114 182 / 0.1));
+
+    ::selection {
+      background-color: rgb(147 51 234 / 0.3);
+      color: rgb(248 250 252);
+    }
+  }
+
+  /* Enhanced button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg shadow-primary/25;
+    @apply hover:shadow-xl hover:shadow-primary/30 hover:scale-105;
+    @apply focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-blue-600 text-white shadow-lg shadow-secondary/25;
+    @apply hover:shadow-xl hover:shadow-secondary/30 hover:scale-105;
+    @apply focus:ring-secondary;
+  }
+
+  .btn-tertiary {
+    @apply border-2 border-muted/30 text-default bg-white dark:bg-slate-800 dark:text-white;
+    @apply hover:border-primary hover:text-primary hover:bg-primary/5;
+    @apply dark:hover:border-primary dark:hover:bg-primary/10;
+  }
+
+  /* Enhanced typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    background: linear-gradient(135deg, var(--aw-color-primary), var(--aw-color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  /* Gaming-themed decorative elements */
+  .gaming-glow {
+    position: relative;
+  }
+
+  .gaming-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--aw-color-primary), var(--aw-color-accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gaming-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Enhanced card styles */
+  .enhanced-card {
+    @apply bg-white dark:bg-slate-800 rounded-xl shadow-lg;
+    @apply border border-slate-200 dark:border-slate-700;
+    @apply transition-all duration-300;
+    background: var(--gradient-card);
+  }
+
+  .enhanced-card:hover {
+    @apply shadow-2xl transform -translate-y-1;
+    @apply border-primary/50 dark:border-primary/50;
+  }
+
+  /* Subtle pattern overlay for sections */
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgb(124 58 237 / 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-grid {
+    background-image:
+      linear-gradient(rgb(124 58 237 / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(124 58 237 / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Smooth animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgb(124 58 237 / 0.3); }
+    50% { box-shadow: 0 0 30px rgb(124 58 237 / 0.5); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
   }
 </style>
