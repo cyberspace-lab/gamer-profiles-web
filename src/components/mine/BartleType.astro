@@ -1,6 +1,6 @@
 ---
 import TypologyProfile from '~/components/mine/TypologyProfile.astro';
-import bartleTypes from '~/assets/data/bartleTypes.json';
+import { getEntry } from 'astro:content';
 import imgSoc from '~/assets/images/typology/bartle/socializer.png';
 import imgExp from '~/assets/images/typology/bartle/explorer.png';
 import imgKil from '~/assets/images/typology/bartle/killer.png';
@@ -13,28 +13,27 @@ let images = {
   achiever: imgAch,
 }
 
-let subtypeItems = [];
-
 const {
     reverse,
     type,
-    subtype
 } = Astro.props;
 
-if(subtype){
-    let sub = bartleTypes[type].subtypes[subtype];
-    let item = {title: sub.name, description: sub.description};
-    subtypeItems.push(item);
+// Get the type entry from content collections
+const typeEntry = await getEntry('typology-types', `bartle/${type}`);
+if (!typeEntry) {
+  throw new Error(`Typology type not found: bartle/${type}`);
 }
+
+const { Content } = await typeEntry.render();
 ---
 <TypologyProfile
-    type = {bartleTypes[type].name}
+    type = {typeEntry.data.name}
     isReversed = {reverse}
-    items={subtypeItems}
+    items={[]}
     image={{
         src: images[type],
-        alt: 'Socializer type image',
+        alt: `${typeEntry.data.name} type image`,
     }}
     >
-    {bartleTypes[type].description}
+    <Content />
 </TypologyProfile>

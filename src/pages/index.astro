@@ -3,9 +3,9 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BasicParagraph from '~/components/blog/BasicParagraph.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '../components/widgets/CallToAction.astro';
+import { getCollection } from 'astro:content';
 
 import { getPermalink} from '../utils/permalinks';
 import { typology } from '~/navigation';
@@ -18,6 +18,13 @@ const metadata = {
   title: 'CyberspaceLab - Herní typologie',
   ignoreTitleTemplate: true,
 };
+
+// Get page content for index
+const indexContent = await getCollection('page-content', ({ id }) => {
+  return id.startsWith('index/');
+});
+
+const sortedIndexContent = indexContent.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 ---
 
 <Layout metadata={metadata}>
@@ -84,39 +91,28 @@ const metadata = {
       <div class="absolute inset-0 bg-gradient-to-bl from-blue-50 via-purple-50 to-pink-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 pattern-grid"></div>
     </Fragment>
   </Content>
-  
-
 
   <section class="mx-auto text-center my-16 px-4 sm:px-6 relative">
     <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 pattern-dots"></div>
     <article class="relative z-10 max-w-4xl mx-auto py-12 rounded-2xl enhanced-card">
-      <header class="mb-8">
-        <h2 class="px-4 sm:px-6 text-4xl md:text-5xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary">
-          A co děláme my?
-        </h2>
-      </header>
-      <div class="px-6">
-        <BasicParagraph
-          content = "Snažíme vytvářet typologické dotazníky, které se opírají o reálná data. A k tomu potřebujeme právě vás! Všechny typologické dotazníky jsou bohužel v současné době v angličtině. Mnohé z nich jsou zároveň zastaralé a potřebují upravit pro potřeby dnešního hráče. A tak překládáme, upravujeme, inovujeme a zdokonalujeme existující typologie pro naši českou kotlinu. Naším cílem je vytvořit funkční a spolehlivé dotazníky, které budou sloužit nejen vám, ale i budoucímu výzkumu videoher!"
-        />
-      </div>
+      {sortedIndexContent.map(async (entry) => {
+        const { Content } = await entry.render();
+        return (
+          <>
+            <header class="mb-8">
+              <h2 class="px-4 sm:px-6 text-4xl md:text-5xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary">
+                {entry.data.title}
+              </h2>
+            </header>
+            <div class="px-6 max-w-6xl mx-auto text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
+              <Content />
+            </div>
+          </>
+        );
+      })}
     </article>
   </section>
   
-  <!--
-  <CallToAction
-    actions={[{
-      variant: "secondary",
-      text: 'Více o Bartlově typologii',
-      href: getPermalink('typologie/bartle'),
-    },
-    //{ variant: "primary", text: 'Rovnou na dotazník', href: typology.bartle.questionnaire }
-    ]}
-    title = "Chcete zjistit svůj profil?"
-    subtitle="V současné chvíli nabízíme lokalizovanou a vylepšenou verzi dotazníku pro Bartlovu typologii hráčů"
-  />
-  -->
-
   <Steps
     title="Jak takový test vzniká?"
     items={[
