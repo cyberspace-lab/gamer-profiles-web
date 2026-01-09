@@ -1,0 +1,70 @@
+---
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import GainType from "~/components/mine/GainType.astro";
+import Layout from "~/layouts/PageLayout.astro";
+// Using one of the placeholders for the hero image for now, can be updated later
+import typologyImage from "~/assets/images/typology/gain/journey.png";
+
+import { getCollection } from "astro:content";
+
+const metadata = {
+  title: "GAIN Typologie",
+};
+
+// Get page content
+const pageContent = await getCollection("page-content", ({ id }) => {
+  return id.startsWith("gain-intro");
+});
+
+// Sort by order
+const sortedContent = pageContent.sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0)
+);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    tagline=""
+    title="GAIN Typologie"
+    image={{
+      src: typologyImage,
+      alt: "GAIN Typology illustrative image",
+    }}
+  />
+
+  <section class="mx-auto">
+    <article>
+      <header>
+        <h1
+          class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        >
+        </h1>
+      </header>
+      {
+        sortedContent.map(async (entry) => {
+          const { Content } = await entry.render();
+          return (
+            <div class="max-w-6xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
+              <Content />
+            </div>
+          );
+        })
+      }
+    </article>
+  </section>
+
+  <GainType type="assault" />
+  <GainType type="manage" reverse />
+  <GainType type="journey" />
+  <GainType type="care" reverse />
+  <GainType type="coordinate" />
+
+  <CallToAction
+    actions={[]}
+    isDark={true}
+    title="Chcete zjistit svůj herní profil?"
+    subtitle="Dotazník pro GAIN typologii připravujeme."
+  />
+</Layout>

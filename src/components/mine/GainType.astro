@@ -1,0 +1,39 @@
+---
+import TypologyProfile from "~/components/mine/TypologyProfile.astro";
+import { getEntry } from "astro:content";
+import imgAssault from "~/assets/images/typology/gain/assault.png";
+import imgManage from "~/assets/images/typology/gain/manage.png";
+import imgJourney from "~/assets/images/typology/gain/journey.png";
+import imgCare from "~/assets/images/typology/gain/care.png";
+import imgCoordinate from "~/assets/images/typology/gain/coordinate.png";
+
+let images = {
+  assault: imgAssault,
+  manage: imgManage,
+  journey: imgJourney,
+  care: imgCare,
+  coordinate: imgCoordinate,
+};
+
+const { reverse, type } = Astro.props;
+
+// Get the type entry from content collections
+const typeEntry = await getEntry("typology-types", `gain/${type}`);
+if (!typeEntry) {
+  throw new Error(`Typology type not found: gain/${type}`);
+}
+
+const { Content } = await typeEntry.render();
+---
+
+<TypologyProfile
+  type={typeEntry.data.name}
+  isReversed={reverse}
+  items={[]}
+  image={{
+    src: images[type],
+    alt: `Image for ${typeEntry.data.name}`,
+  }}
+>
+  <Content />
+</TypologyProfile>

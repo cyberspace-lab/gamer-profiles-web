@@ -18,6 +18,10 @@ export const headerData = {
       text: 'Hexad Typologie',
       href: getPermalink('typologie/hexad'),
     },
+    {
+      text: 'GAIN Typologie',
+      href: getPermalink('typologie/gain'),
+    },
     /* {
       text: 'Pages examples',
       links: [
@@ -75,7 +79,8 @@ export const footerData = {
         { text: 'Bartlova Typologie', href: getPermalink('typologie/bartle') },
         { text: 'BrainHex Typologie', href: getPermalink('typologie/brainhex') },
         { text: 'Trojan Typologie', href: getPermalink('typologie/trojan') },
-        { text: 'Hexad Typologie', href: getPermalink('typologie/hexad') }
+        { text: 'Hexad Typologie', href: getPermalink('typologie/hexad') },
+        { text: 'GAIN Typologie', href: getPermalink('typologie/gain') }
       ],
     },
     {
