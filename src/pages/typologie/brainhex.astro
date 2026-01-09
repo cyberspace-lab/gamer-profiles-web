@@ -1,15 +1,26 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import BrainHexType from '~/components/mine/BrainHexType.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import typologyImage2 from '~/assets/images/brainhex-profiles.png';
-import BasicParagraph from '~/components/blog/BasicParagraph.astro';
-import { typology } from '~/navigation';
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import BrainHexType from "~/components/mine/BrainHexType.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import typologyImage2 from "~/assets/images/brainhex-profiles.png";
+import { typology } from "~/navigation";
+
+import { getCollection } from "astro:content";
 
 const metadata = {
-  title: 'BrainHex typologie osobnosti',
+  title: "BrainHex typologie osobnosti",
 };
+
+// Get page content
+const pageContent = await getCollection("page-content", ({ id }) => {
+  return id.startsWith("brainhex/");
+});
+
+// Sort by order
+const sortedContent = pageContent.sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0)
+);
 ---
 
 <Layout metadata={metadata}>
@@ -19,40 +30,44 @@ const metadata = {
     title="BrainHex typologie"
     image={{
       src: typologyImage2,
-      alt: 'Typology illustrative image',
+      alt: "Typology illustrative image",
     }}
   />
 
   <section class="mx-auto">
     <article>
       <header>
-        <h1 class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
+        <h1
+          class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        >
         </h1>
       </header>
-        <BasicParagraph
-          content = "BrainHex je model, který vám pomůže pochopit, jaký typ hráče videoher jste. Vytvořen byl v roce 2010 a od té doby prošel několika lety výzkumu. Základní myšlenkou je spojení neurobiologických poznatků s předchozími typologiemi hráčů (například s Bartlem, který jsme předělali a který si na našich stránkách můžete vyplnit!) a literaturou o emocích. Originální BrainHex rozděloval hráče podle jejich herní motivace na 7 typů."
-          />
-        <BasicParagraph
-          content="Sami autoři však model prezentují spíše jako hypotetický koncept. Typy vychází z teoretických základů, nebyly však empiricky ověřeny (autoři neprovedli žádný výzkum, aby koncept potvrdili). Několik výzkumníků se v průběhu následujících let pokusilo model upravit a vznikly jeho různé verze s různým počtem typů. Žádná verze však dosud není kompletně ověřená a už vůbec ne přeložená do češtiny!" />
-        <BasicParagraph
-          content=" Rozhodli jsme se proto vytvořit vlastní verzi modelu. Dali jsme dohromady seznam otázek, které se objevovaly ve vícero verzích dotazníku, poupravili jejich formát a přeložili do češtiny. V tuto chvíli sbíráme data, abychom ověřili, zda typy hráčů z roku 2010 skutečně existují a odpovídají reálnému chování hráčů. Nebo zjistíme něco jiného…?"/>
+      {
+        sortedContent.map(async (entry) => {
+          const { Content } = await entry.render();
+          return (
+            <div class="max-w-6xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
+              <Content />
+            </div>
+          );
+        })
+      }
     </article>
   </section>
   <!-- Features2 Widget ************** -->
 
-<BrainHexType type="seeker"/>
-<BrainHexType type="survivor" reverse/>
-<BrainHexType type="daredevil"/>
-<BrainHexType type="mastermind" reverse/>
-<BrainHexType type="conqueror" />
-<BrainHexType type="socialiser" reverse/>
-<BrainHexType type="achiever"/>
+  <BrainHexType type="seeker" />
+  <BrainHexType type="survivor" reverse />
+  <BrainHexType type="daredevil" />
+  <BrainHexType type="mastermind" reverse />
+  <BrainHexType type="conqueror" />
+  <BrainHexType type="socialiser" reverse />
+  <BrainHexType type="achiever" />
 
   <CallToAction
     actions={[]}
     isDark={true}
     title="Chcete nám pomoci s vývojem BrainHex dotazníku?"
-    
     subtitle="Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
   />
 </Layout>
