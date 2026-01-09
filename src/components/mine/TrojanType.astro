@@ -1,0 +1,41 @@
+---
+import TypologyProfile from "~/components/mine/TypologyProfile.astro";
+import { getEntry } from "astro:content";
+import imgSoc from "~/assets/images/typology/trojan/socializer.png";
+import imgComp from "~/assets/images/typology/trojan/completionist.png";
+import imgCompet from "~/assets/images/typology/trojan/competitor.png";
+import imgEsc from "~/assets/images/typology/trojan/escapist.png";
+import imgStory from "~/assets/images/typology/trojan/story-driven.png";
+import imgSmart from "~/assets/images/typology/trojan/smarty-pants.png";
+
+let images = {
+  socializer: imgSoc,
+  completionist: imgComp,
+  competitor: imgCompet,
+  escapist: imgEsc,
+  "story-driven": imgStory,
+  "smarty-pants": imgSmart,
+};
+
+const { reverse, type } = Astro.props;
+
+// Get the type entry from content collections
+const typeEntry = await getEntry("typology-types", `trojan/${type}`);
+if (!typeEntry) {
+  throw new Error(`Typology type not found: trojan/${type}`);
+}
+
+const { Content } = await typeEntry.render();
+---
+
+<TypologyProfile
+  type={typeEntry.data.name}
+  isReversed={reverse}
+  items={[]}
+  image={{
+    src: images[type],
+    alt: `${typeEntry.data.name} type image`,
+  }}
+>
+  <Content />
+</TypologyProfile>

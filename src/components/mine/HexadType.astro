@@ -1,0 +1,41 @@
+---
+import TypologyProfile from "~/components/mine/TypologyProfile.astro";
+import { getEntry } from "astro:content";
+import imgPhi from "~/assets/images/typology/hexad/philanthropist.png";
+import imgSoc from "~/assets/images/typology/hexad/socialiser.png";
+import imgFree from "~/assets/images/typology/hexad/free-spirit.png";
+import imgAch from "~/assets/images/typology/hexad/achiever.png";
+import imgPlay from "~/assets/images/typology/hexad/player.png";
+import imgDis from "~/assets/images/typology/hexad/disruptor.png";
+
+let images = {
+  philanthropist: imgPhi,
+  socialiser: imgSoc,
+  "free-spirit": imgFree,
+  achiever: imgAch,
+  player: imgPlay,
+  disruptor: imgDis,
+};
+
+const { reverse, type } = Astro.props;
+
+// Get the type entry from content collections
+const typeEntry = await getEntry("typology-types", `hexad/${type}`);
+if (!typeEntry) {
+  throw new Error(`Typology type not found: hexad/${type}`);
+}
+
+const { Content } = await typeEntry.render();
+---
+
+<TypologyProfile
+  type={typeEntry.data.name}
+  isReversed={reverse}
+  items={[]}
+  image={{
+    src: images[type],
+    alt: `${typeEntry.data.name} type image`,
+  }}
+>
+  <Content />
+</TypologyProfile>

@@ -10,6 +10,14 @@ export const headerData = {
       text: 'BrainHex Typologie',
       href: getPermalink('typologie/brainhex'),
     },
+    {
+      text: 'Trojan Typologie',
+      href: getPermalink('typologie/trojan'),
+    },
+    {
+      text: 'Hexad Typologie',
+      href: getPermalink('typologie/hexad'),
+    },
     /* {
       text: 'Pages examples',
       links: [
@@ -64,7 +72,10 @@ export const footerData = {
     {
       title: 'Typologie',
       links: [
-        { text: 'Bartlova Typologie', href: getPermalink('typologie/bartle') }
+        { text: 'Bartlova Typologie', href: getPermalink('typologie/bartle') },
+        { text: 'BrainHex Typologie', href: getPermalink('typologie/brainhex') },
+        { text: 'Trojan Typologie', href: getPermalink('typologie/trojan') },
+        { text: 'Hexad Typologie', href: getPermalink('typologie/hexad') }
       ],
     },
     {

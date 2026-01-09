@@ -1,0 +1,78 @@
+---
+import CallToAction from "./../../components/widgets/CallToAction.astro";
+import TrojanType from "./../../components/mine/TrojanType.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+
+import typologyImage2 from "~/assets/images/typology-2.png";
+
+const metadata = {
+  title: "Trojan Typologie",
+};
+
+// Get page content
+const pageContent = await getCollection("page-content", ({ id }) => {
+  return id.startsWith("trojan/");
+});
+
+// Sort by order
+const sortedContent = pageContent.sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0)
+);
+
+// Get typology types
+const typologyTypes = await getCollection("typology-types", ({ id }) => {
+  return id.startsWith("trojan/");
+});
+
+// Sort by order
+const sortedTypes = typologyTypes.sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0)
+);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    tagline=""
+    title=" Trojan typologie"
+    image={{
+      src: typologyImage2,
+      alt: "Typology illustrative image",
+    }}
+  />
+  <section class="mx-auto">
+    <article>
+      <header>
+        <h1
+          class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        >
+        </h1>
+      </header>
+      {
+        sortedContent.map(async (entry) => {
+          const { Content } = await entry.render();
+          return (
+            <div class="max-w-6xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
+              <Content />
+            </div>
+          );
+        })
+      }
+    </article>
+  </section>
+
+  <TrojanType type="socializer" reverse />
+  <TrojanType type="completionist" />
+  <TrojanType type="competitor" reverse />
+  <TrojanType type="escapist" />
+  <TrojanType type="story-driven" reverse />
+  <TrojanType type="smarty-pants" />
+
+  <CallToAction
+    actions={[]}
+    title="Chcete zjistit svůj profil?"
+    subtitle="Dotazník pro Trojan typologii zatím není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
+  />
+</Layout>
