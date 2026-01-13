@@ -34,7 +34,7 @@ const sortedContent = pageContent.sort(
     }}
   />
 
-  <section class="mx-auto">
+  <section class="mx-auto mb-8 lg:mb-12">
     <article>
       <header>
         <h1
@@ -46,7 +46,7 @@ const sortedContent = pageContent.sort(
         sortedContent.map(async (entry) => {
           const { Content } = await entry.render();
           return (
-            <div class="max-w-6xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
+            <div class="max-w-7xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
               <Content />
             </div>
           );
@@ -56,6 +56,7 @@ const sortedContent = pageContent.sort(
   </section>
   <!-- Features2 Widget ************** -->
 
+  <div class="typology-sections space-y-4 lg:space-y-8">
   <BrainHexType type="seeker" />
   <BrainHexType type="survivor" reverse />
   <BrainHexType type="daredevil" />
@@ -63,6 +64,7 @@ const sortedContent = pageContent.sort(
   <BrainHexType type="conqueror" />
   <BrainHexType type="socialiser" reverse />
   <BrainHexType type="achiever" />
+  </div>
 
   <CallToAction
     actions={[]}

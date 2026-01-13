@@ -31,7 +31,7 @@ const {
 <WidgetWrapper
   id={id}
   isDark={isDark}
-  containerClass={`max-w-6xl mx-auto ${isAfterContent ? "pt-0 md:pt-0 lg:pt-0" : ""} ${classes?.container ?? "py-6 md:py-8"}`}
+  containerClass={`max-w-7xl mx-auto ${isAfterContent ? "pt-0 md:pt-0 lg:pt-0" : ""} ${classes?.container ?? "py-2 md:py-3 lg:py-4"}`}
   bg={bg}
 >
   <Headline
@@ -46,19 +46,19 @@ const {
         "max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400",
     }}
   />
-  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <div
-      class={`md:flex ${isReversed ? "md:flex-row-reverse" : ""} md:gap-16 items-center`}
+      class={`md:flex ${isReversed ? "md:flex-row-reverse" : ""} md:gap-12 lg:gap-16 items-center`}
     >
       <div class="md:basis-2/3 self-center">
-        <div class="mb-8 text-lg dark:text-slate-400">
+        <div class="mb-8 text-lg">
           <Fragment slot="content">
-            <h3
-              class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+            <h2
+              class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
             >
               {type}
-            </h3>
-            <div class="prose prose-md dark:prose-invert mt-4 text-justify">
+            </h2>
+            <div class="prose prose-lg dark:prose-invert mt-4 text-justify text-muted dark:text-slate-300">
               <slot />
             </div>
           </Fragment>
@@ -88,7 +88,7 @@ const {
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="mx-auto w-full rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  class="mx-auto w-full typology-image"
                   width={500}
                   height={500}
                   widths={[400, 768]}
@@ -104,3 +104,37 @@ const {
     </div>
   </div>
 </WidgetWrapper>
+
+<style>
+  /* Choose one of the three options below by uncommenting */
+
+  /* OPTION 1: Clean, minimal - no border, subtle shadow */
+  .typology-image {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .typology-image:hover {
+    transform: scale(1.03);
+  }
+
+  /* OPTION 2: Fade edges into background (uncomment to use)
+  .typology-image {
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    transition: transform 0.3s ease;
+  }
+  .typology-image:hover {
+    transform: scale(1.05);
+  }
+  */
+
+  /* OPTION 3: Soft glow effect (uncomment to use)
+  .typology-image {
+    filter: drop-shadow(0 0 30px rgba(147, 197, 253, 0.3));
+    transition: all 0.3s ease;
+  }
+  .typology-image:hover {
+    filter: drop-shadow(0 0 40px rgba(147, 197, 253, 0.5));
+    transform: scale(1.03);
+  }
+  */
+</style>

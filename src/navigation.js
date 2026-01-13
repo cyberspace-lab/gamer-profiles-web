@@ -7,66 +7,21 @@ export const headerData = {
       href: getPermalink('typologie/bartle'),
     },
     { 
-      text: 'BrainHex Typologie',
+      text: 'BrainHex',
       href: getPermalink('typologie/brainhex'),
     },
     {
-      text: 'Trojan Typologie',
+      text: 'Trojan',
       href: getPermalink('typologie/trojan'),
     },
     {
-      text: 'Hexad Typologie',
+      text: 'Hexad',
       href: getPermalink('typologie/hexad'),
     },
     {
-      text: 'GAIN Typologie',
+      text: 'GAIN',
       href: getPermalink('typologie/gain'),
     },
-    /* {
-      text: 'Pages examples',
-      links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-      ],
-    } */
   ],
   actions: [{ text: 'CyberspaceLab', href: 'https://www.cyberspacelab.cz', target: '_blank' }],
 };
@@ -76,11 +31,11 @@ export const footerData = {
     {
       title: 'Typologie',
       links: [
-        { text: 'Bartlova Typologie', href: getPermalink('typologie/bartle') },
-        { text: 'BrainHex Typologie', href: getPermalink('typologie/brainhex') },
-        { text: 'Trojan Typologie', href: getPermalink('typologie/trojan') },
-        { text: 'Hexad Typologie', href: getPermalink('typologie/hexad') },
-        { text: 'GAIN Typologie', href: getPermalink('typologie/gain') }
+        { text: 'Bartlova typologie', href: getPermalink('typologie/bartle') },
+        { text: 'BrainHex', href: getPermalink('typologie/brainhex') },
+        { text: 'Trojan', href: getPermalink('typologie/trojan') },
+        { text: 'Hexad', href: getPermalink('typologie/hexad') },
+        { text: 'GAIN', href: getPermalink('typologie/gain') }
       ],
     },
     {
