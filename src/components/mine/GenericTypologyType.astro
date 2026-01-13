@@ -1,0 +1,38 @@
+---
+import TypologyProfile from '~/components/mine/TypologyProfile.astro';
+import { getEntry } from 'astro:content';
+
+export interface Props {
+  typologyName: string; // e.g., "bartle", "hexad", "brainhex", "gain", "trojan"
+  type: string; // e.g., "socializer", "killer", etc.
+  reverse?: boolean;
+  image: any; // Image import
+}
+
+const {
+  typologyName,
+  type,
+  reverse = false,
+  image,
+} = Astro.props;
+
+// Get the type entry from content collections
+const typeEntry = await getEntry('typology-types', `${typologyName}/${type}`);
+if (!typeEntry) {
+  throw new Error(`Typology type not found: ${typologyName}/${type}`);
+}
+
+const { Content } = await typeEntry.render();
+---
+
+<TypologyProfile
+  type={typeEntry.data.name}
+  isReversed={reverse}
+  items={[]}
+  image={{
+    src: image,
+    alt: `${typeEntry.data.name} type image`,
+  }}
+>
+  <Content />
+</TypologyProfile>

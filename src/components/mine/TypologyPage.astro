@@ -1,0 +1,83 @@
+---
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+
+export interface Props {
+  typologyName: string; // e.g., "bartle", "hexad", "brainhex", "gain", "trojan"
+  title: string; // Page title
+  heroTitle: string; // Hero section title
+  heroImage: any; // Image import
+  ctaTitle: string; // Call to action title
+  ctaSubtitle: string; // Call to action subtitle
+  ctaIsDark?: boolean; // Optional dark mode for CTA
+}
+
+const {
+  typologyName,
+  title,
+  heroTitle,
+  heroImage,
+  ctaTitle,
+  ctaSubtitle,
+  ctaIsDark = false,
+} = Astro.props;
+
+const metadata = {
+  title: title,
+};
+
+// Get page content - now looking for single file like "bartle.md"
+const pageContent = await getCollection("page-content", ({ id }) => {
+  return id === typologyName;
+});
+
+// Sort by order (in case there are multiple, though we expect one)
+const sortedContent = pageContent.sort(
+  (a, b) => (a.data.order || 0) - (b.data.order || 0)
+);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    tagline=""
+    title={heroTitle}
+    image={{
+      src: heroImage,
+      alt: `${title} illustrative image`,
+    }}
+  />
+  <section class="mx-auto mb-8 lg:mb-12">
+    <article>
+      <header>
+        <h1
+          class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        >
+        </h1>
+      </header>
+      {
+        sortedContent.map(async (entry) => {
+          const { Content } = await entry.render();
+          return (
+            <div class="prose prose-lg dark:prose-invert max-w-7xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl text-muted dark:text-slate-400 text-justify">
+              <Content />
+            </div>
+          );
+        })
+      }
+    </article>
+  </section>
+
+  <div class="typology-sections space-y-4 lg:space-y-8">
+    <slot />
+  </div>
+
+  <CallToAction
+    actions={[]}
+    isDark={ctaIsDark}
+    title={ctaTitle}
+    subtitle={ctaSubtitle}
+  />
+</Layout>
