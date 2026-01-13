@@ -1,75 +1,30 @@
 ---
-import CallToAction from "~/components/widgets/CallToAction.astro";
-import Hero from "~/components/widgets/Hero.astro";
-import BrainHexType from "~/components/mine/BrainHexType.astro";
-import Layout from "~/layouts/PageLayout.astro";
+import TypologyPage from "~/components/mine/TypologyPage.astro";
+import GenericTypologyType from "~/components/mine/GenericTypologyType.astro";
 import typologyImage2 from "~/assets/images/brainhex-profiles.png";
-import { typology } from "~/navigation";
-
-import { getCollection } from "astro:content";
-
-const metadata = {
-  title: "BrainHex typologie osobnosti",
-};
-
-// Get page content
-const pageContent = await getCollection("page-content", ({ id }) => {
-  return id.startsWith("brainhex/");
-});
-
-// Sort by order
-const sortedContent = pageContent.sort(
-  (a, b) => (a.data.order || 0) - (b.data.order || 0)
-);
+import imgSeeker from "~/assets/images/typology/brainhex/seeker.png";
+import imgSurvivor from "~/assets/images/typology/brainhex/survivor.png";
+import imgDaredevil from "~/assets/images/typology/brainhex/daredevil.png";
+import imgMastermind from "~/assets/images/typology/brainhex/mastermind.png";
+import imgConqueror from "~/assets/images/typology/brainhex/conqueror.png";
+import imgSocialiser from "~/assets/images/typology/brainhex/socialiser.png";
+import imgAchiever from "~/assets/images/typology/brainhex/achiever.png";
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-  <Hero
-    tagline=""
-    title="BrainHex typologie"
-    image={{
-      src: typologyImage2,
-      alt: "Typology illustrative image",
-    }}
-  />
-
-  <section class="mx-auto mb-8 lg:mb-12">
-    <article>
-      <header>
-        <h1
-          class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
-        >
-        </h1>
-      </header>
-      {
-        sortedContent.map(async (entry) => {
-          const { Content } = await entry.render();
-          return (
-            <div class="max-w-7xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
-              <Content />
-            </div>
-          );
-        })
-      }
-    </article>
-  </section>
-  <!-- Features2 Widget ************** -->
-
-  <div class="typology-sections space-y-4 lg:space-y-8">
-  <BrainHexType type="seeker" />
-  <BrainHexType type="survivor" reverse />
-  <BrainHexType type="daredevil" />
-  <BrainHexType type="mastermind" reverse />
-  <BrainHexType type="conqueror" />
-  <BrainHexType type="socialiser" reverse />
-  <BrainHexType type="achiever" />
-  </div>
-
-  <CallToAction
-    actions={[]}
-    isDark={true}
-    title="Chcete nám pomoci s vývojem BrainHex dotazníku?"
-    subtitle="Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
-  />
-</Layout>
+<TypologyPage
+  typologyName="brainhex"
+  title="BrainHex typologie osobnosti"
+  heroTitle="BrainHex typologie"
+  heroImage={typologyImage2}
+  ctaTitle="Chcete nám pomoci s vývojem BrainHex dotazníku?"
+  ctaSubtitle="Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
+  ctaIsDark={true}
+>
+  <GenericTypologyType typologyName="brainhex" type="seeker" image={imgSeeker} />
+  <GenericTypologyType typologyName="brainhex" type="survivor" image={imgSurvivor} reverse />
+  <GenericTypologyType typologyName="brainhex" type="daredevil" image={imgDaredevil} />
+  <GenericTypologyType typologyName="brainhex" type="mastermind" image={imgMastermind} reverse />
+  <GenericTypologyType typologyName="brainhex" type="conqueror" image={imgConqueror} />
+  <GenericTypologyType typologyName="brainhex" type="socialiser" image={imgSocialiser} reverse />
+  <GenericTypologyType typologyName="brainhex" type="achiever" image={imgAchiever} />
+</TypologyPage>

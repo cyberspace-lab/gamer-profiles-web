@@ -1,70 +1,23 @@
 ---
-import CallToAction from './../../components/widgets/CallToAction.astro';
-import BartleType from './../../components/mine/BartleType.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import { getCollection } from 'astro:content';
+import TypologyPage from '~/components/mine/TypologyPage.astro';
+import GenericTypologyType from '~/components/mine/GenericTypologyType.astro';
 import typologyImage2 from '~/assets/images/typology-2.png';
-
-const metadata = {
-  title: 'Bartlova Typologie Osobnosti',
-};
-
-// Get page content
-const pageContent = await getCollection('page-content', ({ id }) => {
-  return id.startsWith('bartle/');
-});
-
-// Sort by order
-const sortedContent = pageContent.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
-// Get typology types
-const typologyTypes = await getCollection('typology-types', ({ id }) => {
-  return id.startsWith('bartle/');
-});
-
-// Sort by order
-const sortedTypes = typologyTypes.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+import imgSoc from '~/assets/images/typology/bartle/socializer.png';
+import imgExp from '~/assets/images/typology/bartle/explorer.png';
+import imgKil from '~/assets/images/typology/bartle/killer.png';
+import imgAch from '~/assets/images/typology/bartle/achiever.png';
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-  <Hero
-    tagline=""
-    title=" Bartlova typologie osobnosti"
-    image={{
-      src: typologyImage2,
-      alt: 'Typology illustrative image',
-    }}
-  />
-  <section class="mx-auto mb-8 lg:mb-12">
-    <article>
-      <header>
-        <h1 class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
-        </h1>
-      </header>
-      {sortedContent.map(async (entry) => {
-        const { Content } = await entry.render();
-        return (
-          <div class="max-w-7xl mx-auto mt-6 mb-8 px-4 sm:px-6 text-xl md:text-1xl text-muted dark:text-slate-400 text-justify">
-            <Content />
-          </div>
-        );
-      })}
-    </article>
-  </section>
-
-<div class="typology-sections space-y-4 lg:space-y-8">
-<BartleType type="socializer" reverse/>
-<BartleType type="killer" />
-<BartleType type="explorer" reverse/>
-<BartleType type="achiever"/>
-</div>
-
-  <CallToAction
-    actions={[]}
-    title="Chcete zjistit svůj profil?"
-    subtitle="Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
-  />
-
-</Layout>
+<TypologyPage
+  typologyName="bartle"
+  title="Bartlova Typologie Osobnosti"
+  heroTitle="Bartlova typologie osobnosti"
+  heroImage={typologyImage2}
+  ctaTitle="Chcete zjistit svůj profil?"
+  ctaSubtitle="Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
+>
+  <GenericTypologyType typologyName="bartle" type="socializer" image={imgSoc} reverse />
+  <GenericTypologyType typologyName="bartle" type="killer" image={imgKil} />
+  <GenericTypologyType typologyName="bartle" type="explorer" image={imgExp} reverse />
+  <GenericTypologyType typologyName="bartle" type="achiever" image={imgAch} />
+</TypologyPage>
