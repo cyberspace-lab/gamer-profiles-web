@@ -30,7 +30,7 @@ const metadata = {
 
 // Get page content - now looking for single file like "bartle.md"
 const pageContent = await getCollection("page-content", ({ id }) => {
-  return id === typologyName;
+  return id === `${typologyName}.md`;
 });
 
 // Sort by order (in case there are multiple, though we expect one)
