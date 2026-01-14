@@ -148,9 +148,18 @@ import '@fontsource-variable/inter';
     background: var(--gradient-card);
   }
 
-  .enhanced-card:hover {
-    @apply shadow-2xl transform -translate-y-1;
-    @apply border-primary/50 dark:border-primary/50;
+  /* Disable transform on mobile for better performance */
+  @media (min-width: 768px) {
+    .enhanced-card:hover {
+      @apply shadow-2xl transform -translate-y-1;
+      @apply border-primary/50 dark:border-primary/50;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .enhanced-card:active {
+      @apply border-primary/50 dark:border-primary/50;
+    }
   }
 
   /* Subtle pattern overlay for sections */
@@ -172,8 +181,11 @@ import '@fontsource-variable/inter';
     50% { transform: translateY(-10px); }
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  /* Disable float animation on mobile for better performance */
+  @media (min-width: 768px) {
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
   }
 
   @keyframes pulse-glow {
