@@ -1,5 +1,5 @@
 ---
-name: "Přežívající"
+name: "Přežívající (Survivor)"
 type: "survivor"
 order: 2
 image: "~/assets/images/typology/brainhex/survivor.png"

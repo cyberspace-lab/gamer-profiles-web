@@ -1,5 +1,5 @@
 ---
-name: "Bojovník"
+name: "Bojovník (Killer)"
 type: "killer"
 order: 4
 image: "~/assets/images/typology/bartle/killer.png"

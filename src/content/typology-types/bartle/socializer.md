@@ -1,5 +1,5 @@
 ---
-name: "Společník"
+name: "Společník (Socializer)"
 type: "socializer"
 order: 1
 image: "~/assets/images/typology/bartle/socializer.png"

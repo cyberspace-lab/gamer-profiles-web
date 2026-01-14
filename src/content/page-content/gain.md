@@ -12,6 +12,6 @@ Unikátní na modelu GAIN je to, že váš herní profil nesestavuje jen podle t
 
 Na základě těchto pěti oblastí sice vědci identifikovali šest herních typů (jako je například Žoldák, Akrobat nebo Průzkumník), ale zjistili, že tyto typy nejsou v čase úplně stabilní. V psychologii se proto častěji pracuje přímo s oněmi pěti kategoriemi činností. Místo toho, aby vás systém jednoduše „zaškatulkoval", vám ukáže podrobnou mapu toho, co vás baví a co vás naopak od hraní odrazuje. To mnohem lépe odpovídá tomu, jak se naše herní návyky v průběhu života mění.
 
-### Citace
+### Originální studie
 
 > Vahlo, J., Smed, J., & Koponen, A. (2018). Validating gameplay activity inventory (GAIN) for modeling player profiles. User Modeling and User-Adapted Interaction, 28(4–5), 425–453.

@@ -1,5 +1,5 @@
 ---
-name: "Troufalec"
+name: "Troufalec (Daredevil)"
 type: "daredevil"
 order: 3
 image: "~/assets/images/typology/brainhex/daredevil.png"

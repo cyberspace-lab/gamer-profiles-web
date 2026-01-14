@@ -1,5 +1,5 @@
 ---
-name: "Dobyvatel"
+name: "Dobyvatel (Conqueror)"
 type: "conqueror"
 order: 5
 image: "~/assets/images/typology/brainhex/conqueror.png"

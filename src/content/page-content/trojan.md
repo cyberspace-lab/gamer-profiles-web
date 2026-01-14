@@ -12,5 +12,6 @@ Aby si byli autoři jistí, že jejich model není jen teorie, vyzkoušeli ho na
 
 Vědci navíc nezůstali jen u odpovědí v dotazníku. Spojili se s herní společností Riot Games a porovnali to, co o sobě hráči v testu napsali, s tím, jak se skutečně ve hře chovají. Díky tomu se potvrdilo, že dotazník velmi přesně předpovídá reálné herní činy. Například lidé, kteří v testu kladli velký důraz na sociální kontakt, měli ve hře prokazatelně mnohem více přátel a častěji komunikovali s ostatními hráči.
 
-**Studie:**
-Kahn, A. S., Shen, C., Lu, L., Ratan, R. A., Coary, S., Hou, J., Meng, J., Osborn, J., & Williams, D. (2015). The Trojan Player Typology: A cross-genre, cross-cultural, behaviorally validated scale of video game play motivations. Computers in Human Behavior, 49, 354–361.
+### Originální studie
+
+> Kahn, A. S., Shen, C., Lu, L., Ratan, R. A., Coary, S., Hou, J., Meng, J., Osborn, J., & Williams, D. (2015). The Trojan Player Typology: A cross-genre, cross-cultural, behaviorally validated scale of video game play motivations. Computers in Human Behavior, 49, 354–361.

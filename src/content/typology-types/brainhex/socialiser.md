@@ -1,5 +1,5 @@
 ---
-name: "Společník"
+name: "Společník (Socialiser)"
 type: "socialiser"
 order: 6
 image: "~/assets/images/typology/brainhex/socialiser.png"

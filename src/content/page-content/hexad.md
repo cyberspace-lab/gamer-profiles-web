@@ -10,5 +10,6 @@ Velkou výhodou dotazníku Hexad je, že mu rozumí úplně každý. Autoři si 
 
 Při vzniku dotazníku experti nejdříve sepsali desítky otázek, které pečlivě testovali a porovnávali s výsledky osobnostních testů. Vědci dokonce ověřovali, zda lidé odpovídají stejně i po několika týdnech, aby byla zajištěna vysoká spolehlivost. Finální verze dotazníku má 24 otázek a dnes pomáhá tvůrcům aplikací navrhovat prostředí, která jsou pro lidi zajímavější – ať už je motivuje překonávání výzev, svobodné jednání nebo spolupráce s ostatními.
 
-**Citace:**
-Tondello, G. F., Wehbe, R. R., Diamond, L., Busch, M., Marczewski, A., & Nacke, L. E. (2016). The Gamification User Types Hexad Scale. Proceedings of the 2016 Annual Symposium on Computer-Human Interaction in Play, 229–243.
+### Originální studie
+
+> Tondello, G. F., Wehbe, R. R., Diamond, L., Busch, M., Marczewski, A., & Nacke, L. E. (2016). The Gamification User Types Hexad Scale. Proceedings of the 2016 Annual Symposium on Computer-Human Interaction in Play, 229–243.

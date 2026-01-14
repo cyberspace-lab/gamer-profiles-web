@@ -1,5 +1,5 @@
 ---
-name: "Dosažitel"
+name: "Dosažitel (Achiever)"
 type: "achiever"
 order: 7
 image: "~/assets/images/typology/brainhex/achiever.png"

@@ -1,5 +1,5 @@
 ---
-name: "Hledač"
+name: "Hledač (Seeker)"
 type: "seeker"
 order: 1
 image: "~/assets/images/typology/brainhex/seeker.png"

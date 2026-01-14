@@ -1,5 +1,5 @@
 ---
-name: "Myslitel"
+name: "Myslitel (Mastermind)"
 type: "mastermind"
 order: 4
 image: "~/assets/images/typology/brainhex/mastermind.png"

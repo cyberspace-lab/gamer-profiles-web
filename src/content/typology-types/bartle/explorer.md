@@ -1,5 +1,5 @@
 ---
-name: "Dobrodruh"
+name: "Dobrodruh (Explorer)"
 type: "explorer"
 order: 3
 image: "~/assets/images/typology/bartle/explorer.png"
