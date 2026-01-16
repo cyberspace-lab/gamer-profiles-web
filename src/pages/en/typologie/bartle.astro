@@ -1,0 +1,23 @@
+---
+import TypologyPage from '~/components/mine/TypologyPage.astro';
+import GenericTypologyType from '~/components/mine/GenericTypologyType.astro';
+import typologyImage2 from '~/assets/images/typology-2.png';
+import imgSoc from '~/assets/images/typology/bartle/socializer.png';
+import imgExp from '~/assets/images/typology/bartle/explorer.png';
+import imgKil from '~/assets/images/typology/bartle/killer.png';
+import imgAch from '~/assets/images/typology/bartle/achiever.png';
+---
+
+<TypologyPage
+  typologyName="bartle"
+  title="Bartle's Personality Typology"
+  heroTitle="Bartle's Personality Typology"
+  heroImage={typologyImage2}
+  ctaTitle="Want to discover your profile?"
+  ctaSubtitle="The questionnaire is currently being redesigned and is not available. Follow us on social media and we'll let you know when it's ready."
+>
+  <GenericTypologyType typologyName="bartle" type="socializer" image={imgSoc} reverse />
+  <GenericTypologyType typologyName="bartle" type="killer" image={imgKil} />
+  <GenericTypologyType typologyName="bartle" type="explorer" image={imgExp} reverse />
+  <GenericTypologyType typologyName="bartle" type="achiever" image={imgAch} />
+</TypologyPage>

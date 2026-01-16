@@ -1,7 +1,8 @@
 ---
 import '~/assets/styles/tailwind.css';
 
-import { I18N } from '~/utils/config';
+import { I18N, SITE } from '~/utils/config';
+import { getLangFromUrl, removeLocaleFromPath, getLocalizedPath } from '~/i18n';
 
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
@@ -22,7 +23,16 @@ export interface Props {
 }
 
 const { metadata = {} } = Astro.props;
-const { language, textDirection } = I18N;
+// Get language from URL for proper lang attribute
+const locale = getLangFromUrl(Astro.url);
+const language = locale;
+const { textDirection } = I18N;
+
+// Generate hreflang alternate links
+const currentPath = Astro.url.pathname;
+const basePath = removeLocaleFromPath(currentPath);
+const czUrl = new URL(getLocalizedPath(basePath, 'cz'), SITE.site).href;
+const enUrl = new URL(getLocalizedPath(basePath, 'en'), SITE.site).href;
 ---
 
 <!doctype html>
@@ -35,6 +45,11 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+
+    <!-- hreflang alternate language links for SEO -->
+    <link rel="alternate" hreflang="cz" href={czUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={czUrl} />
 
     <!-- Uncomment line below to activate View Transitions -->
     <!-- <ViewTransitions fallback="swap" /> -->

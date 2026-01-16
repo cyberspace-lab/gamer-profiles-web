@@ -1,0 +1,74 @@
+{
+    "socializer": {
+        "name": "Socializer",
+        "description":"[PLACEHOLDER] Socializers want to enjoy the company and community that the game can offer. They get the greatest pleasure from the game through interaction with other players. Sometimes just the company and communication with characters in the virtual world itself (NPCs) is enough for them. The game is just a means for them to meet others. The virtual world is therefore more of a common space for them to meet. Relationships between players are important: empathizing with others, sympathizing with them, joking, having fun, listening. Games, whether video games, board games, or playing football behind the house, have had and continue to have a social factor. Many players often forget this aspect, but not Socializers, for whom company is essential in games.",
+        "subtypes": {
+            "killer": {
+                "name": "Socializer Killer",
+                "description":"[PLACEHOLDER] Socializer Killers appreciate teamwork in PvP. Communication between players and the effort to hunt in a pack are important. They like to unite and form alliances and teams in which they work on strategies and attack others."
+            },
+            "achiever": {
+                "name": "Socializer Achiever",
+                "description":"[PLACEHOLDER] Socializer Achievers focus on social status gained through rare rewards, achievements, and trophies. They place great emphasis on recognition from other players, whether it's their own success or that of their gaming group."
+            },
+            "explorer": {
+                "name": "Socializer Explorer",
+                "description" : "[PLACEHOLDER] Socializer Explorers combine communication with unexplored places. Their experience stems from interacting with people while discovering the virtual world."
+            }
+        }
+    },
+    "achiever": {
+        "name": "Achiever",
+        "description":"[PLACEHOLDER] Achievers focus on gaining status, position, and prestige. They also want to achieve their predetermined goals in various ways. For example, by a quick method (speedrunners who want to complete the game or part of it as quickly as possible) or by completing all trophies or achievements. By obtaining these rewards, they properly show everyone what their abilities are. At the heart of every game is a set of rules that allow players to either win or lose. Achievers understand this principle more than anyone else.",
+        "subtypes": {
+            "explorer": {
+                "name": "Achiever Explorer",
+                "description":"[PLACEHOLDER] These players are primarily interested in PvE, that is, player versus computer. Achiever Explorers focus on solo strategies, like to explore all sorts of corners of the map, discover and notice the smallest details that the game brings."
+            },
+            "socializer": {
+                "name": "Achiever Socializer",
+                "description": "[PLACEHOLDER] Achiever Socializers like to move in clans, teams, guilds, or alliances. Unlike Socializers, they are not about friendly interaction, but they crave to achieve goals and rewards that they would not achieve as individuals."
+            },
+            "killer": {
+                "name": "Achiever Killer",
+                "description": "[PLACEHOLDER] Achiever Killers try to excel in everything the game offers, especially PvP. In this case, they prefer places where they can directly compare themselves with other players."
+            }
+        }
+    },
+    "explorer": {
+        "name": "Explorer",
+        "description":"[PLACEHOLDER] Explorers focus on discovering and uncovering the unknown. They want to go where no one else has been and know what no one else knows. Explorers are motivated by moments of surprise that the game offers them. They crave moments of wonder and amazement. Collecting experience points is rather a meaningless activity for them, as it opposes the essence of games, which is freedom and openness, thanks to which the virtual world lives and breathes.",
+        "subtypes": {
+            "achiever": {
+                "name": "Explorer Achiever",
+                "description": "[PLACEHOLDER] Explorer Achievers focus on rewards, achievements, and trophies. They like to find new places, tasks, Easter Eggs, unlock new items, and notice the smallest details that the game brings."
+            },
+            "socializer": {
+                "name": "Explorer Socializer",
+                "description":"[PLACEHOLDER] Explorer Socializers combine communication with world exploration. They like to share all the knowledge they can gather in the game with others, and are thus recognized members of the team."
+            },
+            "killer": {
+                "name": "Explorer Killer",
+                "description": "[PLACEHOLDER] Explorer Killers are strongly immersed in the game environment. Thanks to their curiosity, they know all the nooks and crannies and will most likely know some tricks, such as where to find rare items or opponents."
+            }
+        }
+    },
+    "killer":{
+        "name": "Killer",
+        "description":"[PLACEHOLDER] Killers focus on victory, rankings on leaderboards, and direct competition among other players. They are in a constant and never-ending effort to overcome others. They would most like to see their name high on the winner's table. It's not so much about completing common game challenges, such as defeating a boss or speedrun, but about proving that they are doing better in the game than others.",
+        "subtypes": {
+            "achiever": {
+                "name": "Killer Achiever",
+                "description": "[PLACEHOLDER] Killer Achievers excel in PvP, but don't despise PvE either, although it's usually just a means to achieve other goals. In PvP, they try to excel in duels or arenas."
+            },
+            "explorer": {
+                "name": "Killer Explorer",
+                "description": "[PLACEHOLDER] These players seek various challenges against others, but at the same time focus on discovering the virtual world, which they try to use to their advantage."
+            },
+            "socializer": {
+                "name": "Killer Socializer",
+                "description": "[PLACEHOLDER] Killer Socializers seek teams and alliances where they could associate with people with the same interest and join together against other players in PvP."
+            }
+        }
+    }
+}

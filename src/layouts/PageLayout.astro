@@ -4,7 +4,8 @@ import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
 
-import { headerData, footerData } from '~/navigation';
+import { getHeaderData, getFooterData } from '~/navigation';
+import { getLangFromUrl, useTranslations } from '~/i18n';
 
 import type { MetaData } from '~/types';
 
@@ -13,6 +14,14 @@ export interface Props {
 }
 
 const { metadata } = Astro.props;
+
+// Get locale from URL and create translation function
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+// Get locale-aware navigation data
+const headerData = getHeaderData(locale, t);
+const footerData = getFooterData(locale, t);
 ---
 
 <Layout metadata={metadata}>

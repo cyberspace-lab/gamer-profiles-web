@@ -1,0 +1,27 @@
+---
+import TypologyPage from "~/components/mine/TypologyPage.astro";
+import GenericTypologyType from "~/components/mine/GenericTypologyType.astro";
+
+import typologyImage from "~/assets/images/typology/gain/main.png";
+import imgAssault from "~/assets/images/typology/gain/assault.png";
+import imgManage from "~/assets/images/typology/gain/manage.png";
+import imgJourney from "~/assets/images/typology/gain/journey.png";
+import imgCare from "~/assets/images/typology/gain/care.png";
+import imgCoordinate from "~/assets/images/typology/gain/coordinate.png";
+---
+
+<TypologyPage
+  typologyName="gain"
+  title="GAIN Typologie"
+  heroTitle="GAIN Typologie"
+  heroImage={typologyImage}
+  ctaTitle="Chcete zjistit svůj herní profil?"
+  ctaSubtitle="Dotazník pro GAIN typologii připravujeme."
+  ctaIsDark={true}
+>
+  <GenericTypologyType typologyName="gain" type="assault" image={imgAssault} />
+  <GenericTypologyType typologyName="gain" type="manage" image={imgManage} reverse />
+  <GenericTypologyType typologyName="gain" type="journey" image={imgJourney} />
+  <GenericTypologyType typologyName="gain" type="care" image={imgCare} reverse />
+  <GenericTypologyType typologyName="gain" type="coordinate" image={imgCoordinate} />
+</TypologyPage>

@@ -1,0 +1,36 @@
+---
+import { languages, getLangFromUrl, getLocalizedPath, removeLocaleFromPath } from '~/i18n';
+import type { Locale } from '~/i18n';
+
+const currentLocale = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+// Remove locale prefix to get base path
+const basePath = removeLocaleFromPath(currentPath);
+
+// Create language links
+const languageLinks = Object.entries(languages).map(([lang, label]) => ({
+  lang: lang as Locale,
+  label,
+  href: getLocalizedPath(basePath, lang as Locale),
+  isActive: lang === currentLocale,
+}));
+---
+
+<div class="language-switcher flex items-center gap-2">
+  {languageLinks.map(({ lang, label, href, isActive }) => (
+    <a
+      href={href}
+      class:list={[
+        'px-3 py-1 rounded text-sm font-medium transition-colors',
+        {
+          'bg-primary text-white': isActive,
+          'text-muted hover:bg-gray-100 dark:hover:bg-gray-700': !isActive,
+        }
+      ]}
+      aria-current={isActive ? 'page' : undefined}
+    >
+      {label}
+    </a>
+  ))}
+</div>

@@ -23,6 +23,14 @@ export default defineConfig({
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
+  i18n: {
+    defaultLocale: 'cz',
+    locales: ['cz', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false
+    }
+  },
   integrations: [tailwind({
     applyBaseStyles: false
   }), sitemap(), mdx(), icon({

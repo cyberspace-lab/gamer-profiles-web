@@ -3,6 +3,8 @@ import slugify from 'limax';
 import { SITE, APP_BLOG } from '~/utils/config';
 
 import { trim } from '~/utils/utils';
+import type { Locale } from '~/i18n';
+import { defaultLang } from '~/i18n';
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
 const createPath = (...params: string[]) => {
@@ -39,10 +41,23 @@ export const getCanonical = (path = ''): string | URL => {
 };
 
 /** */
-export const getPermalink = (slug = '', type = 'page'): string => {
+export const getPermalink = (slug = '', type: string | Locale = 'page', locale?: Locale): string => {
+  // Handle overloaded function signature: getPermalink(slug, locale) or getPermalink(slug, type, locale)
+  let actualType = 'page';
+  let actualLocale: Locale = defaultLang;
+
+  if (type === 'cz' || type === 'en') {
+    // Called as getPermalink(slug, locale)
+    actualLocale = type as Locale;
+  } else {
+    // Called as getPermalink(slug, type, locale) or getPermalink(slug, type)
+    actualType = type;
+    actualLocale = locale || defaultLang;
+  }
+
   let permalink: string;
 
-  switch (type) {
+  switch (actualType) {
     case 'category':
       permalink = createPath(CATEGORY_BASE, trimSlash(slug));
       break;
@@ -59,6 +74,16 @@ export const getPermalink = (slug = '', type = 'page'): string => {
     default:
       permalink = createPath(slug);
       break;
+  }
+
+  // Add locale prefix for non-default languages
+  if (actualLocale !== defaultLang) {
+    const basePermalink = definitivePermalink(permalink);
+    // Check if it already has a locale prefix
+    if (!basePermalink.startsWith(`/${actualLocale}/`)) {
+      return definitivePermalink(`${actualLocale}${permalink}`);
+    }
+    return basePermalink;
   }
 
   return definitivePermalink(permalink);

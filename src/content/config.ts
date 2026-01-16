@@ -69,6 +69,7 @@ const typologyTypeCollection = defineCollection({
     type: z.string(),
     order: z.number().optional(),
     image: z.string().optional(),
+    locale: z.enum(['cz', 'en']).optional(),
   }),
 });
 
@@ -77,6 +78,7 @@ const pageContentCollection = defineCollection({
     title: z.string(),
     section: z.string().optional(),
     order: z.number().optional(),
+    locale: z.enum(['cz', 'en']).optional(),
   }),
 });
 

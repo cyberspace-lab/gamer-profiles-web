@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "bartle": "Bartlova Typologie",
+    "brainhex": "BrainHex",
+    "trojan": "Trojan",
+    "hexad": "Hexad",
+    "gain": "GAIN",
+    "cyberspacelab": "CyberspaceLab"
+  },
+  "footer": {
+    "typologies": "Typologie",
+    "results": "Výsledky",
+    "bartleTest": "Bartle test a výsledky",
+    "web": "Web",
+    "allRightsReserved": "Všechna práva vyhrazena"
+  },
+  "hero": {
+    "gamingTypologies": "Herní typologie a",
+    "psychologicalTests": "Psychologické testy",
+    "welcome": "Vítejte na stránkách o herních typologiích a testech, které vám pomohou poznat, jací hráči jste!",
+    "imageAlt": "Herní typologie ilustrace"
+  },
+  "content": {
+    "whatAreGamingTypologies": "Co jsou herní typologie?",
+    "whatAreTheyGoodFor": "K čemu jsou herní typologie dobré?",
+    "whatTypologiesExist": "Jaké herní typologie existují?",
+    "variousTypesAlt": "Various types",
+    "brainTypesAlt": "Brain Types Image"
+  },
+  "steps": {
+    "howIsTestCreated": "Jak takový test vzniká?",
+    "step1Title": "Krok 1: <span class=\"font-medium\">Vymezení konstruktu</span>",
+    "step1Desc": "V první fázi se musíme rozhodnout, co vlastně chceme měřit. Při tom lze vycházet ze zavedené teorie <em>(např. Bartlova typologie hráčů)</em> nebo vytvořit něco zcela nového na základě našich zkušeností a očekávání.",
+    "step2Title": "Krok 2: <span class=\"font-medium\">Tvorba otázek a pilotní studie</em>",
+    "step2Desc": "V druhém kroku vytvoříme sérii otázek, které dle našeho názoru dobře vystihují konstrukt, který chceme měřit (například míru společenskosti ve videohrách). Test se zadá menšímu vzorku respondentů, aby se ověřilo, zdali otázky jsou srozumitelné. Sbírají se data na první etapy analýz.",
+    "step3Title": "Krok 3: <span class=\"font-medium\">Pilotní analýza</span>",
+    "step3Desc": "V tomto kroku se díváme na to, jaké otázky jsou příliš těžké či moc snadné, pomocí tzv. faktorové analýzy zjišťujeme, jaké otázky spolu souvisí a jaké ne. Následně si výběr otázek pro test upravíme tak, aby byl co nejkratší a nejpřesnější.",
+    "step4Title": "Krok 4: <span class=\"font-medium\">Reliabilita</span>",
+    "step4Desc": "Každý validní test musí být spolehlivý. To znamená, že pokud bychom testovali stejnou vlastnost dvakrát, měli bychom dostat stejné výsledky. V tomto kroku zjišťujeme, jak moc je test vnitřně konzistentní a jak moc se lze na jeho výsledky spolehnout.",
+    "step5Title": "Krok 5: <span class=\"font-medium\">Validace testu</span>",
+    "step5Desc": "V tomto kroku se snažíme zjistit, zda test měří to, co má měřit. Snažíme se najít nějaké externí kritérium, které by mělo s naším testem souviset, a ověřit, zda tomu tak skutečně je. Například opravdu Bojovníci v Bartlově typologii preferují PvP hry oproti PvE?",
+    "step6Title": "Krok 6: <span class=\"font-medium\">Standardizace</span>",
+    "step6Desc": "Když už je test hotový, je potřeba ho standardizovat a vytvořit normy. Ty nám poté umožní porovnávat výsledky respondentů mezi sebou a zjišťovat, jak moc je u respondenta daný rys silný.",
+    "stepDone": "Hotovo!",
+    "stepsImageAlt": "Steps image"
+  },
+  "faq": {
+    "title": "Nejčastější dotazy",
+    "subtitle": "Co by vás mohlo zajímat?",
+    "tagline": "FAQs"
+  },
+  "common": {
+    "readMore": "Číst více",
+    "learnMore": "Dozvědět se více"
+  },
+  "cta": {
+    "wantProfile": "Chcete zjistit svůj profil?",
+    "notAvailable": "Dotazník je v současné chvíli předěláván a není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový.",
+    "helpDevelopTypology": "Chcete nám pomoci s vývojem nové typologie?",
+    "currentlyDeveloping": "V současné chvíli vyvíjíme dotazník pro BrainHex typologii a budeme rádi za vaši pomoc!",
+    "moreAbout": "Více o",
+    "goToQuestionnaire": "Rovnou na dotazník"
+  },
+  "results": {
+    "dominant": "Váš dominantní typ je",
+    "subtype": "Podtyp"
+  },
+  "language": {
+    "czech": "Čeština",
+    "english": "English"
+  }
+}

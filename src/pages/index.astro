@@ -19,9 +19,9 @@ const metadata = {
   ignoreTitleTemplate: true,
 };
 
-// Get page content for index
+// Get page content for index with Czech locale
 const indexContent = await getCollection('page-content', ({ id }) => {
-  return id.startsWith('index/');
+  return id.startsWith('cz/index/');
 });
 
 const sortedIndexContent = indexContent.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));

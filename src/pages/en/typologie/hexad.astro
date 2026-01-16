@@ -1,0 +1,27 @@
+---
+import TypologyPage from "~/components/mine/TypologyPage.astro";
+import GenericTypologyType from "~/components/mine/GenericTypologyType.astro";
+import typologyImage2 from "~/assets/images/typology/hexad/main.png";
+import imgPhilanthropist from "~/assets/images/typology/hexad/philanthropist.png";
+import imgSocialiser from "~/assets/images/typology/hexad/socialiser.png";
+import imgFreeSpirit from "~/assets/images/typology/hexad/free-spirit.png";
+import imgAchiever from "~/assets/images/typology/hexad/achiever.png";
+import imgPlayer from "~/assets/images/typology/hexad/player.png";
+import imgDisruptor from "~/assets/images/typology/hexad/disruptor.png";
+---
+
+<TypologyPage
+  typologyName="hexad"
+  title="Hexad Typologie"
+  heroTitle="Hexad typologie"
+  heroImage={typologyImage2}
+  ctaTitle="Want to discover your profile?"
+  ctaSubtitle="Dotazník pro Hexad typologii zatím není k dispozici. Sledujte nás na sociálních sítích a dáme vědět, až bude hotový."
+>
+  <GenericTypologyType typologyName="hexad" type="philanthropist" image={imgPhilanthropist} reverse />
+  <GenericTypologyType typologyName="hexad" type="socialiser" image={imgSocialiser} />
+  <GenericTypologyType typologyName="hexad" type="free-spirit" image={imgFreeSpirit} reverse />
+  <GenericTypologyType typologyName="hexad" type="achiever" image={imgAchiever} />
+  <GenericTypologyType typologyName="hexad" type="player" image={imgPlayer} reverse />
+  <GenericTypologyType typologyName="hexad" type="disruptor" image={imgDisruptor} />
+</TypologyPage>

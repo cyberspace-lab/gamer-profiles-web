@@ -3,6 +3,7 @@ import CallToAction from "~/components/widgets/CallToAction.astro";
 import Hero from "~/components/widgets/Hero.astro";
 import Layout from "~/layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
+import { getLangFromUrl } from '~/i18n';
 
 export interface Props {
   typologyName: string; // e.g., "bartle", "hexad", "brainhex", "gain", "trojan"
@@ -24,13 +25,16 @@ const {
   ctaIsDark = false,
 } = Astro.props;
 
+// Get locale from URL
+const locale = getLangFromUrl(Astro.url);
+
 const metadata = {
   title: title,
 };
 
-// Get page content - now looking for single file like "bartle.md"
+// Get page content with locale-aware path
 const pageContent = await getCollection("page-content", ({ id }) => {
-  return id === `${typologyName}.md`;
+  return id === `${locale}/${typologyName}.md`;
 });
 
 // Sort by order (in case there are multiple, though we expect one)

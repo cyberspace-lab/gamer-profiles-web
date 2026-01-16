@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "bartle": "Bartle's Typology",
+    "brainhex": "BrainHex",
+    "trojan": "Trojan",
+    "hexad": "Hexad",
+    "gain": "GAIN",
+    "cyberspacelab": "CyberspaceLab"
+  },
+  "footer": {
+    "typologies": "Typologies",
+    "results": "Results",
+    "bartleTest": "Bartle test and results",
+    "web": "Website",
+    "allRightsReserved": "All rights reserved"
+  },
+  "hero": {
+    "gamingTypologies": "Gaming Typologies and",
+    "psychologicalTests": "Psychological Tests",
+    "welcome": "Welcome to the gaming typologies and tests that will help you understand what kind of player you are!",
+    "imageAlt": "Gaming typology illustration"
+  },
+  "content": {
+    "whatAreGamingTypologies": "What are gaming typologies?",
+    "whatAreTheyGoodFor": "What are gaming typologies good for?",
+    "whatTypologiesExist": "What gaming typologies exist?",
+    "variousTypesAlt": "Various types",
+    "brainTypesAlt": "Brain Types Image"
+  },
+  "steps": {
+    "howIsTestCreated": "How is such a test created?",
+    "step1Title": "Step 1: <span class=\"font-medium\">Defining the construct</span>",
+    "step1Desc": "In the first phase, we must decide what we actually want to measure. This can be based on an established theory <em>(e.g., Bartle's player typology)</em> or create something completely new based on our experience and expectations.",
+    "step2Title": "Step 2: <span class=\"font-medium\">Question creation and pilot study</em>",
+    "step2Desc": "In the second step, we create a series of questions that, in our opinion, capture well the construct we want to measure (for example, the degree of sociability in video games). The test is given to a smaller sample of respondents to verify that the questions are understandable. Data is collected for the first stages of analysis.",
+    "step3Title": "Step 3: <span class=\"font-medium\">Pilot analysis</span>",
+    "step3Desc": "In this step, we look at which questions are too difficult or too easy, using so-called factor analysis to find out which questions are related and which are not. Then we adjust the selection of questions for the test so that it is as short and accurate as possible.",
+    "step4Title": "Step 4: <span class=\"font-medium\">Reliability</span>",
+    "step4Desc": "Every valid test must be reliable. This means that if we tested the same trait twice, we should get the same results. In this step, we determine how internally consistent the test is and how much its results can be relied upon.",
+    "step5Title": "Step 5: <span class=\"font-medium\">Test validation</span>",
+    "step5Desc": "In this step, we try to determine whether the test measures what it is supposed to measure. We try to find some external criterion that should be related to our test and verify whether this is actually the case. For example, do Killers in Bartle's typology really prefer PvP games over PvE?",
+    "step6Title": "Step 6: <span class=\"font-medium\">Standardization</span>",
+    "step6Desc": "Once the test is complete, it needs to be standardized and norms created. These then allow us to compare respondents' results with each other and determine how strong a given trait is in a respondent.",
+    "stepDone": "Done!",
+    "stepsImageAlt": "Steps image"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "What might interest you?",
+    "tagline": "FAQs"
+  },
+  "common": {
+    "readMore": "Read more",
+    "learnMore": "Learn more"
+  },
+  "cta": {
+    "wantProfile": "Want to discover your profile?",
+    "notAvailable": "The questionnaire is currently being redesigned and is not available. Follow us on social media and we'll let you know when it's ready.",
+    "helpDevelopTypology": "Want to help us develop a new typology?",
+    "currentlyDeveloping": "We are currently developing a questionnaire for BrainHex typology and would appreciate your help!",
+    "moreAbout": "More about",
+    "goToQuestionnaire": "Go to questionnaire"
+  },
+  "results": {
+    "dominant": "Your dominant type is",
+    "subtype": "Subtype"
+  },
+  "language": {
+    "czech": "Čeština",
+    "english": "English"
+  }
+}

@@ -1,0 +1,30 @@
+---
+import TypologyPage from "~/components/mine/TypologyPage.astro";
+import GenericTypologyType from "~/components/mine/GenericTypologyType.astro";
+import typologyImage2 from "~/assets/images/brainhex-profiles.png";
+import imgSeeker from "~/assets/images/typology/brainhex/seeker.png";
+import imgSurvivor from "~/assets/images/typology/brainhex/survivor.png";
+import imgDaredevil from "~/assets/images/typology/brainhex/daredevil.png";
+import imgMastermind from "~/assets/images/typology/brainhex/mastermind.png";
+import imgConqueror from "~/assets/images/typology/brainhex/conqueror.png";
+import imgSocialiser from "~/assets/images/typology/brainhex/socialiser.png";
+import imgAchiever from "~/assets/images/typology/brainhex/achiever.png";
+---
+
+<TypologyPage
+  typologyName="brainhex"
+  title="BrainHex typologie osobnosti"
+  heroTitle="BrainHex typologie"
+  heroImage={typologyImage2}
+  ctaTitle="Chcete nám pomoci s vývojem BrainHex dotazníku?"
+  ctaSubtitle="The questionnaire is currently being redesigned and is not available. Follow us on social media and we'll let you know when it's ready."
+  ctaIsDark={true}
+>
+  <GenericTypologyType typologyName="brainhex" type="seeker" image={imgSeeker} />
+  <GenericTypologyType typologyName="brainhex" type="survivor" image={imgSurvivor} reverse />
+  <GenericTypologyType typologyName="brainhex" type="daredevil" image={imgDaredevil} />
+  <GenericTypologyType typologyName="brainhex" type="mastermind" image={imgMastermind} reverse />
+  <GenericTypologyType typologyName="brainhex" type="conqueror" image={imgConqueror} />
+  <GenericTypologyType typologyName="brainhex" type="socialiser" image={imgSocialiser} reverse />
+  <GenericTypologyType typologyName="brainhex" type="achiever" image={imgAchiever} />
+</TypologyPage>

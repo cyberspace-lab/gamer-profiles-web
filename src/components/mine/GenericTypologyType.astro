@@ -1,6 +1,7 @@
 ---
 import TypologyProfile from '~/components/mine/TypologyProfile.astro';
 import { getEntry } from 'astro:content';
+import { getLangFromUrl } from '~/i18n';
 
 export interface Props {
   typologyName: string; // e.g., "bartle", "hexad", "brainhex", "gain", "trojan"
@@ -16,10 +17,13 @@ const {
   image,
 } = Astro.props;
 
-// Get the type entry from content collections
-const typeEntry = await getEntry('typology-types', `${typologyName}/${type}`);
+// Get locale from URL
+const locale = getLangFromUrl(Astro.url);
+
+// Get the type entry from content collections with locale-aware path
+const typeEntry = await getEntry('typology-types', `${locale}/${typologyName}/${type}`);
 if (!typeEntry) {
-  throw new Error(`Typology type not found: ${typologyName}/${type}`);
+  throw new Error(`Typology type not found: ${locale}/${typologyName}/${type}`);
 }
 
 const { Content } = await typeEntry.render();

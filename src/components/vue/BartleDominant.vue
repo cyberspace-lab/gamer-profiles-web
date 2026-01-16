@@ -3,8 +3,8 @@
         <div class="relative px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0">
             <div class="mx-auto max-w-7xl p-4 md:px-8">
                 <h1 class="text-3xl font-bold leading-tighter tracking-tighter font-heading text-heading text-center mb-8 md:mb-12">
-                    Váš dominantní typ je <span class="text-accent dark:text-white highlight"> {{ personality.dominantType }}</span>
-                    <p><span class="text-base text-primary dark:text-blue-200"> Podtyp {{ personality.subtype }}</span></p>
+                    {{ translations.dominant }} <span class="text-accent dark:text-white highlight"> {{ personality.dominantType }}</span>
+                    <p><span class="text-base text-primary dark:text-blue-200"> {{ translations.subtype }} {{ personality.subtype }}</span></p>
                 </h1>
                 <div class="md:flex md:gap-16">
                     <div class="self-center">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <p v-if="dominantTypes.length > 1 || subtypes.length > 1" class="text-muted text-center mt-8">
-                    Pokud jste ve více kategoriích na stejném percentilu, váš dominantní typ či subtyp je v tuto chvíli vybraný náhodně. 
+                    {{ translations.randomNote }}
                 </p>
             </div>
         </div>
@@ -36,8 +36,29 @@
 
 <script>
 import parseBartleParams from "./../../utils/parseBartleParams.js";
-import types from "./../../assets/data/bartleTypes.json";
+import czTypes from "./../../assets/data/bartleTypes.json";
+import enTypes from "./../../assets/data/bartleTypes.en.json";
+
+const translations = {
+    cz: {
+        dominant: "Váš dominantní typ je",
+        subtype: "Podtyp",
+        randomNote: "Pokud jste ve více kategoriích na stejném percentilu, váš dominantní typ či subtyp je v tuto chvíli vybraný náhodně."
+    },
+    en: {
+        dominant: "Your dominant type is",
+        subtype: "Subtype",
+        randomNote: "If you have the same percentile in multiple categories, your dominant type or subtype is currently randomly selected."
+    }
+};
+
 export default {
+    props: {
+        locale: {
+            type: String,
+            default: 'cz'
+        }
+    },
     data() {
         return {
             personality: {
@@ -47,12 +68,19 @@ export default {
                 subtypeDescription: "No description available"
             },
             dominantTypes: [],
-            subtypes: []
+            subtypes: [],
+            translations: translations.cz
         };
     },
     mounted: async function() {
+        // Set translations based on locale
+        this.translations = translations[this.locale] || translations.cz;
+
+        // Load the correct data file based on locale
+        const types = this.locale === 'en' ? enTypes : czTypes;
+
         let params = parseBartleParams();
-        // find the larges value in params and return the key
+        // find the largest value in params and return the key
         // in case there is a tie, return all keys
         this.dominantTypes = Object.keys(params).filter(key => params[key] === Math.max(...Object.values(params)));
         // remove the dominant type from the params

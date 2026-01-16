@@ -1,14 +1,14 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import BartlePercentile from './../../components/vue/BartlePercentile.vue';
-import BartleDominant from './../../components/vue/BartleDominant.vue';
+import BartlePercentile from '~/components/vue/BartlePercentile.vue';
+import BartleDominant from '~/components/vue/BartleDominant.vue';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import SocialShare from '../../components/common/SocialShare.astro';
+import SocialShare from '~/components/common/SocialShare.astro';
 import { typology } from '~/navigation';
 
 const metadata = {
-  title: 'Bartle výsledky'
+  title: 'Bartle Results'
 };
 
 ---
@@ -37,7 +37,7 @@ const metadata = {
     new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: ['Společník', 'Bojovník', 'Dobrodruh', 'Kolektor'],
+        labels: ['Socializer', 'Killer', 'Explorer', 'Achiever'],
         datasets: [{
             label: 'Skill Levels',
             data: [soc, kil, exp, ach],
@@ -88,7 +88,7 @@ const metadata = {
     
     <Hero>
       <Fragment slot="title">
-         Výsledky Bartlovy Typologie<br />
+         Bartle Typology Results<br />
           <span class="text-accent dark:text-white highlight"> </span>
         </Fragment>
         <Fragment slot = subtitle>
@@ -97,12 +97,12 @@ const metadata = {
     </Hero>
 
     <BartlePercentile client:load />
-    <BartleDominant client:load locale="cz" />
+    <BartleDominant client:load locale="en" />
 
     <div id="bartleInvite" style ="display:none">
         <CallToAction
             actions={[]}
-            title="Zdá se, že se něco nezdařilo"
+            title="Something seems to have gone wrong"
             subtitle="😿"
         />
     </div>
