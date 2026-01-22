@@ -6,8 +6,4 @@ image: "~/assets/images/typology/trojan/escapist.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the escapist player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/trojan/escapist.md
+The escapist uses video games as a way to escape everyday reality. They focus on immersing themselves in a fantasy world that helps them better cope with the concerns of daily life.

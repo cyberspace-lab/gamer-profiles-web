@@ -5,7 +5,6 @@ order: 1
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
 
 In 1996, British professor and game researcher Richard Bartle published the article 'Hearts, Clubs, Diamonds, Spades: Players Who Suit MUDS'. His typology is based on categorizing players of so-called multi-user dungeons. MUD was an internet environment where players interacted with objects, game characters, or other players using text commands.
 

@@ -6,8 +6,4 @@ image: "~/assets/images/typology/brainhex/socialiser.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the Socialiser player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/brainhex/socialiser.md
+Humans are social beings, and interaction with other players is a crucial aspect for Socialisers. They thrive when they can spend time with others - chatting, going on quests, and sharing adventures together. They enjoy helping others and strongly dislike it when someone takes advantage of their kindness. Socialisers tend to trust and rely on other members of the gaming community.

@@ -5,8 +5,4 @@ image: "~/assets/images/typology/gain/journey.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the journey player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/gain/journey.md
+The focus here is on world exploration and character development. Players engage in exploring landscapes, making important story decisions, collecting rare items, and forming relationships with in-game characters. It is an ideal activity for lovers of adventure and strong atmosphere.

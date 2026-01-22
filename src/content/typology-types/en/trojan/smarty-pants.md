@@ -6,8 +6,4 @@ image: "~/assets/images/typology/trojan/smarty-pants.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the smarty-pants player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/trojan/smarty-pants.md
+The smarty-pants plays with the goal of strengthening their “mental capacity” and increasing their intelligence. They perceive games as an excellent way to train the mind, improve logical thinking, and develop their abilities overall.

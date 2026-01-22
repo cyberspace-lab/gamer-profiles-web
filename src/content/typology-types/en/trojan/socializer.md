@@ -6,8 +6,4 @@ image: "~/assets/images/typology/trojan/socializer.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the Socializer player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/trojan/socializer.md
+This player plays video games in order to build and maintain relationships with others. For them, the game primarily serves as a tool for communication, spending time with friends, or finding new teammates.

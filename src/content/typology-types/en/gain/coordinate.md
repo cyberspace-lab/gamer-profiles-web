@@ -5,8 +5,4 @@ image: "~/assets/images/typology/gain/coordinate.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the coordinate player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/gain/coordinate.md
+This category emphasizes accuracy, perception, and pattern recognition. It includes solving puzzles, platform jumping (platformers), or rhythmic tasks connected to dance and music. It appeals to players who enjoy challenges based on precise timing and spatial orientation.

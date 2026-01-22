@@ -6,8 +6,4 @@ image: "~/assets/images/typology/hexad/socialiser.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the Socialiser player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/hexad/socialiser.md
+The Socialiser is driven by a sense of belonging. They perceive games primarily as a space for meeting others and forming new relationships. Winning at all costs is not their priority; instead, they value shared experiences - whether through team cooperation, chatting with friends, or healthy competition within a community.

@@ -6,8 +6,4 @@ image: "~/assets/images/typology/hexad/philanthropist.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the Philanthropist player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/hexad/philanthropist.md
+The primary motivation of the Philanthropist is purpose and meaning. This is a selfless type of player who enjoys helping others without expecting any reward in return. They derive the greatest satisfaction from contributing to the success of others, sharing their knowledge, or donating items they no longer need.

@@ -5,8 +5,4 @@ image: "~/assets/images/typology/gain/care.png"
 locale: en
 ---
 
-[PLACEHOLDER: English translation needed]
-
-Add your English translation for the care player type here.
-
-This type corresponds to the Czech version at: typology-types/cz/gain/care.md
+This area centers on emotions, care, and relationship building. It includes activities such as taking care of pets, dating, romance within the story, or expressing affection toward others. It attracts players who enjoy social interaction and emotional bonds with the game world.
