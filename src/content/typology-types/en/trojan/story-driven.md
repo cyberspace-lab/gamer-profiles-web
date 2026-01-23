@@ -1,5 +1,5 @@
 ---
-name: "story-driven"
+name: "Story-driven"
 type: "story-driven"
 order: 5
 image: "~/assets/images/typology/trojan/story-driven.png"

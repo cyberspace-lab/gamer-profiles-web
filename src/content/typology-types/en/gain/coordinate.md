@@ -1,5 +1,5 @@
 ---
-name: "coordinate"
+name: "Coordinate"
 type: "coordinate"
 image: "~/assets/images/typology/gain/coordinate.png"
 locale: en

@@ -1,5 +1,5 @@
 ---
-name: "escapist"
+name: "Escapist"
 type: "escapist"
 order: 4
 image: "~/assets/images/typology/trojan/escapist.png"

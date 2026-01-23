@@ -1,5 +1,5 @@
 ---
-name: "manage"
+name: "Manage"
 type: "manage"
 image: "~/assets/images/typology/gain/manage.png"
 locale: en

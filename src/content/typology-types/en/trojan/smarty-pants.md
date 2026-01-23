@@ -1,5 +1,5 @@
 ---
-name: "smarty-pants"
+name: "Smarty-pants"
 type: "smarty-pants"
 order: 6
 image: "~/assets/images/typology/trojan/smarty-pants.png"

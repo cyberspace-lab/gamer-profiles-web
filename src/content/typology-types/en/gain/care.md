@@ -1,5 +1,5 @@
 ---
-name: "care"
+name: "Care"
 type: "care"
 image: "~/assets/images/typology/gain/care.png"
 locale: en

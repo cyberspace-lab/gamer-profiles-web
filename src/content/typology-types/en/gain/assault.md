@@ -1,5 +1,5 @@
 ---
-name: "assault"
+name: "Assault"
 type: "assault"
 image: "~/assets/images/typology/gain/assault.png"
 locale: en
