@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+type PageContentEntry = CollectionEntry<'page-content'>;
+
+const {
+  title = '',
+  subtitle = '',
+  tagline = '',
+  entries = [],
+  columns = 2,
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  entries?: PageContentEntry[];
+  columns?: number;
+  id?: string;
+  isDark?: boolean;
+  classes?: Record<string, string>;
+  bg?: string;
+};
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <div class={`grid mx-auto gap-8 md:gap-y-12 ${columns === 1 ? 'max-w-4xl' : 'sm:grid-cols-2'}`}>
+    {entries.map(async (entry) => {
+      const { Content } = await entry.render();
+
+      return (
+        <article>
+          <div class="flex flex-row max-w-none">
+            <div class="flex justify-center">
+              <Icon name="tabler:chevron-right" class="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
+            </div>
+            <div class="mt-0.5">
+              <h3 class="text-xl font-bold">{entry.data.title}</h3>
+              <div class="prose prose-p:my-0 prose-p:leading-relaxed prose-a:text-primary mt-3 max-w-none text-muted dark:prose-invert dark:text-slate-400">
+                <Content />
+              </div>
+            </div>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</WidgetWrapper>

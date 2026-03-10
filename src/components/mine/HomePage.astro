@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '~/i18n';
+import type { MetaData } from '~/types';
+import psychometricImage from '~/assets/images/psychometrics-1.png';
+import typologyImage1 from '~/assets/images/typology-1.png';
+import variousControllersImage from '~/assets/images/various_controllers.png';
+import brainTypesImage from '~/assets/images/brainTypes.png';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import HomeRichContent from '~/components/mine/HomeRichContent.astro';
+import HomeRichFaqs from '~/components/mine/HomeRichFaqs.astro';
+
+const { metadata } = Astro.props as { metadata: MetaData };
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+const sortEntries = <T extends { data: { order?: number } }>(entries: T[]) =>
+  [...entries].sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+const indexEntries = await getCollection('page-content', ({ id }) => id.startsWith(`${locale}/index/`));
+
+const primaryOverviewEntries = sortEntries(indexEntries.filter((entry) => entry.data.section === 'overview-primary'));
+const secondaryOverviewEntries = sortEntries(
+  indexEntries.filter((entry) => entry.data.section === 'overview-secondary')
+);
+const introEntries = sortEntries(indexEntries.filter((entry) => entry.data.section === 'intro'));
+const faqEntries = sortEntries(indexEntries.filter((entry) => entry.data.section === 'faq'));
+---
+
+<Layout metadata={metadata}>
+  <Hero image={{ src: typologyImage1, alt: t('hero.imageAlt') }}>
+    <Fragment slot="title">
+      <span class="mb-2 block">{t('hero.gamingTypologies')}</span>
+      <span class="animate-float bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+        {t('hero.psychologicalTests')}
+      </span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      <span class="text-lg text-muted dark:text-slate-300 md:text-xl">
+        {t('hero.welcome')}
+      </span>
+    </Fragment>
+  </Hero>
+
+  {primaryOverviewEntries.length > 0 && (
+    <HomeRichContent
+      isAfterContent
+      entries={primaryOverviewEntries}
+      image={{
+        src: variousControllersImage,
+        alt: t('home.variousTypesAlt'),
+      }}
+    />
+  )}
+
+  {secondaryOverviewEntries.length > 0 && (
+    <HomeRichContent
+      isReversed
+      isAfterContent
+      entries={secondaryOverviewEntries}
+      image={{
+        src: brainTypesImage,
+        alt: t('home.brainTypesAlt'),
+      }}
+    />
+  )}
+
+  {introEntries.length > 0 && (
+    <section class="mx-auto my-16 px-4 text-center sm:px-6">
+      <article class="enhanced-card mx-auto max-w-4xl rounded-2xl py-12">
+        {introEntries.map(async (entry) => {
+          const { Content } = await entry.render();
+
+          return (
+            <>
+              <header class="mb-8">
+                <h2 class="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text px-4 text-4xl font-bold leading-tight text-transparent sm:px-6 md:text-5xl">
+                  {entry.data.title}
+                </h2>
+              </header>
+              <div class="mx-auto max-w-6xl px-6 text-justify text-xl text-muted dark:text-slate-400 md:text-1xl">
+                <Content />
+              </div>
+            </>
+          );
+        })}
+      </article>
+    </section>
+  )}
+
+  <Steps
+    title={t('steps.howIsTestCreated')}
+    items={[
+      {
+        title: t('steps.step1Title'),
+        description: t('steps.step1Desc'),
+        icon: 'tabler:package',
+      },
+      {
+        title: t('steps.step2Title'),
+        description: t('steps.step2Desc'),
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: t('steps.step3Title'),
+        description: t('steps.step3Desc'),
+        icon: 'tabler:paint',
+      },
+      {
+        title: t('steps.step4Title'),
+        description: t('steps.step4Desc'),
+        icon: 'tabler:rocket',
+      },
+      {
+        title: t('steps.step5Title'),
+        description: t('steps.step5Desc'),
+        icon: 'tabler:rocket',
+      },
+      {
+        title: t('steps.step6Title'),
+        description: t('steps.step6Desc'),
+        icon: 'tabler:rocket',
+      },
+      {
+        title: t('steps.stepDone'),
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: psychometricImage,
+      alt: t('steps.stepsImageAlt'),
+    }}
+  />
+
+  {faqEntries.length > 0 && (
+    <HomeRichFaqs
+      title={t('faq.title')}
+      subtitle={t('faq.subtitle')}
+      tagline={t('faq.tagline')}
+      classes={{ container: 'max-w-6xl' }}
+      entries={faqEntries}
+    />
+  )}
+</Layout>

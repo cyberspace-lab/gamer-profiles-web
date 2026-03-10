@@ -20,10 +20,7 @@
     "welcome": "Vítejte na stránkách o herních typologiích a testech, které vám pomohou poznat, jací hráči jste!",
     "imageAlt": "Herní typologie ilustrace"
   },
-  "content": {
-    "whatAreGamingTypologies": "Co jsou herní typologie?",
-    "whatAreTheyGoodFor": "K čemu jsou herní typologie dobré?",
-    "whatTypologiesExist": "Jaké herní typologie existují?",
+  "home": {
     "variousTypesAlt": "Various types",
     "brainTypesAlt": "Brain Types Image"
   },

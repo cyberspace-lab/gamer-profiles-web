@@ -20,10 +20,7 @@
     "welcome": "Welcome to the gaming typologies and tests that will help you understand what kind of player you are!",
     "imageAlt": "Gaming typology illustration"
   },
-  "content": {
-    "whatAreGamingTypologies": "What are gaming typologies?",
-    "whatAreTheyGoodFor": "What are gaming typologies good for?",
-    "whatTypologiesExist": "What gaming typologies exist?",
+  "home": {
     "variousTypesAlt": "Various types",
     "brainTypesAlt": "Brain Types Image"
   },

@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+type PageContentEntry = CollectionEntry<'page-content'>;
+
+const {
+  entries = [],
+  image = await Astro.slots.render('image'),
+  isReversed = false,
+  isAfterContent = false,
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as {
+  entries?: PageContentEntry[];
+  image?: string | unknown;
+  isReversed?: boolean;
+  isAfterContent?: boolean;
+  id?: string;
+  isDark?: boolean;
+  classes?: Record<string, string>;
+  bg?: string;
+};
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <div class="mx-auto max-w-7xl p-4 md:px-8">
+    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
+      <div class="md:basis-1/2 self-center space-y-4 md:space-y-8">
+        {entries.map(async (entry) => {
+          const { Content } = await entry.render();
+
+          return (
+            <article class="flex flex-row max-w-none">
+              <div class="flex justify-center">
+                <Icon
+                  name="tabler:check"
+                  class="flex h-7 w-7 items-center justify-center rounded-full bg-green-600 p-1 text-gray-50 dark:bg-green-700"
+                />
+              </div>
+              <div class="mt-0.5">
+                <h3 class="ml-2 text-lg font-medium leading-6 dark:text-white">{entry.data.title}</h3>
+                <div class="prose prose-p:my-0 prose-p:leading-relaxed prose-a:text-primary ml-2 mt-3 max-w-none text-justify text-muted dark:prose-invert dark:text-slate-400">
+                  <Content />
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
+        {
+          image && (
+            <div class="relative m-auto max-w-4xl">
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                  width={500}
+                  height={500}
+                  widths={[400, 768]}
+                  sizes="(max-width: 768px) 100vw, 432px"
+                  layout="responsive"
+                  {...(image as any)}
+                />
+              )}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>
