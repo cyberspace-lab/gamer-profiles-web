@@ -1,6 +1,5 @@
 ---
 import type { Content } from "~/types";
-import Headline from "../ui/Headline.astro";
 import WidgetWrapper from "../ui/WidgetWrapper.astro";
 import Image from "~/components/common/Image.astro";
 import ItemGrid from "../ui/ItemGrid.astro";
@@ -11,11 +10,7 @@ export interface Props extends Content {
 
 const {
   type,
-  title = await Astro.slots.render("title"),
-  subtitle = await Astro.slots.render("subtitle"),
   tagline,
-  content = await Astro.slots.render("content"),
-  callToAction,
   items = [],
   columns,
   image = await Astro.slots.render("image"),
@@ -31,140 +26,182 @@ const {
 <WidgetWrapper
   id={id}
   isDark={isDark}
-  containerClass={`max-w-7xl mx-auto ${isAfterContent ? "pt-0 md:pt-0 lg:pt-0" : ""} ${classes?.container ?? "py-2 md:py-3 lg:py-4"}`}
+  containerClass={`max-w-7xl mx-auto ${isAfterContent ? "pt-0 md:pt-0 lg:pt-0" : ""} ${classes?.container ?? "py-4 md:py-6 lg:py-8"}`}
   bg={bg}
 >
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
-    classes={{
-      container: "max-w-xl sm:mx-auto lg:max-w-2xl",
-      title:
-        "text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading",
-      subtitle:
-        "max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400",
-    }}
-  />
-  <div class="mx-auto max-w-7xl px-4 sm:px-6">
-    <div
-      class={`flex flex-col md:flex-row ${isReversed ? "md:flex-row-reverse" : ""} md:gap-12 lg:gap-16 items-center`}
-    >
-      <div class="md:basis-2/3 self-center w-full">
-        <div class="mb-4 md:mb-8 text-lg">
-          <Fragment slot="content">
-            <h2
-              class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-            >
-              {type}
-            </h2>
-          </Fragment>
-        </div>
+  <div class:list={["csl-typology-profile", { reversed: isReversed }]}>
 
-        <!-- Image appears here on mobile, ordered to show after title -->
-        <div aria-hidden="true" class="mb-6 md:hidden">
-          {
-            image && (
-              <div class="relative m-auto max-w-[280px]">
-                {typeof image === "string" ? (
-                  <Fragment set:html={image} />
-                ) : (
-                  <Image
-                    class="mx-auto w-full typology-image"
-                    width={500}
-                    height={500}
-                    widths={[400, 768]}
-                    sizes="(max-width: 768px) 100vw, 432px"
-                    layout="responsive"
-                    {...(image as any)}
-                  />
-                )}
-              </div>
-            )
-          }
-        </div>
+    <!-- Text side -->
+    <div class="csl-typology-body">
+      {tagline && (
+        <p class="eyebrow" style="margin-bottom: 10px">{tagline}</p>
+      )}
 
-        <div class="mb-8 text-lg">
-          <Fragment slot="content">
-            <div class="prose prose-lg dark:prose-invert mt-4 text-justify text-muted dark:text-slate-300">
-              <slot />
-            </div>
-          </Fragment>
+      {type && (
+        <h2 class="csl-typology-name">{type}</h2>
+      )}
+
+      <!-- Mobile image -->
+      {image && (
+        <div class="csl-typology-img-mobile" aria-hidden="true">
+          {typeof image === "string" ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="typology-image"
+              width={280}
+              height={280}
+              widths={[280, 400]}
+              sizes="280px"
+              layout="responsive"
+              {...(image as any)}
+            />
+          )}
         </div>
+      )}
+
+      <div class="csl-typology-content prose prose-lg dark:prose-invert">
+        <slot />
+      </div>
+
+      {items?.length > 0 && (
         <ItemGrid
           items={items}
           columns={columns}
           defaultIcon="tabler:check"
           classes={{
-            container: `gap-y-4 md:gap-y-8`,
+            container: "gap-y-4 md:gap-y-6 mt-6",
             panel: "max-w-none",
-            title:
-              "text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2",
-            description:
-              "text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2",
-            icon: "flex h-7 w-7 items-center justify-center rounded-full bg-primary dark:text-gray-50 p-1",
-            action:
-              "text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2",
+            title: "text-base font-semibold dark:text-white ml-2",
+            description: "text-muted dark:text-slate-400 ml-2",
+            icon: "flex h-6 w-6 items-center justify-center rounded-none bg-transparent border border-[var(--csl-cyan)] text-[var(--csl-cyan)] p-0.5 flex-shrink-0",
+            action: "text-base font-medium ml-2",
           }}
         />
-      </div>
-
-      <!-- Image appears here on tablet/desktop -->
-      <div aria-hidden="true" class="hidden md:block md:mt-0 md:basis-1/3">
-        {
-          image && (
-            <div class="relative m-auto max-w-xs">
-              {typeof image === "string" ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto w-full typology-image"
-                  width={500}
-                  height={500}
-                  widths={[400, 768]}
-                  sizes="(max-width: 768px) 100vw, 432px"
-                  layout="responsive"
-                  {...(image as any)}
-                />
-              )}
-            </div>
-          )
-        }
-      </div>
+      )}
     </div>
+
+    <!-- Desktop image -->
+    {image && (
+      <div class="csl-typology-img-desktop" aria-hidden="true">
+        <div class="csl-typology-img-wrap panel notched">
+          {typeof image === "string" ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="typology-image csl-typology-img"
+              width={400}
+              height={400}
+              widths={[280, 400, 600]}
+              sizes="(max-width: 768px) 280px, 400px"
+              layout="responsive"
+              {...(image as any)}
+            />
+          )}
+        </div>
+      </div>
+    )}
   </div>
 </WidgetWrapper>
 
 <style>
-  /* Choose one of the three options below by uncommenting */
-
-  /* OPTION 1: Clean, minimal - no border, subtle shadow */
-  .typology-image {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .typology-image:hover {
-    transform: scale(1.03);
+  .csl-typology-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
   }
 
-  /* OPTION 2: Fade edges into background (uncomment to use)
-  .typology-image {
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    transition: transform 0.3s ease;
+  @media (min-width: 768px) {
+    .csl-typology-profile {
+      flex-direction: row;
+      gap: 64px;
+      align-items: flex-start;
+    }
+    .csl-typology-profile.reversed {
+      flex-direction: row-reverse;
+    }
   }
-  .typology-image:hover {
-    transform: scale(1.05);
-  }
-  */
 
-  /* OPTION 3: Soft glow effect (uncomment to use)
-  .typology-image {
-    filter: drop-shadow(0 0 30px rgba(147, 197, 253, 0.3));
-    transition: all 0.3s ease;
+  .csl-typology-body {
+    flex: 1 1 0;
+    min-width: 0;
   }
-  .typology-image:hover {
-    filter: drop-shadow(0 0 40px rgba(147, 197, 253, 0.5));
-    transform: scale(1.03);
+
+  .csl-typology-name {
+    font-family: 'Chakra Petch', system-ui, sans-serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--csl-fg-1);
+    letter-spacing: 0.01em;
+    margin: 0 0 16px;
+    line-height: 1.1;
   }
-  */
+
+  /* Accent bar under name */
+  .csl-typology-name::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 2px;
+    background: var(--csl-grad-signature);
+    margin-top: 10px;
+  }
+
+  .csl-typology-content {
+    color: var(--csl-fg-2);
+  }
+  .csl-typology-content :global(p) {
+    color: var(--csl-fg-2);
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 0;
+  }
+  .csl-typology-content :global(strong) {
+    color: var(--csl-cyan);
+  }
+  .csl-typology-content :global(a) {
+    color: var(--csl-cyan);
+  }
+
+  /* Mobile image: shown inline between title and content */
+  .csl-typology-img-mobile {
+    display: block;
+    margin: 16px auto 20px;
+    max-width: 220px;
+  }
+  @media (min-width: 768px) {
+    .csl-typology-img-mobile {
+      display: none;
+    }
+  }
+
+  /* Desktop image: right column with notched panel */
+  .csl-typology-img-desktop {
+    flex: 0 0 280px;
+    width: 280px;
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .csl-typology-img-desktop {
+      display: block;
+    }
+  }
+
+  .csl-typology-img-wrap {
+    /* panel + notched from global styles */
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .csl-typology-img {
+    width: 100%;
+    display: block;
+    filter: saturate(1.1);
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .csl-typology-img:hover {
+    filter: saturate(1.25) drop-shadow(0 0 18px rgba(0,240,255,0.4));
+    transform: scale(1.02);
+  }
 </style>

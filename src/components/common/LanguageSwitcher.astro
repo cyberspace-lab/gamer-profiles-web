@@ -17,20 +17,47 @@ const languageLinks = Object.entries(languages).map(([lang, label]) => ({
 }));
 ---
 
-<div class="language-switcher flex items-center gap-2">
+<div class="csl-lang-switcher">
   {languageLinks.map(({ lang, label, href, isActive }) => (
     <a
       href={href}
-      class:list={[
-        'px-3 py-1 rounded text-sm font-medium transition-colors',
-        {
-          'bg-primary text-white': isActive,
-          'text-muted hover:bg-gray-100 dark:hover:bg-gray-700': !isActive,
-        }
-      ]}
+      class:list={['csl-lang-btn', { active: isActive }]}
       aria-current={isActive ? 'page' : undefined}
     >
       {label}
     </a>
   ))}
 </div>
+
+<style>
+  .csl-lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--csl-bg-raised);
+    border: 1px solid var(--csl-line);
+    padding: 3px;
+  }
+
+  .csl-lang-btn {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    color: var(--csl-fg-3);
+    border-bottom: none;
+    transition: color var(--csl-dur-2) ease, background var(--csl-dur-2) ease;
+    white-space: nowrap;
+  }
+  .csl-lang-btn:hover {
+    color: var(--csl-fg-1);
+    background: var(--csl-line);
+    border-bottom: none;
+  }
+  .csl-lang-btn.active {
+    background: var(--csl-accent-primary);
+    color: #fff;
+  }
+</style>

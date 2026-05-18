@@ -10,7 +10,7 @@ export interface Props {
   tagline?: string;
   content?: string;
   actions?: string | CallToAction[];
-  image?: string | any; // TODO: find HTMLElementProps
+  image?: string | any;
 }
 
 const {
@@ -24,69 +24,196 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-8 md:py-12">
-      <div class="text-center pb-8 md:pb-4 lg:pb-8 max-w-5xl mx-auto">
-        {
-          tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase mb-2"
-              set:html={tagline}
-            />
-          )
-        }
-        {
-          title && (
-            <h1
-              class="text-4xl md:text-6xl font-bold leading-[1.2] tracking-tighter mb-6 font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          {
-            actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-        {content && <Fragment set:html={content} />}
+<section class="csl-hero not-prose" {...id ? { id } : {}}>
+  <!-- Perspective grid — dark mode only via CSS -->
+  <div class="csl-hero-grid-wrap" aria-hidden="true">
+    <div class="csl-hero-grid" />
+  </div>
+
+  <div class="csl-hero-inner">
+    {tagline && (
+      <p class="eyebrow" style="margin-bottom: 14px">{tagline}</p>
+    )}
+
+    {title && (
+      <div class="csl-hero-title" set:html={title} />
+    )}
+
+    {subtitle && (
+      <div class="csl-hero-subtitle" set:html={subtitle} />
+    )}
+
+    {actions && (
+      <div class="csl-hero-cta">
+        {Array.isArray(actions) ? (
+          actions.map((action) => (
+            <Button {...(action || {})} />
+          ))
+        ) : (
+          <Fragment set:html={actions} />
+        )}
       </div>
-      <div>
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
-              )}
-            </div>
-          )
-        }
+    )}
+
+    {content && <Fragment set:html={content} />}
+
+    {image && (
+      <div class="csl-hero-image">
+        {typeof image === 'string' ? (
+          <Fragment set:html={image} />
+        ) : (
+          <Image
+            class="csl-hero-img"
+            widths={[400, 768, 1024, 2040]}
+            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+            loading="eager"
+            width={1024}
+            height={576}
+            {...image}
+          />
+        )}
       </div>
-    </div>
+    )}
   </div>
 </section>
+
+<style>
+  .csl-hero {
+    position: relative;
+    padding: 72px 32px 80px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  /* Perspective grid — only visible in dark mode */
+  .csl-hero-grid-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  :global(html.dark) .csl-hero-grid-wrap {
+    opacity: 1;
+  }
+
+  .csl-hero-grid {
+    position: absolute;
+    inset: 52% 0 0 0;
+    background:
+      linear-gradient(rgba(0, 240, 255, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+    transform: perspective(400px) rotateX(60deg);
+    transform-origin: top;
+    mask-image: linear-gradient(180deg, transparent, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.0) 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.0) 100%);
+  }
+
+  .csl-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Title wrapper — also acts as the heading itself when no h1 is inside */
+  .csl-hero-title {
+    font-family: 'Chakra Petch', system-ui, sans-serif;
+    font-size: clamp(38px, 6.5vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--csl-fg-1);
+    margin: 0 0 20px;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+  }
+
+  /* When there IS an h1 inside the slot */
+  :global(.csl-hero-title h1),
+  :global(.csl-hero h1) {
+    font-family: 'Chakra Petch', system-ui, sans-serif;
+    font-size: clamp(38px, 6.5vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--csl-fg-1);
+    margin: 0 0 20px;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+  }
+
+  /* Direct span children of the title div (slot fragments without h1) */
+  :global(.csl-hero-title span),
+  :global(.csl-hero-title h1 span),
+  :global(.csl-hero h1 span) {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+    color: inherit !important;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  /* accent spans */
+  :global(.csl-hero-title .csl-hero-accent),
+  :global(.csl-hero h1 .csl-hero-accent) {
+    color: var(--csl-accent-primary) !important;
+  }
+
+  .csl-hero-subtitle {
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: clamp(16px, 2.2vw, 19px);
+    color: var(--csl-fg-2);
+    max-width: 58ch;
+    margin: 0 auto 28px;
+    line-height: 1.65;
+  }
+  :global(.csl-hero-subtitle p) {
+    color: var(--csl-fg-2);
+    margin: 0;
+  }
+
+  .csl-hero-cta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .csl-hero-image {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .csl-hero-img {
+    width: 100%;
+    display: block;
+    /* Notched corner — game HUD feel without being garish */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+    border: 1px solid var(--csl-line);
+    box-shadow: var(--csl-shadow-card);
+    transition: box-shadow 0.3s ease;
+  }
+  .csl-hero-img:hover {
+    box-shadow: var(--csl-shadow-pop);
+  }
+
+  @media (max-width: 640px) {
+    .csl-hero {
+      padding: 52px 20px 64px;
+    }
+  }
+</style>

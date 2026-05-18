@@ -1,6 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 import { UI } from '~/utils/config';
 
 export interface Props {
@@ -10,19 +8,65 @@ export interface Props {
   iconName?: string;
 }
 
-const {
-  label = 'Toggle between Dark and Light mode',
-  class:
-    className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
-  iconClass = 'w-6 h-6',
-  iconName = 'tabler:sun',
-} = Astro.props;
+const { label = 'Toggle between Dark and Light mode' } = Astro.props;
 ---
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
-    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
-      <Icon name={iconName} class={iconClass} />
-    </button>
+    <div class="csl-theme-toggle" role="group" aria-label={label} data-aw-toggle-color-scheme>
+      <button type="button" class="csl-theme-btn" id="csl-btn-light" title="Light">◑</button>
+      <button type="button" class="csl-theme-btn" id="csl-btn-dark" title="Dark">◐</button>
+    </div>
   )
 }
+
+<style>
+  .csl-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--csl-bg-raised);
+    border: 1px solid var(--csl-line);
+    padding: 3px;
+    border-radius: 999px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .csl-theme-btn {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--csl-fg-4);
+    transition: background 0.18s ease, color 0.18s ease;
+    padding: 0;
+    line-height: 1;
+  }
+
+  /* Light mode active = light button */
+  :global(html:not(.dark)) #csl-btn-light {
+    background: var(--csl-accent-primary);
+    color: #fff;
+  }
+  :global(html:not(.dark)) #csl-btn-dark {
+    background: none;
+    color: var(--csl-fg-4);
+  }
+
+  /* Dark mode active = dark button */
+  :global(html.dark) #csl-btn-dark {
+    background: var(--csl-accent-primary);
+    color: #fff;
+  }
+  :global(html.dark) #csl-btn-light {
+    background: none;
+    color: var(--csl-fg-4);
+  }
+</style>

@@ -1,199 +1,682 @@
 ---
-import '@fontsource-variable/inter';
 ---
 
 <style is:inline is:global>
-  :root {
-    /* Typography */
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: var(--aw-font-sans);
-    --aw-font-heading: var(--aw-font-sans);
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Audiowide&display=swap");
 
-    /* Gaming-inspired professional color palette */
-    --aw-color-primary: rgb(124 58 237); /* Vibrant purple - gaming energy */
-    --aw-color-secondary: rgb(59 130 246); /* Bright blue - tech/digital */
-    --aw-color-accent: rgb(236 72 153); /* Pink accent - personality */
+/* ============================================================
+   TOKENS — dark is the default, .dark class = DARK mode
+   (Tailwind/Astro convention: html.dark = user chose dark)
+   ============================================================ */
+:root {
+  /* Fonts */
+  --aw-font-sans:    'Rajdhani', system-ui, sans-serif;
+  --aw-font-serif:   'Rajdhani', system-ui, sans-serif;
+  --aw-font-heading: 'Chakra Petch', system-ui, sans-serif;
 
-    /* Semantic colors */
-    --aw-color-success: rgb(34 197 94);
-    --aw-color-warning: rgb(251 146 60);
-    --aw-color-info: rgb(14 165 233);
+  /* Brand accents — never change between modes */
+  --csl-magenta:  #ff0080;
+  --csl-cyan:     #00f0ff;
+  --csl-violet:   #b300ff;
+  --csl-blue:     #0070f3;
+  --csl-amber:    #ffb347;
 
-    /* Text colors */
-    --aw-color-text-heading: rgb(15 23 42);
-    --aw-color-text-default: rgb(30 41 59);
-    --aw-color-text-muted: rgb(100 116 139);
+  /* Glows */
+  --csl-glow-cyan:    0 0 12px rgba(0,240,255,0.5), 0 0 28px rgba(0,240,255,0.2);
+  --csl-glow-magenta: 0 0 12px rgba(255,0,128,0.5), 0 0 28px rgba(255,0,128,0.2);
+  --csl-glow-violet:  0 0 12px rgba(179,0,255,0.5), 0 0 28px rgba(179,0,255,0.2);
 
-    /* Background colors */
-    --aw-color-bg-page: rgb(255 255 255);
-    --aw-color-bg-section: rgb(248 250 252);
-    --aw-color-bg-section-alt: rgb(241 245 249);
-    --aw-color-bg-page-dark: rgb(15 23 42);
+  /* Motion */
+  --csl-ease:   cubic-bezier(.2,.7,.2,1);
+  --csl-dur-1: 120ms;
+  --csl-dur-2: 220ms;
+  --csl-dur-3: 380ms;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, rgb(124 58 237 / 0.1) 0%, rgb(59 130 246 / 0.1) 100%);
-    --gradient-card: linear-gradient(to bottom right, rgb(124 58 237 / 0.05), rgb(236 72 153 / 0.05));
+  /* ── LIGHT MODE (default, no .dark class) ── */
+  --csl-bg:          #ffffff;
+  --csl-bg-subtle:   #f7f5ff;
+  --csl-bg-raised:   #f0ecff;
+  --csl-line:        #e2daf5;
+  --csl-line-strong: #c8bcee;
 
-    ::selection {
-      background-color: rgb(124 58 237 / 0.2);
-      color: rgb(15 23 42);
-    }
-  }
+  --csl-fg-1: #0a0420;
+  --csl-fg-2: #3a2a6b;
+  --csl-fg-3: #6b5a9c;
+  --csl-fg-4: #9889c4;
 
-  .dark {
-    /* Typography stays the same */
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: var(--aw-font-sans);
-    --aw-font-heading: var(--aw-font-sans);
+  /* Accent adjustments for light backgrounds */
+  --csl-accent-primary:  #8c00d4;   /* violet, darkened */
+  --csl-accent-cyan:     #0070a8;   /* teal, readable */
+  --csl-accent-magenta:  #c40060;   /* deep magenta */
 
-    /* Enhanced dark mode colors */
-    --aw-color-primary: rgb(147 51 234); /* Brighter purple for dark mode */
-    --aw-color-secondary: rgb(96 165 250); /* Brighter blue for dark mode */
-    --aw-color-accent: rgb(244 114 182); /* Brighter pink for dark mode */
+  /* AW token bridge */
+  --aw-color-primary:        #8c00d4;
+  --aw-color-secondary:      #c40060;
+  --aw-color-accent:         #0070a8;
+  --aw-color-text-heading:   #0a0420;
+  --aw-color-text-default:   #0a0420;
+  --aw-color-text-muted:     #3a2a6b;
+  --aw-color-bg-page:        #ffffff;
+  --aw-color-bg-page-dark:   #05010f;
+  --aw-color-bg-section:     #f7f5ff;
+  --aw-color-bg-section-alt: #f0ecff;
 
-    /* Semantic colors (brighter for dark mode) */
-    --aw-color-success: rgb(74 222 128);
-    --aw-color-warning: rgb(251 191 36);
-    --aw-color-info: rgb(56 189 248);
+  /* shadow */
+  --csl-shadow-card: 0 2px 16px rgba(10,4,32,0.08), 0 0 0 1px var(--csl-line);
+  --csl-shadow-pop:  0 8px 32px rgba(10,4,32,0.14), 0 0 0 1.5px var(--csl-accent-primary);
+}
 
-    /* Dark mode text colors */
-    --aw-color-text-heading: rgb(248 250 252);
-    --aw-color-text-default: rgb(226 232 240);
-    --aw-color-text-muted: rgb(148 163 184);
+/* ── DARK MODE (.dark class on <html>) ── */
+html.dark {
+  --csl-bg:          #05010f;
+  --csl-bg-subtle:   #0a0420;
+  --csl-bg-raised:   #14082e;
+  --csl-line:        #2a1659;
+  --csl-line-strong: #4221a3;
 
-    /* Dark mode backgrounds */
-    --aw-color-bg-page: rgb(15 23 42);
-    --aw-color-bg-section: rgb(30 41 59);
-    --aw-color-bg-section-alt: rgb(51 65 85);
+  --csl-fg-1: #f5f1ff;
+  --csl-fg-2: #c9bfe8;
+  --csl-fg-3: #8b81b3;
+  --csl-fg-4: #5b537d;
 
-    /* Dark mode gradients */
-    --gradient-hero: linear-gradient(135deg, rgb(147 51 234 / 0.15) 0%, rgb(96 165 250 / 0.15) 100%);
-    --gradient-card: linear-gradient(to bottom right, rgb(147 51 234 / 0.1), rgb(244 114 182 / 0.1));
+  --csl-accent-primary:  #b300ff;
+  --csl-accent-cyan:     #00f0ff;
+  --csl-accent-magenta:  #ff0080;
 
-    ::selection {
-      background-color: rgb(147 51 234 / 0.3);
-      color: rgb(248 250 252);
-    }
-  }
+  --aw-color-primary:        #b300ff;
+  --aw-color-secondary:      #ff0080;
+  --aw-color-accent:         #00f0ff;
+  --aw-color-text-heading:   #f5f1ff;
+  --aw-color-text-default:   #f5f1ff;
+  --aw-color-text-muted:     #c9bfe8;
+  --aw-color-bg-page:        #05010f;
+  --aw-color-bg-page-dark:   #05010f;
+  --aw-color-bg-section:     #0a0420;
+  --aw-color-bg-section-alt: #14082e;
 
-  /* Enhanced button styles */
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 ease-in-out;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
+  --csl-shadow-card: 0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px var(--csl-line);
+  --csl-shadow-pop:  0 12px 40px rgba(0,0,0,0.7), 0 0 0 1px var(--csl-accent-magenta);
+}
 
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg shadow-primary/25;
-    @apply hover:shadow-xl hover:shadow-primary/30 hover:scale-105;
-    @apply focus:ring-primary;
-  }
+/* ============================================================
+   GLOBAL RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
 
-  .btn-secondary {
-    @apply bg-gradient-to-r from-secondary to-blue-600 text-white shadow-lg shadow-secondary/25;
-    @apply hover:shadow-xl hover:shadow-secondary/30 hover:scale-105;
-    @apply focus:ring-secondary;
-  }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
-  .btn-tertiary {
-    @apply border-2 border-muted/30 text-default bg-white dark:bg-slate-800 dark:text-white;
-    @apply hover:border-primary hover:text-primary hover:bg-primary/5;
-    @apply dark:hover:border-primary dark:hover:bg-primary/10;
-  }
+body {
+  margin: 0;
+  background: var(--csl-bg);
+  color: var(--csl-fg-1);
+  font-family: 'Rajdhani', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  transition: background var(--csl-dur-2) ease, color var(--csl-dur-2) ease;
+}
 
-  /* Enhanced typography */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-  }
+/* Dark mode: synthwave void bg with subtle radial washes */
+html.dark body {
+  background: var(--csl-bg);
+}
 
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
-    background: linear-gradient(135deg, var(--aw-color-primary), var(--aw-color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+/* Scanlines — dark only, very subtle */
+html.dark body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.012) 0 1px,
+    transparent 1px 3px
+  );
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
 
-  h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
-  }
+/* ============================================================
+   TYPOGRAPHY — clean, NO gradient on headings globally
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--csl-fg-1);
+  line-height: 1.1;
+  text-wrap: balance;
+  /* Reset any inherited gradient text — this was causing the colored stripe */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
 
-  /* Gaming-themed decorative elements */
-  .gaming-glow {
-    position: relative;
-  }
+h1 { font-size: clamp(32px, 5vw, 58px); }
+h2 { font-size: clamp(24px, 3.5vw, 40px); line-height: 1.15; }
+h3 { font-size: 22px; }
+h4 { font-size: 18px; font-weight: 600; }
 
-  .gaming-glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    padding: 2px;
-    background: linear-gradient(135deg, var(--aw-color-primary), var(--aw-color-accent));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+p {
+  color: var(--csl-fg-2);
+  line-height: 1.65;
+  margin-top: 0;
+}
 
-  .gaming-glow:hover::before {
-    opacity: 1;
-  }
+a {
+  color: var(--csl-accent-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--csl-dur-2) ease, border-color var(--csl-dur-2) ease;
+}
+a:hover {
+  color: var(--csl-accent-magenta);
+  border-bottom-color: var(--csl-accent-magenta);
+}
 
-  /* Enhanced card styles */
-  .enhanced-card {
-    @apply bg-white dark:bg-slate-800 rounded-xl shadow-lg;
-    @apply border border-slate-200 dark:border-slate-700;
-    @apply transition-all duration-300;
-    background: var(--gradient-card);
-  }
+/* Eyebrow / tag label */
+.eyebrow, .csl-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--csl-accent-cyan);
+  display: inline-block;
+}
 
-  /* Disable transform on mobile for better performance */
-  @media (min-width: 768px) {
-    .enhanced-card:hover {
-      @apply shadow-2xl transform -translate-y-1;
-      @apply border-primary/50 dark:border-primary/50;
-    }
-  }
+/* ============================================================
+   ACCENT TEXT — only use sparingly on specific elements
+   ============================================================ */
+.csl-accent-text {
+  color: var(--csl-accent-primary);
+}
+.csl-cyan-text {
+  color: var(--csl-accent-cyan);
+}
 
-  @media (max-width: 767px) {
-    .enhanced-card:active {
-      @apply border-primary/50 dark:border-primary/50;
-    }
-  }
+/* ============================================================
+   BUTTONS — skewed clip-path game style
+   ============================================================ */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition:
+    transform var(--csl-dur-2) var(--csl-ease),
+    filter var(--csl-dur-2) var(--csl-ease);
+  text-decoration: none;
+  border-radius: 0;
+  box-shadow: none;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--csl-accent-primary);
+}
+.btn:hover {
+  filter: brightness(1.1) saturate(1.1);
+  transform: translateY(-1px);
+  border-bottom: none;
+  color: #fff;
+  text-shadow: none;
+}
+.btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.92);
+}
 
-  /* Subtle pattern overlay for sections */
-  .pattern-dots {
-    background-image: radial-gradient(circle, rgb(124 58 237 / 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
+/* Kill Tailwind's rounded-full and default border/bg on all buttons */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-tertiary {
+  border-radius: 0 !important;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%) !important;
+}
+/* Tailwind @apply btn adds border-gray-400 and hover:bg-gray-100 — override */
+.btn-primary,
+.btn-secondary {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: unset !important;
+  border-color: unset !important;
+}
 
-  .pattern-grid {
-    background-image:
-      linear-gradient(rgb(124 58 237 / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(124 58 237 / 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
+/* Primary — violet fill */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  background: var(--csl-accent-primary);
+  color: #fff;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--csl-accent-primary) 40%, transparent);
+  transition: transform var(--csl-dur-2) var(--csl-ease), filter var(--csl-dur-2) var(--csl-ease);
+}
+.btn-primary:hover {
+  color: #fff;
+  border-bottom: none;
+  filter: brightness(1.1) saturate(1.1);
+  transform: translateY(-1px);
+  text-shadow: none;
+}
+.btn-primary:active { transform: translateY(1px); filter: brightness(0.92); }
 
-  /* Smooth animations */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
+/* Secondary — subtle fill with accent text (border doesn't work with clip-path) */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  background: color-mix(in srgb, var(--csl-accent-primary) 14%, var(--csl-bg));
+  border: none;
+  color: var(--csl-accent-primary);
+  transition: transform var(--csl-dur-2) var(--csl-ease), background var(--csl-dur-2) ease;
+}
+.btn-secondary:hover {
+  background: color-mix(in srgb, var(--csl-accent-primary) 24%, var(--csl-bg)) !important;
+  color: var(--csl-accent-primary);
+  text-shadow: none;
+  transform: translateY(-1px);
+  border-bottom: none;
+}
+.btn-secondary:active { transform: translateY(1px); }
 
-  /* Disable float animation on mobile for better performance */
-  @media (min-width: 768px) {
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-  }
+/* Tertiary — text only */
+.btn-tertiary {
+  background: transparent;
+  border: none;
+  color: var(--csl-fg-3);
+  clip-path: none;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+.btn-tertiary:hover {
+  color: var(--csl-fg-1);
+  filter: none;
+  transform: none;
+  border-bottom: none;
+}
 
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgb(124 58 237 / 0.3); }
-    50% { box-shadow: 0 0 30px rgb(124 58 237 / 0.5); }
-  }
+/* ============================================================
+   CARDS / PANELS
+   ============================================================ */
+.panel, .csl-panel {
+  background: var(--csl-bg-raised);
+  border: 1px solid var(--csl-line);
+}
 
-  .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
+/* Notched bottom-right corner — the signature HUD motif */
+.panel.notched, .csl-panel-notched {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+  position: relative;
+  overflow: hidden;
+}
+.panel.notched::after, .csl-panel-notched::after {
+  content: "";
+  position: absolute;
+  right: 0; bottom: 0;
+  width: 24px; height: 24px;
+  background: var(--csl-accent-magenta);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* enhanced-card — used by template sections */
+.enhanced-card {
+  background: var(--csl-bg-raised) !important;
+  border: 1px solid var(--csl-line) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--csl-shadow-card) !important;
+  /* no clip-path on these — they're content blocks */
+  transition: box-shadow var(--csl-dur-2) ease, border-color var(--csl-dur-2) ease !important;
+}
+.enhanced-card:hover {
+  box-shadow: var(--csl-shadow-pop) !important;
+  border-color: var(--csl-accent-primary) !important;
+}
+
+/* ============================================================
+   FORM FIELDS
+   ============================================================ */
+.field, input[type="text"], input[type="email"], textarea, select {
+  background: var(--csl-bg-raised);
+  border: 1px solid var(--csl-line-strong);
+  color: var(--csl-fg-1);
+  padding: 10px 14px;
+  font-family: 'Rajdhani', system-ui, sans-serif;
+  font-size: 15px;
+  outline: none;
+  border-radius: 0;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: border-color var(--csl-dur-2) ease, box-shadow var(--csl-dur-2) ease;
+}
+.field:focus, input[type="text"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+  border-color: var(--csl-accent-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--csl-accent-primary) 15%, transparent);
+}
+
+/* ============================================================
+   NAV LINKS
+   ============================================================ */
+.nav-link {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--csl-fg-3);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  padding: 4px 0;
+  transition: color var(--csl-dur-2) ease, border-color var(--csl-dur-2) ease;
+}
+.nav-link:hover {
+  color: var(--csl-fg-1);
+  border-bottom-color: transparent;
+}
+.nav-link.active, .aw-link-active {
+  color: var(--csl-fg-1) !important;
+  border-bottom-color: var(--csl-accent-magenta) !important;
+}
+
+/* ============================================================
+   TAGS / BADGES
+   ============================================================ */
+.tag, .csl-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--csl-accent-cyan);
+  border: 1px solid var(--csl-accent-cyan);
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--csl-accent-cyan) 8%, transparent);
+}
+.tag.magenta {
+  color: var(--csl-accent-magenta);
+  border-color: var(--csl-accent-magenta);
+  background: color-mix(in srgb, var(--csl-accent-magenta) 8%, transparent);
+}
+.tag.violet {
+  color: var(--csl-accent-primary);
+  border-color: var(--csl-accent-primary);
+  background: color-mix(in srgb, var(--csl-accent-primary) 8%, transparent);
+}
+
+/* ============================================================
+   PROSE (content sections)
+   ============================================================ */
+.prose {
+  color: var(--csl-fg-2);
+}
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  color: var(--csl-fg-1);
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+.prose strong { color: var(--csl-fg-1); }
+.prose a { color: var(--csl-accent-cyan); }
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--csl-accent-cyan) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--csl-accent-cyan) 25%, transparent);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--csl-accent-cyan);
+}
+
+/* Dark prose invert — just use our tokens */
+.dark\:prose-invert h1, .dark\:prose-invert h2,
+.dark\:prose-invert h3, .dark\:prose-invert h4,
+html.dark .prose h1, html.dark .prose h2,
+html.dark .prose h3, html.dark .prose h4 {
+  color: var(--csl-fg-1);
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+html.dark .prose { color: var(--csl-fg-2); }
+html.dark .prose strong { color: var(--csl-fg-1); }
+
+/* ============================================================
+   UTILITY CLASSES (Tailwind bridge)
+   ============================================================ */
+.bg-page  { background-color: var(--csl-bg); }
+.bg-dark  { background-color: var(--csl-bg); }
+.bg-light { background-color: var(--csl-bg); }
+.text-muted { color: var(--csl-fg-3) !important; }
+.text-page  { color: var(--csl-fg-1); }
+
+/* ── Kill ALL gradient-text patterns from the Tailwind template ──
+   These all set -webkit-text-fill-color: transparent which makes text
+   invisible or shows the gradient through the letterforms. We replace
+   every gradient text with a clean solid accent color instead. */
+
+/* Any element with bg-clip-text + text-transparent — renders as accent color */
+.bg-clip-text,
+[class*="bg-clip-text"],
+.text-transparent {
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: var(--csl-accent-primary) !important;
+  background: none !important;
+}
+
+/* Gradient utility classes on their own (without clip) are fine for non-text use */
+section .bg-gradient-to-r,
+header .bg-gradient-to-r,
+h1 .bg-gradient-to-r,
+h2 .bg-gradient-to-r {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: var(--csl-accent-primary) !important;
+}
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 36px);
+}
+.section-title .bar {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--csl-accent-magenta), transparent);
+}
+
+/* ============================================================
+   HEADER SCROLL
+   ============================================================ */
+#header.scroll > div:first-child {
+  background: color-mix(in srgb, var(--csl-bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--csl-line);
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+#header.expanded nav {
+  position: fixed;
+  top: 70px; left: 0; right: 0; bottom: 70px;
+  background: color-mix(in srgb, var(--csl-bg) 96%, transparent);
+  backdrop-filter: blur(14px);
+  padding: 0 5px;
+}
+
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu {
+  background: var(--csl-bg-raised) !important;
+  border: 1px solid var(--csl-line) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--csl-shadow-card) !important;
+}
+
+/* ============================================================
+   TOGGLE MENU ICON ANIMATION
+   ============================================================ */
+[data-aw-toggle-menu] path {
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+  transform: rotate(-45deg) translate(0, 15px) translate(-3px, 0);
+}
+[data-aw-toggle-menu].expanded g > path:last-child {
+  transform: rotate(45deg) translate(0, -8px) translate(14px, 0);
+}
+
+/* ============================================================
+   FLOAT ANIMATION
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+@media (min-width: 768px) {
+  .animate-float { animation: float 3.5s ease-in-out infinite; }
+}
+
+/* ============================================================
+   TYPOLOGY IMAGES
+   ============================================================ */
+.typology-image {
+  transition: transform 0.3s var(--csl-ease), filter 0.3s ease;
+}
+.typology-image:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* ============================================================
+   HOMEPAGE INTRO CARD
+   ============================================================ */
+.csl-intro-card {
+  background: var(--csl-bg-raised);
+  border: 1px solid var(--csl-line);
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  position: relative;
+}
+.csl-intro-card::after {
+  content: "";
+  position: absolute;
+  right: 0; bottom: 0;
+  width: 26px; height: 26px;
+  background: var(--csl-accent-magenta);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.csl-intro-title {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  color: var(--csl-fg-1);
+  margin: 0;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* Hero accent span — single color, no gradient */
+.csl-hero-accent {
+  color: var(--csl-accent-primary);
+  display: block;
+}
+
+/* ============================================================
+   STEPS TIMELINE — reskin the icon circles
+   ============================================================ */
+/* Square icon instead of rounded-full, brand color border */
+[class*="rounded-full"][class*="border-primary"],
+[class*="rounded-full"][class*="border-2"] {
+  border-radius: 0 !important;
+}
+
+/* Step connector line */
+.bg-black\/10 { background: var(--csl-line) !important; }
+html.dark .dark\:bg-slate-400\/50 { background: var(--csl-line) !important; }
+
+/* Steps image — remove the gray placeholder bg */
+.bg-gray-400 { background: var(--csl-bg-raised) !important; }
+html.dark .dark\:bg-slate-700 { background: var(--csl-bg-raised) !important; }
+
+/* ============================================================
+   WIDGET WRAPPER section backgrounds
+   ============================================================ */
+/* WidgetWrapper uses bg-white / dark:bg-slate-900 inline — override */
+.bg-white { background: var(--csl-bg) !important; }
+html.dark .dark\:bg-slate-900 { background: var(--csl-bg-subtle) !important; }
+
+/* Alternate section (light tint) */
+.bg-blue-50,
+.dark\:bg-slate-800 { background: var(--csl-bg-raised) !important; }
+
+/* ============================================================
+   HEADLINE component — strip gradient from h2 */
+.text-heading {
+  color: var(--csl-fg-1) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: color-mix(in srgb, var(--csl-accent-primary) 22%, transparent);
+  color: var(--csl-fg-1);
+}
 </style>

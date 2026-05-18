@@ -2,14 +2,41 @@
 import { Image } from 'astro:assets';
 import { SITE } from '~/utils/config';
 
-import logoImg from '~/assets/images/logo-black.png';
+import logoWhite from '~/assets/images/csl-logo-white.png';
 ---
 
-<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  <div class="flex items-center">
-    <Image
-      src={logoImg}
-      alt="Logo"
-      class="h-10 w-10 md:h-10 md:w-10"/> {SITE?.name}
-  </div>
-</span>
+<div class="csl-logo-wrap">
+  <Image
+    src={logoWhite}
+    alt={SITE?.name ?? 'CyberspaceLab'}
+    class="csl-logo-img"
+    width={140}
+    height={40}
+  />
+</div>
+
+<style>
+  .csl-logo-wrap {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Dark mode: white logo shows as-is with a subtle magenta glow */
+  .csl-logo-img {
+    height: 30px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.3));
+    transition: filter 0.2s ease;
+  }
+  .csl-logo-img:hover {
+    filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.45));
+  }
+
+  /* Light mode: invert the white logo so it reads on white bg */
+  :global(html:not(.dark)) .csl-logo-img {
+    filter: invert(1) hue-rotate(180deg) drop-shadow(0 0 4px rgba(140,0,212,0.2));
+  }
+  :global(html:not(.dark)) .csl-logo-img:hover {
+    filter: invert(1) hue-rotate(180deg) drop-shadow(0 0 8px rgba(140,0,212,0.35));
+  }
+</style>
