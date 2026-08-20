@@ -53,6 +53,11 @@ export const getFooterData = (locale: Locale, t: (key: string) => string) => ({
     },
   ],
   secondaryLinks: [],
+  dedication: t('footer.dedication'),
+  dedicationLabel: t('footer.dedicationLabel'),
+  dedicationLogoAlt: t('footer.dedicationLogoAlt'),
+  fundingLogoSrc: locale === 'en' ? '/images/partners/opjak-eu-msmt-en.svg' : '/images/partners/opjak-eu-msmt-cz.svg',
+  fundingLogoAlt: t('footer.fundingLogoAlt'),
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/cyberspacelab/' },

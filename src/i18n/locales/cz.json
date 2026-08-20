@@ -12,7 +12,11 @@
     "results": "Výsledky",
     "bartleTest": "Bartle test a výsledky",
     "web": "Web",
-    "allRightsReserved": "Všechna práva vyhrazena"
+    "allRightsReserved": "Všechna práva vyhrazena",
+    "dedicationLabel": "Projektová dedikace",
+    "dedication": "Projekt „Zprostředkovaná společnost (MEDIS:ON) CZ.02.01.01/00/23_025/0008713” je spolufinancován Evropskou unií.",
+    "dedicationLogoAlt": "Logo projektu MEDIS:ON",
+    "fundingLogoAlt": "Logolink Evropské unie a Ministerstva školství, mládeže a tělovýchovy"
   },
   "hero": {
     "gamingTypologies": "Herní typologie a",

@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { SITE } from '~/utils/config';
 import { getHomePermalink } from '~/utils/permalinks';
 import Logo from '~/components/Logo.astro';
+import medisOnLogo from '~/assets/images/partners/medis-on-logo.png';
 
 interface Link {
   text?: string;
@@ -21,10 +22,25 @@ export interface Props {
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
   footNote?: string;
+  dedication?: string;
+  dedicationLabel?: string;
+  dedicationLogoAlt?: string;
+  fundingLogoSrc?: string;
+  fundingLogoAlt?: string;
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], theme = 'light' } = Astro.props;
+const {
+  socialLinks = [],
+  secondaryLinks = [],
+  links = [],
+  dedication,
+  dedicationLabel,
+  dedicationLogoAlt,
+  fundingLogoSrc,
+  fundingLogoAlt,
+  theme = 'light',
+} = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'csl-footer not-prose']}>
@@ -74,6 +90,16 @@ const { socialLinks = [], secondaryLinks = [], links = [], theme = 'light' } = A
       </div>
     ))}
   </div>
+
+  {dedication && (
+    <div class="csl-footer-dedication" aria-label={dedicationLabel}>
+      <div class="csl-footer-dedication-logos">
+        {fundingLogoSrc && <img src={fundingLogoSrc} alt={fundingLogoAlt} class="csl-footer-funding-logo" loading="lazy" />}
+        <img src={medisOnLogo.src} alt={dedicationLogoAlt} class="csl-footer-dedication-logo" loading="lazy" />
+      </div>
+      <p class="csl-footer-dedication-text">{dedication}</p>
+    </div>
+  )}
 
   <!-- Bottom bar -->
   <div class="csl-footer-bottom">
@@ -212,6 +238,39 @@ const { socialLinks = [], secondaryLinks = [], links = [], theme = 'light' } = A
     margin-top: 48px;
   }
 
+  .csl-footer-dedication {
+    max-width: 1200px;
+    margin: 48px auto 0;
+    padding: 20px 32px;
+    border-top: 1px solid var(--csl-line);
+  }
+
+  .csl-footer-dedication-logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .csl-footer-funding-logo {
+    width: min(100%, 390px);
+    height: auto;
+  }
+
+  .csl-footer-dedication-logo {
+    width: 88px;
+    height: auto;
+  }
+
+  .csl-footer-dedication-text {
+    margin: 16px 0 0;
+    max-width: 82ch;
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--csl-fg-2);
+  }
+
   .csl-footer-mono {
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 10px;
@@ -236,6 +295,18 @@ const { socialLinks = [], secondaryLinks = [], links = [], theme = 'light' } = A
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
+    }
+    .csl-footer-dedication {
+      margin-top: 32px;
+      padding: 20px;
+    }
+    .csl-footer-dedication-logos {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .csl-footer-funding-logo {
+      width: min(100%, 390px);
     }
   }
 </style>

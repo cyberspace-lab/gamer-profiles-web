@@ -12,7 +12,11 @@
     "results": "Results",
     "bartleTest": "Bartle test and results",
     "web": "Website",
-    "allRightsReserved": "All rights reserved"
+    "allRightsReserved": "All rights reserved",
+    "dedicationLabel": "Project acknowledgement",
+    "dedication": "The project “Mediated Society (MEDIS:ON) CZ.02.01.01/00/23_025/0008713” is co-financed by the European Union.",
+    "dedicationLogoAlt": "MEDIS:ON project logo",
+    "fundingLogoAlt": "European Union and Ministry of Education, Youth and Sports logo"
   },
   "hero": {
     "gamingTypologies": "Gaming Typologies and",
