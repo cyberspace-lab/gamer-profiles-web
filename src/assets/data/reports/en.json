@@ -1,0 +1,141 @@
+{
+  "bartle": [
+    {
+      "id": "socializer",
+      "name": "Socializer",
+      "description": "Your dominant player type is Socializer. Socializers want to enjoy the company and community that a game can offer. They derive the greatest enjoyment from interacting with other players. Sometimes, mere companionship and communication with characters within the virtual world itself (NPCs) is enough for them. For Socializers, the game is primarily a means that enables them to meet and connect with others.\n\nThe virtual world thus serves mainly as a shared space for social encounters. Relationships between players are what matter most: empathizing with others, sympathizing with them, joking, having fun, and listening. Games - whether video games, board games, or even playing football behind the house - have always had a social component.\n\nMany players often forget this aspect, but not Socializers, for whom social interaction in games is indispensable. They enjoy helping other players, offering their services, and building their own virtual communities. Meeting new people and deepening relationships with them is key for Socializers. The game world comes alive through other players, who give it energy and meaning.",
+      "keywords": "company, communication, relationships, cooperation, community, helping others"
+    },
+    {
+      "id": "killer",
+      "name": "Killer",
+      "description": "Your dominant player type is Killer. Killers focus on winning, rankings, leaderboards, and direct competition with other players. They are engaged in a constant and never-ending effort to outperform others. Ideally, they want to see their name high on the leaderboard.\n\nTheir primary concern is not completing standard in-game challenges, such as defeating a boss or performing a speedrun, but proving that they perform better than others. Their main goal is dominance over other players, and their driving force is the direct impact they have on the game world around them.\n\nAlthough they are not necessarily driven by vindictiveness or malice, they have only one goal in games: victory at any cost. They want to demonstrate their ability to excel above other players.",
+      "keywords": "victory, competition, dominance, leaderboards, outperforming others"
+    },
+    {
+      "id": "explorer",
+      "name": "Explorer",
+      "description": "Your dominant player type is Explorer. Explorers focus on discovering and uncovering the unknown. They want to go where no one else has gone and know what no one else knows. Explorers are motivated by moments of surprise that games offer them. They seek feelings of awe and wonder.\n\nGaining experience points is of little importance to them, as it contradicts what they see as the essence of games - freedom and openness, through which the virtual world truly lives and breathes. Chasing predefined achievements or developer-imposed objectives is considered secondary.\n\nExplorers take pride in their knowledge of even the smallest details of a game. They are curious players who eagerly explore every inch of the game world in search of all “Easter eggs” and rare items, regardless of their value or significance. For Explorers, there is no such thing as “failure,” only discovery. When they stumble along the way, they learn from their mistakes and avoid repeating them in the future. They leave no stone unturned and document their journey through trial and error.",
+      "keywords": "discovery, exploration, secrets, Easter eggs, rare items, experimentation"
+    },
+    {
+      "id": "achiever",
+      "name": "Achiever",
+      "description": "Your dominant player type is Achiever. Achievers focus on gaining status, position, and prestige. At the same time, they aim to reach clearly defined goals through various means - for example, through speedrunning (completing a game or part of it as quickly as possible) or by collecting a complete set of trophies or achievements.\n\nBy acquiring these rewards, they clearly demonstrate their abilities to others. At the core of every game lies a set of rules that allow players either to win or to lose. Achievers understand this principle better than anyone else.\n\nOf course, the act of playing games itself is highly enjoyable, but defeating the game and mastering it is even more satisfying. Victory is rewarding in its own right, but it is also important for Achievers that other players can witness their success - for example by seeing the trophies and achievements they have earned. They tend to avoid interaction with others, but do not shy away from it when it is advantageous to them - for instance, when another player knows how to achieve something, or when eliminating that player would bring a specific benefit.",
+      "keywords": "goals, achievements, trophies, rewards, status, completion"
+    }
+  ],
+  "hexad": [
+    {
+      "id": "philanthropist",
+      "name": "Philanthropist",
+      "description": "Your preferred gaming motivation is reflected in the Philanthropist type. The primary motivation of the Philanthropist is purpose and meaning. This is a selfless type of player who enjoys helping others without expecting any reward in return. They derive the greatest satisfaction from contributing to the success of others, sharing their knowledge, or donating items they no longer need.",
+      "keywords": "helping others, purpose, sharing knowledge, support, selflessness"
+    },
+    {
+      "id": "socialiser",
+      "name": "Socialiser",
+      "description": "Your preferred gaming motivation is reflected in the Socialiser type. The Socialiser is driven by a sense of belonging. They perceive games primarily as a space for meeting others and forming new relationships. Winning at all costs is not their priority; instead, they value shared experiences - whether through team cooperation, chatting with friends, or healthy competition within a community.",
+      "keywords": "belonging, relationships, communication, cooperation, community, shared experiences"
+    },
+    {
+      "id": "free-spirit",
+      "name": "Free Spirit",
+      "description": "Your preferred gaming motivation is reflected in the Free Spirit type. The Free Spirit is motivated by independence. They play mainly to express themselves and to act without external constraints. They love exploring unknown places and creating their own content. They are most satisfied when they discover hidden surprises (Easter eggs), can customize the game to their liking, or complete tasks in any order they choose.",
+      "keywords": "freedom, independence, exploration, creativity, your own path, customization"
+    },
+    {
+      "id": "achiever",
+      "name": "Achiever",
+      "description": "Your preferred gaming motivation is reflected in the Achiever type. The Achiever is driven by the desire for mastery. They want to be genuinely good at what they do and to continuously improve. They seek out demanding challenges and tasks through which they can test their abilities. What motivates them most is visible progress - whether it is advancing to the next level, acquiring new skills, or winning difficult battles.",
+      "keywords": "mastery, progress, improvement, challenges, goals, developing skills"
+    },
+    {
+      "id": "player",
+      "name": "Player",
+      "description": "Your preferred gaming motivation is reflected in the Player type. The Player is motivated by tangible rewards. Their primary drivers are external incentives such as points, badges, or trophies. They are often less interested in the activity itself than in the outcome it produces. They enjoy collecting in-game rewards, climbing leaderboards, and participating in any competition where they can win something tangible or exclusive.",
+      "keywords": "rewards, points, trophies, achievements, leaderboards"
+    },
+    {
+      "id": "disruptor",
+      "name": "Disruptor",
+      "description": "Your preferred gaming motivation is reflected in the Disruptor type. The Disruptor is driven by a desire for change. Their primary source of enjoyment is testing boundaries - exploring how much the system can withstand and what it will still allow. Although this is sometimes done in a controversial way, their approach is often highly valuable, as they are able to identify flaws and propose improvements that no one else has considered. They seek freedom, anonymity, and tools that allow them to reshape the world around them.",
+      "keywords": "change, experimentation, testing boundaries, unconventional solutions, influencing the system"
+    }
+  ],
+  "trojan": [
+    {
+      "id": "socializer",
+      "name": "Socializer",
+      "description": "Your preferred play style is Socializer. This player plays video games in order to build and maintain relationships with others. For them, the game primarily serves as a tool for communication, spending time with friends, or finding new teammates.",
+      "keywords": "relationships, communication, cooperation, friends, playing together"
+    },
+    {
+      "id": "completionist",
+      "name": "Completionist",
+      "description": "Your preferred play style is Completionist. The completionist is a combination of an explorer and a perfectionist. They love discovering hidden locations while also striving to fully master the game. Their main goal is to accept and complete as many tasks, missions, and challenges as possible. They only feel satisfied once they have explored the game down to the smallest detail.",
+      "keywords": "completion, quests, collecting, discovering secrets, challenges"
+    },
+    {
+      "id": "competitor",
+      "name": "Competitor",
+      "description": "Your preferred play style is Competitor. This type of player has a strong desire to win. They focus primarily on activities that lead to victory and actively seek situations in which they can measure their abilities against others and succeed.",
+      "keywords": "victory, competition, comparing skills, outperforming others"
+    },
+    {
+      "id": "escapist",
+      "name": "Escapist",
+      "description": "Your preferred play style is Escapist. The escapist uses video games as a way to escape everyday reality. They focus on immersing themselves in a fantasy world that helps them better cope with the concerns of daily life.",
+      "keywords": "escape, fantasy, relaxation, immersion in another world"
+    },
+    {
+      "id": "story-driven",
+      "name": "Story-driven",
+      "description": "Your preferred play style is Story-driven. This player actively seeks out engaging stories. They want to learn as much as possible about the game world and understand the history and fates of individual characters. For them, the game is a source of knowledge.",
+      "keywords": "story, characters, game world, atmosphere, discovery"
+    },
+    {
+      "id": "smarty-pants",
+      "name": "Smarty-pants",
+      "description": "Your preferred play style is Smarty-pants. The smarty-pants plays with the goal of strengthening their “mental capacity” and increasing their intelligence. They perceive games as an excellent way to train the mind, improve logical thinking, and develop their abilities overall.",
+      "keywords": "logic, problem solving, thinking, cognitive challenges, developing skills"
+    }
+  ],
+  "gain": [
+    {
+      "id": "assault",
+      "name": "Assault",
+      "description": "Your dominant activity category is Assault. This category focuses on action, combat, and destruction. It includes everything from shooting and fighting enemies to stealing, breaking the law, or conquering territory. It appeals to players who love tension, war-related themes, and high-stakes action encounters.",
+      "keywords": "action, combat, destruction, shooting, tension",
+      "attributes": "Aggression and action"
+    },
+    {
+      "id": "manage",
+      "name": "Manage",
+      "description": "Your dominant activity category is Manage. Here, strategy and control over resources play the central role. This category includes building, item crafting, territory defense, equipment upgrading, and trading. This style attracts players who enjoy planning, managing cities, or making important strategic decisions.",
+      "keywords": "strategy, planning, control, crafting",
+      "attributes": "Strategy and control"
+    },
+    {
+      "id": "journey",
+      "name": "Journey",
+      "description": "Your dominant activity category is Journey. The focus here is on world exploration and character development. Players engage in exploring landscapes, making important story decisions, collecting rare items, and forming relationships with in-game characters. It is an ideal activity for lovers of adventure and strong atmosphere.",
+      "keywords": "exploration, story, character development, adventure",
+      "attributes": "Expeditions and discovery"
+    },
+    {
+      "id": "care",
+      "name": "Care",
+      "description": "Your dominant activity category is Care. This area centers on emotions, care, and relationship building. It includes activities such as taking care of pets, dating, romance within the story, or expressing affection toward others. It attracts players who enjoy social interaction and emotional bonds with the game world.",
+      "keywords": "emotions, relationships, empathy, care",
+      "attributes": "Empathy and relationships"
+    },
+    {
+      "id": "coordinate",
+      "name": "Coordinate",
+      "description": "Your dominant activity category is Coordinate. This category emphasizes accuracy, perception, and pattern recognition. It includes solving puzzles, platform jumping (platformers), or rhythmic tasks connected to dance and music. It appeals to players who enjoy challenges based on precise timing and spatial orientation.",
+      "keywords": "precision, reflexes, rhythm, game patterns",
+      "attributes": "Precision and reflexes"
+    }
+  ]
+}

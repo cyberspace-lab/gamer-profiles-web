@@ -1,0 +1,189 @@
+{
+  "id": "2026-10",
+  "questionnaireVersion": "2026-10",
+  "input": {
+    "scale": "mean",
+    "minimum": 1,
+    "maximum": 5
+  },
+  "output": {
+    "scale": "mean",
+    "minimum": 1,
+    "maximum": 5,
+    "precision": 1
+  },
+  "scoreConversion": {
+    "type": "identity"
+  },
+  "dominantBy": "score",
+  "preferenceBands": [
+    {
+      "minimum": 4.2,
+      "maximum": 5,
+      "labelIndex": 0
+    },
+    {
+      "minimum": 3.4,
+      "maximum": 4.1,
+      "labelIndex": 1
+    },
+    {
+      "minimum": 2.6,
+      "maximum": 3.3,
+      "labelIndex": 2
+    },
+    {
+      "minimum": 1.8,
+      "maximum": 2.5,
+      "labelIndex": 3
+    },
+    {
+      "minimum": 1,
+      "maximum": 1.7,
+      "labelIndex": 4
+    }
+  ],
+  "percentileConversion": {
+    "type": "lookup",
+    "method": "linear",
+    "tables": {
+      "philanthropist": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 9
+        },
+        {
+          "score": 3,
+          "value": 32
+        },
+        {
+          "score": 4,
+          "value": 68
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "socialiser": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 14
+        },
+        {
+          "score": 3,
+          "value": 41
+        },
+        {
+          "score": 4,
+          "value": 75
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "free-spirit": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 7
+        },
+        {
+          "score": 3,
+          "value": 29
+        },
+        {
+          "score": 4,
+          "value": 64
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "achiever": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 12
+        },
+        {
+          "score": 3,
+          "value": 38
+        },
+        {
+          "score": 4,
+          "value": 72
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "player": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 21
+        },
+        {
+          "score": 3,
+          "value": 55
+        },
+        {
+          "score": 4,
+          "value": 85
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "disruptor": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 30
+        },
+        {
+          "score": 3,
+          "value": 67
+        },
+        {
+          "score": 4,
+          "value": 92
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ]
+    }
+  },
+  "percentileStatus": "illustrative",
+  "reference": {
+    "cz": "Ukázkové převodní tabulky: hodnoty jsou vytvořené pro předvedení výpočtu a nevycházejí z výzkumného ani referenčního souboru hráčů.",
+    "en": "Illustrative conversion tables: these values demonstrate the calculation and are not based on a research or player reference sample."
+  }
+}

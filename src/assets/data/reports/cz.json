@@ -1,0 +1,141 @@
+{
+  "bartle": [
+    {
+      "id": "socializer",
+      "name": "Společník (Socializer)",
+      "description": "Jaké vlastnosti definují Společníka? Hráči s tímto dominantním herním typem se obvykle zaměřují na společnost a komunitu, kterou hraní her může nabízet. Největší požitek ze hry získávají skrze interakce s ostatními hráči. Někdy jim může stačit pouhá společnost a komunikace s neživými postavami samotného virtuálního světa (NPC). Hra je pro Společníky pouze prostředkem, který jim umožňuje setkávat se s ostatními. Vztahy ve virtuálním světě jsou pro ně důležité, dokáží se vcítit do situací a životů ostatních. Chtějí s nimi vtipkovat, bavit se a naslouchat jim. Touží poznávat nové lidi a vytvářet smysluplné vztahy. Hry, ať už se jedná o videohry, deskové hry a nebo hraní fotbalu za barákem, měly a mají společenský faktor. Mnozí hráči na tento aspekt často zapomínají, ne však Společníci, pro které je společnost u her nepostradatelná. Rádi pomáhají ostatním hráčům a budují svou virtuální komunitu. Herní svět ožívá díky ostatním hráčům, kteří mu dávají energii a smysl.",
+      "keywords": "společnost, komunikace, vztahy, spolupráce, komunita, pomoc ostatním"
+    },
+    {
+      "id": "killer",
+      "name": "Bojovník (Killer)",
+      "description": "Jaké vlastnosti definují Bojovníka? Hráči s tímto dominantním herním typem obvykle touží po vítězství, prahnou po umisťování v herních tabulkách a žebříčcích a aktivně vyhledávají přímou kompetici mezi ostatními hráči. Bojovníci se nachází v neustálé a nekončící snaze překonat ostatní. Nejraději by viděli své jméno vysoko v tabulce vítězů. Nejde jim ani tolik o splnění běžných herních výzev, jako je porážka těžkého bosse či povedený speedrun. Bojovníci chtějí prokázat, že si ve hře vedou lépe než všichni ostatní. Jejich hlavním posláním je dominance nad ostatními hráči, hnacím motorem pak přímé ovlivnění herního světa kolem nich. Bojovníci nejsou nutně hnaní pomstychtivostí či zlomyslností, nicméně ve hrách mají jen jeden jediný cíl: vítězství za každou cenu. Chtějí demonstrovat svou schopnost vynikat nad ostatními hráči.",
+      "keywords": "vítězství, soupeření, dominance, žebříčky, přímá kompetice, překonávání ostatních"
+    },
+    {
+      "id": "explorer",
+      "name": "Dobrodruh (Explorer)",
+      "description": "Jaké vlastnosti definují Dobrodruha? Hráči s tímto dominantním herním typem se obvykle zaměřují na objevování a odkrývání neznámého. Touží jít tam, kam se nikdo jiný nedostal, a vědět to, co nikdo jiný neví. Dobrodruhy motivují okamžiky překvapení, které hra nabízí a prahnou po okamžicích úžasu a ohromení. Sbírání zkušenostních bodů vnímají za bezvýznamné, takové jednání se vzpírá podstatě her. Ta se ukrývá ve volnosti a otevřenosti, díky kterým virtuální svět žije a dýchá. Hnaní se za předem danými achievementy či vývojáři nastolenými úkoly považují za vedlejší činnost. Dobrodruzi jsou hrdí na své znalosti o nejdrobnějších detailech hry. Jsou to zvědaví hráči, kteří se s chutí prokousávají každým centimetrem hry s cílem nalézt všechny “Easter eggs” a vzácné předměty, nehledě na jejich cenu či význam. Pro Dobrodruhy neexistuje nic takového jako „selhání”, ale pouze objev. Když na své cestě zakopnou, stejné chyby se v budoucnu jistě vyvarují. Nenechají kámen na kameni a své cesty dokumentují metodou pokus-omyl.",
+      "keywords": "objevování, průzkum, tajemství, Easter eggs, vzácné předměty, experimentování"
+    },
+    {
+      "id": "achiever",
+      "name": "Kolektor (Achiever)",
+      "description": "Jaké vlastnosti definují Kolektora? Hráči s tímto dominantním herním typem se obvykle zaměřují na získání statusu, postavení a prestiže. Zároveň se snaží různými způsoby dosáhnout svých předem stanovených cílů. Například rychlou metodou, (speedrunneři, kteří chtějí hru nebo její část splnit tak rychle, jak jen je to možné) nebo kompletní sbírkou trofejí či achievementů. A právě získáváním těchto odměn dávají Kolektoři celému hernímu světu najevo, jaké jsou jejich schopnosti! Jádrem každé hry je sada pravidel, které umožňují hráčům buď vyhrát, nebo prohrát. Kolektoři tento princip chápou více než jakýkoliv jiný typ hráče. Samozřejmě, samotný proces hraní her je nesmírně zábavný, ale porazit hru a vyzrát nad ní, je ještě zábavnější. Vítězství samo o sobě je odměnující, současně je ale svým způsobem pro Kolektory důležité, aby byly svědky jejich úspěchu další hráči (například mohou vidět trofeje a achievementy, kterých dosáhli). Interakci s ostatními se spíše vyhýbají, nicméně se jí nebrání, pokud je to pro ně výhodné: například když jiný hráč ví, jak něčeho dosáhnout, nebo by jeho odstranění znamenalo nějaký benefit.",
+      "keywords": "cíle, achievementy, trofeje, odměny, status, dokončování hry"
+    }
+  ],
+  "hexad": [
+    {
+      "id": "philanthropist",
+      "name": "Filantrop (Philanthropist)",
+      "description": "Tvou preferovanou herní motivaci odráží typ Filantropa. Co to o tobě může vypovídat? Hráče s touto dominantní herní motivací obvykle pohání pocit smysluplnosti! Filantropové jsou nesobeckým typem hráčů, rádi pomáhají ostatním a neočekávají za to jakoukoliv odměnu. Největší radost jim přináší, když mohou svou maličkostí přispět k úspěchu druhých, sdílet své znalosti nebo darovat věci, které už sami nepotřebují.",
+      "keywords": "pomoc ostatním, smysluplnost, sdílení znalostí, podpora, nezištnost"
+    },
+    {
+      "id": "socialiser",
+      "name": "Společník (Socialiser)",
+      "description": "Tvou preferovanou herní motivaci nejlépe odráží typ Společníka. Co to o tobě může vypovídat? Hráče s touto dominantní herní motivací obvykle pohání pocit sounáležitosti! Hry vnímají především jako prostor pro setkávání a navazování nových vztahů. Společníky neláká vítězství za každou cenu, láká je společný zážitek - ať už jde o spolupráci v týmu, povídání s přáteli nebo zdravé poměřování sil v rámci komunity.",
+      "keywords": "sounáležitost, vztahy, komunikace, spolupráce, komunita, společný zážitek"
+    },
+    {
+      "id": "free-spirit",
+      "name": "Svobodná duše (Free Spirit)",
+      "description": "Tvou preferovanou herní motivaci nejlépe odráží typ Svobodné duše. Co to o tobě může vypovídat? Hráče s touto dominantní herní motivací obvykle pohání pocit nezávislosti! Hrají hlavně proto, aby se mohli projevovat a jednat bez cizích příkazů a pravidel. Svobodné duše milují objevování neznámých míst a tvoření vlastních věcí. Největší radost jim přináší, když najdou skrytá překvapení (Easter eggs), když si hru mohou přizpůsobit podle svého nebo když je možné plnit úkoly v libovolném pořadí.",
+      "keywords": "svoboda, nezávislost, objevování, tvoření, vlastní cesta, přizpůsobení hry"
+    },
+    {
+      "id": "achiever",
+      "name": "Dobyvatel (Achiever)",
+      "description": "Tvou preferovanou herní motivaci nejlépe odráží typ Dobyvatele. Co to o tobě může vypovídat? Hráče s touto dominantní herní motivací obvykle pohání touha po mistrovství! V tom, co dělají, chtějí být skutečně dobří a touží se neustále vyvíjet a posouvat vpřed. Dobyvatelé vyhledávají náročné výzvy a úkoly, na kterých mohou otestovat své schopnosti. Nejvíce je motivuje viditelný pokrok – ať už jde o postup na další úroveň, získávání nových dovedností nebo vítězství v těžkých bitvách. Dobyvatelé jsou vysoce cílevědomí hráči.",
+      "keywords": "mistrovství, pokrok, zlepšování, výzvy, cílevědomost, rozvoj schopností"
+    },
+    {
+      "id": "player",
+      "name": "Hráč (Player)",
+      "description": "Tvou preferovanou herní motivaci nejlépe odráží typ Hráče. Co to o tobě může vypovídat? Hráče s touto dominantní herní motivací obvykle pohání vidina zisku! Jejich hnacím motorem jsou vnější odměny, jako jsou body, odznaky nebo trofeje. Herní aktivita sama o sobě je často nezajímá tak moc, jako spíše výsledek, ke kterému vede. Milují sbírání herních dárků, stoupání v žebříčcích a jakékoliv soutěže, kde je možné vyhrát něco hmatatelného nebo exkluzivního.",
+      "keywords": "odměny, body, trofeje, achievementy, žebříčky, zisk"
+    },
+    {
+      "id": "disruptor",
+      "name": "Narušitel (Disruptor)",
+      "description": "Tvou preferovanou herní motivaci nejlépe odráží typ Narušitele. Co to o tobě může vypovídat? Hráče s touto dominantní herní motivací obvykle pohání touha po změně! Jejich hlavní zábavou je testování hranic - Narušitelé zkouší, co všechno systém vydrží a co jim ještě dovolí. I když to občas dělají nekonvenčním až kontroverzním způsobem, jejich přístup je často velmi přínosný. Dokáží díky němu najít chyby a navrhnout vylepšení, která nikoho jiného nenapadla. Narušitelé vyhledávají svobodu, anonymitu a nástroje, díky kterým mohou přetvářet svět kolem sebe.",
+      "keywords": "změna, experimentování, testování hranic, nekonvenční řešení, ovlivňování systému"
+    }
+  ],
+  "trojan": [
+    {
+      "id": "socializer",
+      "name": "Společník (Socializer)",
+      "description": "Preferuješ herní styl Společníka. Co to o tobě může vypovídat? Hráči s tímto dominantním herním stylem obvykle hrají videohry proto, aby navazovali a udržovali vztahy s ostatními hráči. Videohry jsou pro Společníky především nástrojem ke komunikaci, trávení času s přáteli nebo k hledání nových spoluhráčů.",
+      "keywords": "vztahy, komunikace, spolupráce, přátelé, společné hraní"
+    },
+    {
+      "id": "completionist",
+      "name": "Sběratel (Completionist)",
+      "description": "Preferuješ herní styl Sběratele. Co to o tobě může vypovídat? Hráči s tímto dominantním herním stylem se vyznačují kombinací vlastností průzkumníka a perfekcionisty. Milují objevování skrytých míst, ale zároveň chtějí hru dokonale ovládnout. Jejich hlavním cílem je přijmout a splnit co nejvíce úkolů, misí a výzev. Nemají klidu, dokud hru neprozkoumají do posledního detailu.",
+      "keywords": "dokončování hry, plnění úkolů, sbírání, objevování tajemství, výzvy"
+    },
+    {
+      "id": "competitor",
+      "name": "Dravý hráč (Competitor)",
+      "description": "Preferuješ herní styl Dravého hráče. Co to o tobě může vypovídat? Hráči s tímto dominantním herním stylem se obvykle vyznačují silnou touhou vyhrávat. Soustřeďují se především na činnosti, které vedou k vítězství, a aktivně vyhledávají situace, kde je možné porovnat své síly s ostatními hráči a kde je možnost uspět!",
+      "keywords": "vítězství, soupeření, porovnávání schopností, překonávání ostatních"
+    },
+    {
+      "id": "escapist",
+      "name": "Snílek (Escapist)",
+      "description": "Preferuješ herní styl Snílka. Co to o tobě může vypovídat? Hráči s tímto dominantním herním stylem obvykle hry využívají jako způsob úniku z každodenní reality všedního dne. Snílci se soustřeďují na pobyt ve fantazijním světě, který jim pomáhá lépe zvládat starosti běžného života.",
+      "keywords": "únik od reality, fantazie, odpočinek, ponoření do jiného světa"
+    },
+    {
+      "id": "story-driven",
+      "name": "Příběhový hráč (Story-driven)",
+      "description": "Preferuješ herní styl Příběhového hráče. Co to o tobě může vypovídat? Hráči s tímto dominantním herním stylem obvykle aktivně vyhledávají zajímavé a poutavé příběhy. Chtějí se dozvědět co nejvíce o herním světě a pochopit minulost a osudy jednotlivých postav. Hra je pro ně zdrojem poznání.",
+      "keywords": "příběh, postavy, herní svět, osudy, atmosféra, poznávání"
+    },
+    {
+      "id": "smarty-pants",
+      "name": "Koumák (Smarty-pants)",
+      "description": "Preferuješ herní styl Koumáka. Co to o tobě může vypovídat? Hráči s tímto dominantním herním stylem obvykle hrají s cílem posílit svou „mozkovou kapacitu“ a zvýšit si inteligenci. Koumáci hry vnímají jako skvělý způsob, jak si procvičit hlavu, zlepšit logiku a celkově rozvíjet své schopnosti.",
+      "keywords": "logika, řešení problémů, přemýšlení, kognitivní výzvy, rozvoj schopností"
+    }
+  ],
+  "gain": [
+    {
+      "id": "assault",
+      "name": "Útočení (Assault)",
+      "description": "Tvou dominantní kategorií je Útočení. Hráče s dominantní kategorií Útočení obvykle nejvíce baví herní aktivity zaměřené na akci, boj a destrukci. Patří sem aktivity a témata jako je střílení a boje s nepřáteli, kradení, porušování zákonů nebo dobývání území. Hráči preferující aktivity z této kategorie milují napětí, válečnou tematiku a střety plné akce, kde jde o všechno. Tak do boje!",
+      "keywords": "akce, boj, destrukce, střílení, napětí",
+      "attributes": "Agrese a akce"
+    },
+    {
+      "id": "manage",
+      "name": "Správa (Manage)",
+      "description": "Tvou dominantní kategorií je Správa. Hráče s dominantní kategorií Správa obvykle nejvíce baví herní aktivity zaměřené na strategii, plánování a kontrolu nad zdroji. Patří sem aktivity a témata jako je budování, výroba předmětů (crafting), bránění území, vylepšování vybavení a obchodování. Hráči preferující aktivity z této kategorie rádi plánují, spravují města a dělají důležitá strategická rozhodnutí.",
+      "keywords": "strategie, plánování, kontrola, výroba předmětů",
+      "attributes": "Strategie a kontrola"
+    },
+    {
+      "id": "journey",
+      "name": "Putování (Journey)",
+      "description": "Tvou dominantní kategorií je Putování. Hráče s dominantní kategorií Putování obvykle nejvíce baví herní aktivity zaměřené na objevování virtuálního světa a rozvoj postavy. Patří sem aktivity a témata jako je prozkoumávání krajiny, dělání důležitých rozhodnutí v příběhu, sbírání vzácných předmětů a navazování přátelství s herními postavami. Hráči preferující aktivity z této kategorie milují dobrodružství a hledají silnou herní atmosféru.",
+      "keywords": "prozkoumání světa, příběh, vývoj postavy, dobrodružství",
+      "attributes": "Expedice a objevování"
+    },
+    {
+      "id": "care",
+      "name": "Péče (Care)",
+      "description": "Tvou dominantní kategorií je Péče. Hráče s dominantní kategorií Péče obvykle nejvíce baví herní aktivity zaměřené na emoce, péči o ostatní a budování vztahů. Patří sem aktivity a témata jako je starání se o mazlíčky, seznamování, romantika v příběhu nebo vyjadřování sympatií k ostatním. Hráči preferující aktivity z této kategorie vyhledávají sociální interakce a budují si silné citové pouto k hernímu světu.",
+      "keywords": "emoce, vztahy, empatie, péče",
+      "attributes": "Empatie a vztahy"
+    },
+    {
+      "id": "coordinate",
+      "name": "Koordinace (Coordinate)",
+      "description": "Tvou dominantní kategorií je Koordinace. Hráče s dominantní kategorií Koordinace obvykle nejvíce baví herní aktivity zaměřené na přesnost, postřeh a hledání herních zákonitostí a pravidel. Patří sem aktivity a témata jako je řešení hádanek, skákání po plošinách (plošinovky) nebo rytmické úkoly spojené s tancem a hudbou. Hráči preferující aktivity z této kategorie mají rádi výzvy založené na správném načasování a prostorové orientaci.",
+      "keywords": "přesnost, postřeh, rytmus, herní zákonitosti",
+      "attributes": "Preciznost a postřeh"
+    }
+  ]
+}

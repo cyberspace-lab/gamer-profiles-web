@@ -1,0 +1,144 @@
+---
+import type { ReportTypology } from '~/assets/data/reports';
+
+interface Props {
+  typology: ReportTypology;
+}
+const { typology } = Astro.props;
+const suits = [
+  {
+    name: 'spade',
+    x: 46,
+    y: 42,
+    angle: -12,
+    color: 'var(--csl-accent-cyan)',
+    path: 'M0-15C-5-8-13-5-13 2C-13 10-5 12-2 5L-4 15H4L2 5C5 12 13 10 13 2C13-5 5-8 0-15Z',
+  },
+  {
+    name: 'heart',
+    x: 122,
+    y: 42,
+    angle: 12,
+    color: 'var(--csl-accent-magenta)',
+    path: 'M0 14C-5 9-14 3-14-5C-14-15-3-17 0-8C3-17 14-15 14-5C14 3 5 9 0 14Z',
+  },
+  {
+    name: 'club',
+    x: 46,
+    y: 119,
+    angle: -12,
+    color: 'var(--csl-accent-cyan)',
+    path: 'M0-15C-10-15-11-3-5 0C-17-6-19 11-9 11C-5 11-2 8-1 5L-4 15H4L1 5C2 8 5 11 9 11C19 11 17-6 5 0C11-3 10-15 0-15Z',
+  },
+  { name: 'diamond', x: 122, y: 119, angle: 12, color: 'var(--csl-accent-magenta)', path: 'M0-16L12 0L0 16L-12 0Z' },
+];
+const nodes = Array.from({ length: 5 }, (_, index) => {
+  const angle = (index * Math.PI * 2) / 5 - Math.PI / 2;
+  return { x: 110 + Math.cos(angle) * 71, y: 110 + Math.sin(angle) * 71, index };
+});
+---
+
+<div class={`report-signal report-symbol-${typology}`} aria-hidden="true" data-typology-symbol={typology}>
+  <svg viewBox="0 0 220 220" fill="none">
+    <circle cx="110" cy="110" r="101" class="report-signal-grid"></circle>
+    <path d="M110 4v12M110 204v12M4 110h12M204 110h12" class="report-signal-grid"></path>
+    {
+      typology === 'bartle' &&
+        suits.map((suit, index) => (
+          <g transform={`translate(${suit.x} ${suit.y}) rotate(${suit.angle} 26 37)`} data-card-suit={suit.name}>
+            <g class="report-symbol-card" style={`--symbol-delay: ${index * -0.85}s`}>
+              <rect width="52" height="74" rx="4" fill="var(--csl-bg)" stroke={suit.color} stroke-width="1.5" />
+              <path d="M7 9h7M38 65h7" stroke={suit.color} stroke-width="1.5" />
+              <path d={suit.path} transform="translate(26 37)" fill={suit.color} />
+            </g>
+          </g>
+        ))
+    }
+    {
+      typology === 'hexad' && (
+        <>
+          <circle cx="110" cy="110" r="74" class="report-signal-grid" stroke-dasharray="2 8" />
+          {Array.from({ length: 6 }, (_, index) => (
+            <g transform={`rotate(${index * 60} 110 110)`} data-compass-point>
+              <path
+                class="report-symbol-ray"
+                style={`--symbol-delay: ${index * -0.65}s`}
+                d="M110 25l12 40-12-8-12 8z"
+                fill={index % 2 ? 'var(--csl-accent-magenta)' : 'var(--csl-accent-cyan)'}
+              />
+              <path d="M110 67v17" stroke="var(--csl-line-strong)" />
+            </g>
+          ))}
+          <path
+            d="M110 79l27 15v32l-27 15-27-15V94z"
+            fill="var(--csl-bg)"
+            stroke="var(--csl-accent-primary)"
+            stroke-width="2"
+          />
+          <path d="M110 92l6 12 12 6-12 6-6 12-6-12-12-6 12-6z" fill="var(--csl-accent-primary)" />
+        </>
+      )
+    }
+    {
+      typology === 'trojan' && (
+        <g class="report-symbol-crest">
+          <g stroke="var(--csl-accent-cyan)" stroke-width="2" stroke-linejoin="round">
+            <path d="M48 37l18 8 95 111-8 8L58 53zM143 157l19-17M156 163l14 16" />
+            <path d="M172 37l-18 8-95 111 8 8 95-111zM77 157l-19-17M64 163l-14 16" />
+          </g>
+          <path
+            d="M110 48l49 21v43c0 29-24 52-49 68-25-16-49-39-49-68V69z"
+            fill="var(--csl-bg)"
+            stroke="var(--csl-accent-magenta)"
+            stroke-width="2"
+          />
+          <path d="M110 61l36 16v34c0 22-17 41-36 55-19-14-36-33-36-55V77z" class="report-signal-inner" />
+          <path
+            class="report-symbol-star"
+            d="M110 82l9 21 21 9-21 9-9 21-9-21-21-9 21-9z"
+            fill="var(--csl-accent-cyan)"
+          />
+          <path d="M92 150l18 12 18-12" stroke="var(--csl-accent-primary)" />
+        </g>
+      )
+    }
+    {
+      typology === 'gain' && (
+        <>
+          <circle cx="110" cy="110" r="71" class="report-signal-grid" stroke-dasharray="3 8" />
+          <g class="report-symbol-nodes">
+            <polygon points={nodes.map(({ x, y }) => `${x},${y}`).join(' ')} stroke="var(--csl-line-strong)" />
+            {nodes.map(({ x, y, index }) => (
+              <g data-activity-node>
+                <line x1="110" y1="110" x2={x} y2={y} stroke="var(--csl-line-strong)" />
+                <g class="report-symbol-node" style={`--symbol-delay: ${index * -0.8}s`}>
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="13"
+                    fill="var(--csl-bg)"
+                    stroke={index % 2 ? 'var(--csl-accent-magenta)' : 'var(--csl-accent-cyan)'}
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="4"
+                    fill={index % 2 ? 'var(--csl-accent-magenta)' : 'var(--csl-accent-cyan)'}
+                  />
+                </g>
+              </g>
+            ))}
+          </g>
+          <path
+            d="M110 82l25 14v28l-25 14-25-14V96z"
+            fill="var(--csl-bg)"
+            stroke="var(--csl-accent-primary)"
+            stroke-width="2"
+          />
+          <path d="M85 96l25 14 25-14M110 110v28" stroke="var(--csl-accent-primary)" stroke-width="2" />
+        </>
+      )
+    }
+  </svg>
+</div>

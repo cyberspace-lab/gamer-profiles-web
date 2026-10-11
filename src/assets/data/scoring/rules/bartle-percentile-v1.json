@@ -1,0 +1,13 @@
+{
+  "id": "bartle-percentile-v1",
+  "input": {
+    "scale": "percentile",
+    "minimum": 0,
+    "maximum": 100,
+    "parameters": { "socializer": "soc", "killer": "kil", "explorer": "exp", "achiever": "ach" }
+  },
+  "output": { "scale": "percentile", "minimum": 0, "maximum": 100, "precision": 1 },
+  "scoreConversion": { "type": "identity" },
+  "dominantBy": "score",
+  "preferenceBands": []
+}

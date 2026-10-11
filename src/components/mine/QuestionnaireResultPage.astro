@@ -1,0 +1,71 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Layout from '~/layouts/PageLayout.astro';
+import QuestionnaireReport from '~/components/react/QuestionnaireReport';
+import TypologySymbol from '~/components/mine/TypologySymbol.astro';
+import { getReportConfig, type ReportTypology } from '~/assets/data/reports';
+import czLegacyTypes from '~/assets/data/bartleTypes.json';
+import enLegacyTypes from '~/assets/data/bartleTypes.en.json';
+import { getLangFromUrl } from '~/i18n';
+import '~/assets/styles/questionnaire-report.css';
+
+interface Props {
+  typology: ReportTypology;
+}
+const { typology } = Astro.props;
+const locale = getLangFromUrl(Astro.url);
+const config = getReportConfig(typology, locale);
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/typology/**/*.png', { eager: true });
+config.profiles = await Promise.all(
+  config.profiles.map(async (profile) => {
+    const image = images[`/src/assets/images/typology/${typology}/${profile.id}.png`]?.default;
+    return {
+      ...profile,
+      image: image ? (await getImage({ src: image, width: 320, height: 320, format: 'webp' })).src : undefined,
+    };
+  })
+);
+const metadata = { title: config.title, robots: { index: false, follow: false } };
+const legacyTypes = typology === 'bartle' ? (locale === 'cz' ? czLegacyTypes : enLegacyTypes) : undefined;
+---
+
+<Layout metadata={metadata}>
+  <div class="questionnaire-report">
+    <header class="report-header">
+      <div class="report-hero-copy">
+        <p class="eyebrow">
+          <span class="report-status-dot" aria-hidden="true"></span>{
+            locale === 'cz' ? 'Tvůj herní profil' : 'Your gaming profile'
+          }
+        </p>
+        <h1>{config.title}</h1>
+        <p>
+          {
+            locale === 'cz'
+              ? 'Co tě při hraní nejvíce baví a motivuje?'
+              : 'What do you enjoy most, and what motivates you to play?'
+          }
+        </p>
+        <div class="report-hero-tags">
+          <span>{typology.toUpperCase()}</span><span
+            >{config.profiles.length} {locale === 'cz' ? 'herních oblastí' : 'gaming dimensions'}</span
+          >
+        </div>
+      </div>
+      <TypologySymbol typology={typology} />
+    </header>
+    <QuestionnaireReport config={config} legacyTypes={legacyTypes} client:only="react">
+      <p slot="fallback" role="status">{locale === 'cz' ? 'Načítání výsledků…' : 'Loading results…'}</p>
+    </QuestionnaireReport>
+    <noscript
+      ><p>
+        {
+          locale === 'cz'
+            ? 'Pro zobrazení výsledků z odkazu zapni JavaScript ve svém prohlížeči.'
+            : 'Enable JavaScript in your browser to display the results from your link.'
+        }
+      </p></noscript
+    >
+  </div>
+</Layout>

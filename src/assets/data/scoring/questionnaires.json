@@ -1,0 +1,23 @@
+{
+  "bartle": {
+    "defaultVersion": "2026-10",
+    "versions": ["2026-10", "mean-v1", "bartle-percentile-v1"],
+    "legacyVersion": "bartle-percentile-v1",
+    "unversionedVersion": "mean-v1"
+  },
+  "hexad": {
+    "defaultVersion": "2026-10",
+    "versions": ["2026-10", "mean-v1"],
+    "unversionedVersion": "mean-v1"
+  },
+  "trojan": {
+    "defaultVersion": "2026-10",
+    "versions": ["2026-10", "mean-v1"],
+    "unversionedVersion": "mean-v1"
+  },
+  "gain": {
+    "defaultVersion": "2026-10",
+    "versions": ["2026-10", "mean-v1"],
+    "unversionedVersion": "mean-v1"
+  }
+}

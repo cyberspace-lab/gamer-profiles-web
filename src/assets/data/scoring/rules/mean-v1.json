@@ -1,0 +1,14 @@
+{
+  "id": "mean-v1",
+  "input": { "scale": "mean", "minimum": 1, "maximum": 5 },
+  "output": { "scale": "mean", "minimum": 1, "maximum": 5, "precision": 1 },
+  "scoreConversion": { "type": "identity" },
+  "dominantBy": "score",
+  "preferenceBands": [
+    { "minimum": 4.2, "maximum": 5, "labelIndex": 0 },
+    { "minimum": 3.4, "maximum": 4.1, "labelIndex": 1 },
+    { "minimum": 2.6, "maximum": 3.3, "labelIndex": 2 },
+    { "minimum": 1.8, "maximum": 2.5, "labelIndex": 3 },
+    { "minimum": 1, "maximum": 1.7, "labelIndex": 4 }
+  ]
+}

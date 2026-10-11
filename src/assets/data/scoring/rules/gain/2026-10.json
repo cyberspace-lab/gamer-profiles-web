@@ -1,0 +1,167 @@
+{
+  "id": "2026-10",
+  "questionnaireVersion": "2026-10",
+  "input": {
+    "scale": "mean",
+    "minimum": 1,
+    "maximum": 5
+  },
+  "output": {
+    "scale": "mean",
+    "minimum": 1,
+    "maximum": 5,
+    "precision": 1
+  },
+  "scoreConversion": {
+    "type": "identity"
+  },
+  "dominantBy": "score",
+  "preferenceBands": [
+    {
+      "minimum": 4.2,
+      "maximum": 5,
+      "labelIndex": 0
+    },
+    {
+      "minimum": 3.4,
+      "maximum": 4.1,
+      "labelIndex": 1
+    },
+    {
+      "minimum": 2.6,
+      "maximum": 3.3,
+      "labelIndex": 2
+    },
+    {
+      "minimum": 1.8,
+      "maximum": 2.5,
+      "labelIndex": 3
+    },
+    {
+      "minimum": 1,
+      "maximum": 1.7,
+      "labelIndex": 4
+    }
+  ],
+  "percentileConversion": {
+    "type": "lookup",
+    "method": "linear",
+    "tables": {
+      "assault": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 23
+        },
+        {
+          "score": 3,
+          "value": 59
+        },
+        {
+          "score": 4,
+          "value": 87
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "manage": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 11
+        },
+        {
+          "score": 3,
+          "value": 37
+        },
+        {
+          "score": 4,
+          "value": 71
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "journey": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 5
+        },
+        {
+          "score": 3,
+          "value": 25
+        },
+        {
+          "score": 4,
+          "value": 60
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "care": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 16
+        },
+        {
+          "score": 3,
+          "value": 45
+        },
+        {
+          "score": 4,
+          "value": 79
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ],
+      "coordinate": [
+        {
+          "score": 1,
+          "value": 0
+        },
+        {
+          "score": 2,
+          "value": 19
+        },
+        {
+          "score": 3,
+          "value": 51
+        },
+        {
+          "score": 4,
+          "value": 83
+        },
+        {
+          "score": 5,
+          "value": 100
+        }
+      ]
+    }
+  },
+  "percentileStatus": "illustrative",
+  "reference": {
+    "cz": "Ukázkové převodní tabulky: hodnoty jsou vytvořené pro předvedení výpočtu a nevycházejí z výzkumného ani referenčního souboru hráčů.",
+    "en": "Illustrative conversion tables: these values demonstrate the calculation and are not based on a research or player reference sample."
+  }
+}

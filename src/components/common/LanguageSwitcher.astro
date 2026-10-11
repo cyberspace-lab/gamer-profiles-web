@@ -18,16 +18,30 @@ const languageLinks = Object.entries(languages).map(([lang, label]) => ({
 ---
 
 <div class="csl-lang-switcher">
-  {languageLinks.map(({ lang, label, href, isActive }) => (
-    <a
-      href={href}
-      class:list={['csl-lang-btn', { active: isActive }]}
-      aria-current={isActive ? 'page' : undefined}
-    >
-      {label}
-    </a>
-  ))}
+  {
+    languageLinks.map(({ label, href, isActive }) => (
+      <a
+        href={href}
+        data-language-link
+        class:list={['csl-lang-btn', { active: isActive }]}
+        aria-current={isActive ? 'page' : undefined}
+      >
+        {label}
+      </a>
+    ))
+  }
 </div>
+
+<script>
+  // Static result pages read the query in the browser; keep those scores when switching language.
+  if (/\/(?:results|typologie)\//.test(window.location.pathname)) {
+    document.querySelectorAll<HTMLAnchorElement>('[data-language-link]').forEach((link) => {
+      const url = new URL(link.href);
+      url.search = window.location.search;
+      link.href = url.href;
+    });
+  }
+</script>
 
 <style>
   .csl-lang-switcher {
@@ -48,7 +62,9 @@ const languageLinks = Object.entries(languages).map(([lang, label]) => ({
     padding: 4px 10px;
     color: var(--csl-fg-3);
     border-bottom: none;
-    transition: color var(--csl-dur-2) ease, background var(--csl-dur-2) ease;
+    transition:
+      color var(--csl-dur-2) ease,
+      background var(--csl-dur-2) ease;
     white-space: nowrap;
   }
   .csl-lang-btn:hover {
