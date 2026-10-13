@@ -160,18 +160,18 @@ export default function QuestionnaireReport({
                 ? 'Verze otázek v odkazu je neznámá nebo opakovaná. Otevři původní odkaz z dotazníku.'
                 : 'The questionnaire version is unknown or repeated. Open the original questionnaire link.'
               : results.reason === 'created'
-              ? cz
-                ? 'Chybí platný měsíc vytvoření dotazníku (created=RRRR-MM), nebo neodpovídá dostupné verzi otázek. Otevři původní odkaz z dotazníku.'
-                : 'The questionnaire creation month (created=YYYY-MM) is missing, invalid, or does not match an available questionnaire version. Open the original questionnaire link.'
-              : results.reason === 'version'
                 ? cz
-                  ? 'Verze výpočtu je neznámá, opakovaná nebo patří k jiné verzi otázek. Otevři původní odkaz z dotazníku.'
-                  : 'The calculation version is unknown, repeated, or belongs to a different questionnaire version. Open the original questionnaire link.'
-                : results.reason === 'conversion'
+                  ? 'Chybí platný měsíc vytvoření dotazníku (created=RRRR-MM), nebo neodpovídá dostupné verzi otázek. Otevři původní odkaz z dotazníku.'
+                  : 'The questionnaire creation month (created=YYYY-MM) is missing, invalid, or does not match an available questionnaire version. Open the original questionnaire link.'
+                : results.reason === 'version'
                   ? cz
-                    ? 'Pro některé hodnoty nebyl v použité převodní tabulce nalezen odpovídající výsledek.'
-                    : 'Some values have no corresponding result in the selected conversion table.'
-                  : `${cz ? 'Chybějící nebo neplatné hodnoty' : 'Missing or invalid values'}: ${results.invalidKeys.join(', ')}. ${cz ? 'Povolený rozsah' : 'Expected range'}: ${rules.input.minimum} – ${rules.input.maximum}.`}
+                    ? 'Verze výpočtu je neznámá, opakovaná nebo patří k jiné verzi otázek. Otevři původní odkaz z dotazníku.'
+                    : 'The calculation version is unknown, repeated, or belongs to a different questionnaire version. Open the original questionnaire link.'
+                  : results.reason === 'conversion'
+                    ? cz
+                      ? 'Pro některé hodnoty nebyl v použité převodní tabulce nalezen odpovídající výsledek.'
+                      : 'Some values have no corresponding result in the selected conversion table.'
+                    : `${cz ? 'Chybějící nebo neplatné hodnoty' : 'Missing or invalid values'}: ${results.invalidKeys.join(', ')}. ${cz ? 'Povolený rozsah' : 'Expected range'}: ${rules.input.minimum} – ${rules.input.maximum}.`}
           </p>
         )}
         <div className="report-actions">

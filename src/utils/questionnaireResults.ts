@@ -115,7 +115,9 @@ export function validateScoringConfig(config: ScoringConfig, categoryIds: string
       if (!isScoringMonth(id) || !isScoringMonth(rules.questionnaireVersion) || rules.questionnaireVersion > id)
         fail(`${id}: invalid questionnaire version or standards predating the questions`);
       const inputFormat = JSON.stringify([
-        rules.input.scale, rules.input.minimum, rules.input.maximum,
+        rules.input.scale,
+        rules.input.minimum,
+        rules.input.maximum,
         categoryIds.map((key) => rules.input.parameters?.[key] ?? key),
       ]);
       const previous = inputFormats.get(rules.questionnaireVersion);
@@ -257,8 +259,13 @@ export function parseQuestionnaireResults(search: string, categoryIds: string[],
     return invalidVersion('created');
   if (explicitVersions.length > 1 || (explicitVersions.length && !config.versions[explicitVersions[0]]))
     return invalidVersion('version');
-  const questionnaireVersions = [...new Set(Object.values(config.versions)
-    .map((rules) => rules.questionnaireVersion).filter((id): id is string => Boolean(id)))].sort();
+  const questionnaireVersions = [
+    ...new Set(
+      Object.values(config.versions)
+        .map((rules) => rules.questionnaireVersion)
+        .filter((id): id is string => Boolean(id))
+    ),
+  ].sort();
   let questionnaireVersion: string | undefined;
   if (questionnaireValues.length) {
     if (questionnaireValues.length !== 1 || !questionnaireVersions.includes(questionnaireValues[0]))
@@ -270,19 +277,32 @@ export function parseQuestionnaireResults(search: string, categoryIds: string[],
     questionnaireVersion = questionnaireVersions.filter((id) => id <= created).at(-1);
     if (!questionnaireVersion) return invalidVersion('created');
   }
-  const latestStandards = questionnaireVersion === undefined ? undefined : Object.values(config.versions)
-    .filter((rules) => rules.questionnaireVersion === questionnaireVersion)
-    .sort((a, b) => a.id.localeCompare(b.id)).at(-1)?.id;
+  const latestStandards =
+    questionnaireVersion === undefined
+      ? undefined
+      : Object.values(config.versions)
+          .filter((rules) => rules.questionnaireVersion === questionnaireVersion)
+          .sort((a, b) => a.id.localeCompare(b.id))
+          .at(-1)?.id;
   // Previously copied scoring IDs are accepted within this question version, but cannot freeze its norms.
-  if (questionnaireVersion && explicitVersions.length &&
-      config.versions[explicitVersions[0]].questionnaireVersion !== questionnaireVersion)
+  if (
+    questionnaireVersion &&
+    explicitVersions.length &&
+    config.versions[explicitVersions[0]].questionnaireVersion !== questionnaireVersion
+  )
     return invalidVersion('version');
   const compatibilityRules = config.versions[config.unversionedVersion ?? config.defaultVersion];
   const hasDefault = categoryIds.some((id) => params.has(compatibilityRules.input.parameters?.[id] ?? id));
   const legacyRules = config.legacyVersion ? config.versions[config.legacyVersion] : undefined;
   const hasLegacy = legacyRules && categoryIds.some((id) => params.has(legacyRules.input.parameters?.[id] ?? id));
-  const version = latestStandards ?? explicitVersions[0] ??
-    (!hasDefault && hasLegacy ? config.legacyVersion! : hasDefault ? config.unversionedVersion ?? config.defaultVersion : config.defaultVersion);
+  const version =
+    latestStandards ??
+    explicitVersions[0] ??
+    (!hasDefault && hasLegacy
+      ? config.legacyVersion!
+      : hasDefault
+        ? (config.unversionedVersion ?? config.defaultVersion)
+        : config.defaultVersion);
   const rules = config.versions[version];
   if (!rules) return invalidVersion('version', version);
   const scale = rules.output.scale;
