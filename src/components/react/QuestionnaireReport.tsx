@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import ProfileRadar, { profileColors, scoreFraction } from './ProfileRadar';
+import ProfileRadar, { profileColors, reportedFraction } from './ProfileRadar';
 import type { ReportConfig } from '../../assets/data/reports';
 import {
   createResultSearch,
   getPreferenceBand,
   parseQuestionnaireResults,
+  reportedScore,
   roundScore,
+  type CalculatedScore,
   type ParsedResults,
 } from '../../utils/questionnaireResults';
 
@@ -36,19 +38,31 @@ export default function QuestionnaireReport({
     });
   const percentilesProvided = rules.output.scale === 'percentile';
   const hasPercentileTable = Boolean(rules.percentileConversion);
+  // Whenever norms exist, the percentile is the respondent-facing "score"; the raw result is secondary.
+  const percentileScores = hasPercentileTable || percentilesProvided;
   const illustrativePercentiles = rules.percentileStatus === 'illustrative';
-  const percentileLabel = illustrativePercentiles
+  const scorePrecision = hasPercentileTable ? (rules.percentilePrecision ?? 0) : rules.output.precision;
+  const scoreLabel = (score: CalculatedScore) =>
+    percentileScores
+      ? format(reportedScore(score), scorePrecision)
+      : `${format(score.value)} / ${format(rules.output.maximum)}`;
+  const rawLabel =
+    rules.output.scale === 'mean' ? (cz ? 'Průměr odpovědí' : 'Average answer') : cz ? 'Hrubé skóre' : 'Raw score';
+  const formatBound = (value: number) => format(value, Number.isInteger(value) ? 0 : rules.output.precision);
+  const rawRange = `${formatBound(rules.output.minimum)}–${formatBound(rules.output.maximum)}`;
+  const decimals = (precision: number) =>
+    cz
+      ? precision === 0
+        ? 'celá čísla'
+        : `${precision} ${precision === 1 ? 'desetinné místo' : precision < 5 ? 'desetinná místa' : 'desetinných míst'}`
+      : precision === 0
+        ? 'whole numbers'
+        : `${precision} decimal place${precision === 1 ? '' : 's'}`;
+  const scaleHelp = percentileScores
     ? cz
-      ? 'Ukázkový percentil'
-      : 'Illustrative percentile'
-    : cz
-      ? 'Percentil'
-      : 'Percentile';
-  const scoreLabel = (value: number) =>
-    percentilesProvided
-      ? `${format(value)} ${cz ? 'percentil' : 'percentile'}`
-      : `${format(value)} / ${format(rules.output.maximum)}`;
-  const scaleHelp = `${cz ? 'Škála skórů' : 'Score range'}: ${format(rules.output.minimum)} – ${format(rules.output.maximum)}.`;
+      ? 'Skóre je na škále 0 až 100; co přesně znamená, vysvětlujeme níže.'
+      : 'Scores range from 0 to 100; their meaning is explained below.'
+    : `${cz ? 'Škála skóre' : 'Score range'}: ${format(rules.output.minimum)} – ${format(rules.output.maximum)}.`;
   const profileFor = (id: string) => config.profiles.find((profile) => profile.id === id)!;
   const exampleRules = config.scoring.versions[config.scoring.defaultVersion];
   const exampleUrl = `?${createResultSearch(
@@ -147,10 +161,10 @@ export default function QuestionnaireReport({
         <p>
           {invalid
             ? cz
-              ? 'Pro zobrazení profilu potřebujeme platný skór pro každou kategorii. Zkus znovu otevřít celý odkaz, který jsi získal/a po vyplnění dotazníku.'
+              ? 'Pro zobrazení profilu potřebujeme platné skóre pro každou kategorii. Zkus znovu otevřít celý odkaz, který jsi získal/a po vyplnění dotazníku.'
               : 'Your profile needs a valid score for every category. Try opening the complete link you received after finishing the questionnaire again.'
             : cz
-              ? 'Po dokončení dotazníku otevři svůj osobní odkaz na výsledky. Zobrazí se tady tvůj dominantní profil i přehled všech skórů.'
+              ? 'Po dokončení dotazníku otevři svůj osobní odkaz na výsledky. Zobrazí se tady tvůj dominantní profil i přehled všech skóre.'
               : 'After completing the questionnaire, open your personal result link. Your dominant profile and all your scores will appear here.'}
         </p>
         {invalid && (
@@ -226,8 +240,8 @@ export default function QuestionnaireReport({
       {illustrativePercentiles && (
         <p className="report-notice" role="note">
           {cz
-            ? 'Percentily jsou zatím pouze ukázkové. Používáme dočasné tabulky bez výzkumných dat; tyto hodnoty nevyjadřují srovnání s ostatními hráči.'
-            : 'Percentiles are currently illustrative. The temporary tables use no research data; these values do not represent a comparison with other players.'}
+            ? 'Skóre jsou zatím pouze ukázková. Používáme dočasné převodní tabulky bez výzkumných dat; tyto hodnoty proto zatím nevyjadřují skutečné srovnání s ostatními hráči.'
+            : 'Scores are currently illustrative. The temporary conversion tables use no research data, so these values do not yet represent a real comparison with other players.'}
         </p>
       )}
       {!hasPercentileTable && !percentilesProvided && (
@@ -257,7 +271,7 @@ export default function QuestionnaireReport({
           <span aria-hidden="true">01</span> {cz ? 'Tvůj profil' : 'Your profile'}
         </a>
         <a href="#overview-title">
-          <span aria-hidden="true">02</span> {cz ? 'Tvoje skóry' : 'Your scores'}
+          <span aria-hidden="true">02</span> {cz ? 'Tvoje skóre' : 'Your scores'}
         </a>
         <a href="#guide-title">
           <span aria-hidden="true">03</span> {cz ? 'Jak číst výsledky' : 'Read your results'}
@@ -275,13 +289,14 @@ export default function QuestionnaireReport({
         {tied && (
           <p className="report-notice">
             {cz
-              ? 'Ve více kategoriích máš stejný nejvyšší skór. Tvůj profil proto popisují všechny následující oblasti.'
+              ? 'Ve více kategoriích máš stejné nejvyšší skóre. Tvůj profil proto popisují všechny následující oblasti.'
               : 'Several categories share your highest score. All the following areas therefore describe your profile.'}
           </p>
         )}
         <div className="report-dominant-list">
           {results.dominantIds.map((id) => {
             const profile = profileFor(id);
+            const score = results.scores.find((score) => score.id === id)!;
             return (
               <article className="report-panel report-dominant" key={id} data-reveal>
                 <div className="report-dominant-body">
@@ -291,8 +306,16 @@ export default function QuestionnaireReport({
                     <span className="report-score-icon" aria-hidden="true">
                       ✦
                     </span>
-                    <p className="report-score">{scoreLabel(results.scores.find((score) => score.id === id)!.value)}</p>
+                    <p className="report-score">
+                      {percentileScores && <span className="report-score-unit">{cz ? 'Skóre' : 'Score'} </span>}
+                      {scoreLabel(score)}
+                    </p>
                   </div>
+                  {score.percentile !== undefined && (
+                    <p className="report-raw-score">
+                      {rawLabel}: {format(score.value)} ({cz ? 'škála' : 'scale'} {rawRange})
+                    </p>
+                  )}
                   {profile.attributes && (
                     <p className="report-attributes">
                       <strong>{cz ? 'Hlavní atributy kategorie: ' : 'Main category attributes: '}</strong>
@@ -357,7 +380,8 @@ export default function QuestionnaireReport({
         <div className="report-overview-layout">
           <ProfileRadar profiles={config.profiles} scores={results.scores} rules={rules} locale={config.locale} />
           <ol className="report-scores">
-            {results.scores.map(({ id, value, percentile }) => {
+            {results.scores.map((score) => {
+              const { id, value, percentile } = score;
               const profile = profileFor(id);
               const bandIndex = getPreferenceBand(value, rules);
               const band = bandIndex === undefined ? undefined : config.bands[bandIndex];
@@ -380,19 +404,22 @@ export default function QuestionnaireReport({
                       </span>
                       {profile.name}
                     </h3>
-                    <strong className="report-number">{scoreLabel(value)}</strong>
+                    <strong className="report-number">
+                      {percentileScores && <span className="report-score-unit">{cz ? 'Skóre' : 'Score'} </span>}
+                      {scoreLabel(score)}
+                    </strong>
                   </div>
                   <div className="report-bar" aria-hidden="true">
                     <span
                       style={{
-                        width: `${scoreFraction(value, rules) * 100}%`,
+                        width: `${reportedFraction(score, rules) * 100}%`,
                       }}
                     />
                   </div>
                   {band && <p className="report-preference">{band.label}</p>}
                   {percentile !== undefined && (
-                    <p className="report-percentile">
-                      {percentileLabel}: {format(percentile, rules.percentilePrecision ?? 1)} / 100
+                    <p className="report-raw-score">
+                      {rawLabel}: {format(value)} ({cz ? 'škála' : 'scale'} {rawRange})
                     </p>
                   )}
                   <p className="report-keywords">{profile.keywords}</p>
@@ -410,13 +437,31 @@ export default function QuestionnaireReport({
           </span>
           <h2 id="guide-title">{cz ? 'Jak číst výsledky' : 'How to read your results'}</h2>
         </div>
-        {percentilesProvided ? (
-          <p>
-            {cz
-              ? 'Percentil vyjadřuje srovnání s ostatními hráči. Například 80. percentil znamená, že máš vyšší hodnocení než přibližně 80 % hráčů v porovnávacím souboru.'
-              : 'A percentile compares your result with other players. For example, the 80th percentile means your score is higher than approximately 80% of players in the comparison sample.'}
-          </p>
-        ) : (
+        {percentileScores && (
+          <div className="report-score-explainer">
+            <h3>{cz ? 'Co znamená skóre?' : 'What does the score mean?'}</h3>
+            <p>
+              {cz
+                ? 'Skóre je percentil na škále 0 až 100. Ukazuje, jak si v dané oblasti stojíš ve srovnání s ostatními hráči: skóre 80 znamená, že máš vyšší hodnotu než přibližně 80 % hráčů v referenčním souboru, a skóre 50 tě řadí zhruba doprostřed. Nejde tedy o procento správných odpovědí ani o známku.'
+                : 'Your score is a percentile on a scale from 0 to 100. It shows where you stand in each area compared with other players: a score of 80 means your result is higher than approximately 80% of players in the reference sample, and a score of 50 places you roughly in the middle. It is not a percentage of correct answers or a grade.'}
+            </p>
+            {hasPercentileTable && (
+              <>
+                <p>
+                  {cz
+                    ? `Menším písmem pod skóre je uveden i tvůj ${rawLabel.toLocaleLowerCase('cs')} (škála ${rawRange}), ze kterého se skóre počítá.${rules.preferenceBands.length ? ' Z něj vychází i slovní hodnocení u každé kategorie – vyjadřuje, jak silně jsi s výroky souhlasil/a, nikoli srovnání s ostatními.' : ''}`
+                    : `The smaller text under each score shows your ${rawLabel.toLowerCase()} (scale ${rawRange}), from which the score is calculated.${rules.preferenceBands.length ? ' The verbal rating for each category is also based on it – it reflects how strongly you agreed with the statements, not a comparison with other players.' : ''}`}
+                </p>
+                <p className="report-keywords">
+                  {cz
+                    ? `Skóre zaokrouhlujeme na ${decimals(scorePrecision)}. Dominantní profil určujeme z nezaokrouhlen${rules.dominantBy === 'percentile' ? 'ého skóre' : 'é hodnoty: ' + rawLabel.toLocaleLowerCase('cs')}.`
+                    : `Scores are rounded to ${decimals(scorePrecision)}. The dominant profile uses the unrounded ${rules.dominantBy === 'percentile' ? 'score' : rawLabel.toLowerCase()}.`}
+                </p>
+              </>
+            )}
+          </div>
+        )}
+        {!percentileScores && (
           <>
             <p>{config.introduction}</p>
             <ol className="report-explanation">
@@ -439,7 +484,7 @@ export default function QuestionnaireReport({
                     style={{ '--band-accent': profileColors[range.labelIndex % profileColors.length] } as CSSProperties}
                   >
                     <dt>
-                      {cz ? 'Skór' : 'Score'} {format(range.minimum)} – {format(range.maximum)} ({band.label})
+                      {cz ? 'Skóre' : 'Score'} {format(range.minimum)} – {format(range.maximum)} ({band.label})
                     </dt>
                     <dd>{band.description}</dd>
                   </div>
@@ -448,17 +493,10 @@ export default function QuestionnaireReport({
             </dl>
             <p className="report-keywords">
               {cz
-                ? `Skóry zaokrouhlujeme na ${rules.output.precision} desetinných míst; stejnou hodnotu používáme pro slovní hodnocení. Dominantní profil určujeme z nezaokrouhlených ${rules.dominantBy === 'percentile' ? 'percentilů' : 'skórů'}.`
-                : `Scores are rounded to ${rules.output.precision} decimal places; the same value determines the interpretation band. The dominant profile uses unrounded ${rules.dominantBy === 'percentile' ? 'percentiles' : 'scores'}.`}
+                ? `Skóre zaokrouhlujeme na ${decimals(rules.output.precision)}; stejnou hodnotu používáme pro slovní hodnocení. Dominantní profil určujeme z nezaokrouhleného skóre.`
+                : `Scores are rounded to ${decimals(rules.output.precision)}; the same value determines the verbal rating. The dominant profile uses unrounded scores.`}
             </p>
           </>
-        )}
-        {hasPercentileTable && !illustrativePercentiles && (
-          <p>
-            {cz
-              ? 'Percentily porovnávají tvé skóry s hráči v referenčním souboru. Například 80. percentil znamená vyšší hodnocení než přibližně 80 % tohoto souboru.'
-              : 'Percentiles compare your scores with players in a reference sample. For example, the 80th percentile means a higher score than approximately 80% of that sample.'}
-          </p>
         )}
         {rules.reference && <p>{rules.reference[config.locale]}</p>}
       </section>

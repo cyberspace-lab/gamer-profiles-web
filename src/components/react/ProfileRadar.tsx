@@ -1,5 +1,5 @@
 import type { ReportProfile } from '../../assets/data/reports';
-import type { CalculatedScore, ScoringRules } from '../../utils/questionnaireResults';
+import { reportedScore, type CalculatedScore, type ScoringRules } from '../../utils/questionnaireResults';
 
 export const profileColors = [
   'var(--csl-accent-cyan)',
@@ -13,6 +13,13 @@ export const profileColors = [
 export function scoreFraction(value: number, rules: ScoringRules): number {
   const baseline = Math.min(0, rules.output.minimum);
   return Math.max(0, Math.min(1, (value - baseline) / (rules.output.maximum - baseline)));
+}
+
+/** Percentile scores always span 0–100; scores without norms keep their own output range. */
+export function reportedFraction(score: CalculatedScore, rules: ScoringRules): number {
+  return score.percentile === undefined
+    ? scoreFraction(score.value, rules)
+    : Math.max(0, Math.min(1, reportedScore(score) / 100));
 }
 
 export default function ProfileRadar({
@@ -31,8 +38,9 @@ export default function ProfileRadar({
     return [180 + Math.cos(angle) * radius, 180 + Math.sin(angle) * radius];
   };
   const polygon = (radius: number) => profiles.map((_, index) => point(index, radius).join(',')).join(' ');
-  const values = profiles.map((profile) => scores.find(({ id }) => id === profile.id)!.value);
-  const resultPoints = values.map((value, index) => point(index, scoreFraction(value, rules) * 118));
+  const resultPoints = profiles.map((profile, index) =>
+    point(index, reportedFraction(scores.find(({ id }) => id === profile.id)!, rules) * 118)
+  );
 
   return (
     <figure className="report-radar report-panel" data-reveal>
@@ -88,7 +96,7 @@ export default function ProfileRadar({
       </ol>
       <figcaption>
         {locale === 'cz'
-          ? 'Čím dál od středu, tím vyšší je tvůj skór.'
+          ? 'Čím dál od středu, tím vyšší je tvé skóre.'
           : 'The farther from the center, the higher your score.'}
       </figcaption>
     </figure>

@@ -15,7 +15,7 @@
   "scoreConversion": {
     "type": "identity"
   },
-  "dominantBy": "score",
+  "dominantBy": "percentile",
   "preferenceBands": [
     {
       "minimum": 4.2,

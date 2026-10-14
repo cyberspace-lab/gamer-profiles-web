@@ -363,6 +363,11 @@ export function parseQuestionnaireResults(search: string, categoryIds: string[],
   };
 }
 
+/** Respondents see the percentile as their score whenever the standards provide one. */
+export function reportedScore(score: CalculatedScore): number {
+  return score.percentile ?? score.value;
+}
+
 export function getPreferenceBand(value: number, rules: ScoringRules): number | undefined {
   const rounded = roundScore(value, rules.output.precision);
   return rules.preferenceBands.find((band) => rounded >= band.minimum && rounded <= band.maximum)?.labelIndex;

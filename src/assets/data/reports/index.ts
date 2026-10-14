@@ -158,7 +158,7 @@ export function getReportConfig(typology: ReportTypology, locale: Locale): Repor
     dominantTitle,
     overviewTitle,
     introduction: isCz
-      ? `Tvůj výsledný profil se skládá ze dvou hlavních částí: ${dominantTitle} a ${overviewTitle.toLocaleLowerCase('cs')} se skóry.`
+      ? `Tvůj výsledný profil se skládá ze dvou hlavních částí: ${dominantTitle} a ${overviewTitle.toLocaleLowerCase('cs')} se skóre.`
       : `Your profile has two main parts: ${dominantTitle.toLowerCase()} and ${overviewTitle.toLowerCase()} with scores.`,
     dominantHelp: isCz
       ? kind === 'gain'
@@ -168,7 +168,7 @@ export function getReportConfig(typology: ReportTypology, locale: Locale): Repor
           : 'Tato sekce popisuje oblast, ve které jsi dosáhl/a nejvyššího hodnocení. Ukazuje, co tě na hraní nejvíce motivuje, co od her očekáváš a jaký typ herního zážitku tě nejvíce přitahuje.'
       : 'This section describes the area in which you scored highest. It shows what motivates you most, what you expect from games, and which experiences attract you.',
     overviewHelp: isCz
-      ? 'Zde najdeš skóry všech kategorií. Vyšší skór znamená, že daná oblast je pro tebe při hraní důležitější a pravděpodobně tě více motivuje. Nižší skór ukazuje, že pro tebe není tak zásadní.'
+      ? 'Zde najdeš skóre všech kategorií. Vyšší skóre znamená, že daná oblast je pro tebe při hraní důležitější a pravděpodobně tě více motivuje. Nižší skóre ukazuje, že pro tebe není tak zásadní.'
       : 'Here you can see all category scores. A higher score means the area is more important to you and likely more motivating. A lower score indicates it matters less to you.',
     bands: labels[locale][kind].map((label, i) => ({
       label,

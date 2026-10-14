@@ -421,10 +421,20 @@
   line-height: 1.6;
   margin-bottom: 0;
 }
-.questionnaire-report .report-percentile {
+.report-score-unit {
+  font-size: 0.6em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--csl-fg-3);
+}
+.questionnaire-report .report-raw-score {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: var(--csl-accent-cyan);
+  color: var(--csl-fg-3);
+}
+.questionnaire-report .report-score-badge + .report-raw-score {
+  margin: -12px 0 22px;
 }
 .report-radar {
   grid-column: 2;
@@ -523,6 +533,18 @@
 }
 .report-guide {
   padding: 32px;
+}
+.report-score-explainer {
+  border-left: 2px solid var(--csl-accent-cyan);
+  background: color-mix(in srgb, var(--csl-accent-cyan) 6%, var(--csl-bg));
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.report-score-explainer h3 {
+  font-size: 18px;
+}
+.report-score-explainer p:last-child {
+  margin-bottom: 0;
 }
 .report-explanation {
   list-style: decimal;
