@@ -2,7 +2,6 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
-import Announcement from '~/components/widgets/Announcement.astro';
 
 import { getHeaderData, getFooterData } from '~/navigation';
 import { getLangFromUrl, useTranslations } from '~/i18n';
@@ -11,9 +10,10 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  privateResults?: boolean;
 }
 
-const { metadata } = Astro.props;
+const { metadata, privateResults } = Astro.props;
 
 // Get locale from URL and create translation function
 const locale = getLangFromUrl(Astro.url);
@@ -24,7 +24,7 @@ const headerData = getHeaderData(locale, t);
 const footerData = getFooterData(locale, t);
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} privateResults={privateResults}>
   <slot name="header">
     <Header {...headerData} isSticky showToggleTheme />
   </slot>

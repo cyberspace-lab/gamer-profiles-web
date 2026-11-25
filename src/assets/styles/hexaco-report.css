@@ -1,0 +1,235 @@
+/* HEXACO result page; builds on questionnaire-report.css. */
+.hexaco-norms {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 16px 24px;
+  border-top: 3px solid var(--csl-accent-cyan);
+}
+.hexaco-norms h2 {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+.hexaco-norms label {
+  display: grid;
+  gap: 6px;
+}
+.hexaco-norms label span {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--csl-fg-3);
+}
+.hexaco-norms select {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 12px;
+  font: inherit;
+  color: var(--csl-fg-1);
+  background-color: var(--csl-bg);
+  border: 1px solid var(--csl-line-strong);
+}
+.hexaco-norms select:focus-visible {
+  outline: 2px solid var(--csl-accent-primary);
+  outline-offset: 2px;
+}
+
+.hexaco-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.hexaco-radar {
+  margin: 0;
+  text-align: center;
+}
+.hexaco-radar svg {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 8px;
+  overflow: visible;
+}
+.hexaco-radar-mid {
+  stroke: var(--csl-fg-3);
+  stroke-dasharray: 3 5;
+}
+.hexaco-radar-shape {
+  fill: color-mix(in srgb, var(--csl-accent-primary) 18%, transparent);
+  stroke: var(--csl-accent-primary);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.hexaco-radar-letter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--csl-fg-2);
+}
+.hexaco-summary {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hexaco-summary li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  grid-template-areas: 'letter name number' 'letter band number';
+  align-items: center;
+  column-gap: 12px;
+  padding: 10px 14px;
+  background: var(--csl-bg-subtle);
+  border: 1px solid var(--csl-line);
+  border-left: 2px solid var(--profile-accent);
+}
+.hexaco-letter {
+  grid-area: letter;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--profile-accent);
+}
+.hexaco-summary a {
+  grid-area: name;
+  font-weight: 600;
+  color: var(--csl-fg-1);
+}
+.hexaco-summary a:hover {
+  color: var(--csl-accent-primary);
+}
+.hexaco-summary strong {
+  grid-area: number;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+.hexaco-summary-band {
+  grid-area: band;
+  font-size: 13px;
+  color: var(--csl-fg-3);
+}
+
+.hexaco-domain-list {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.hexaco-domain {
+  scroll-margin-top: 100px;
+}
+.hexaco-domain .report-number {
+  font-size: 30px;
+}
+.hexaco-domain .report-keywords + .report-keywords {
+  margin-top: 8px;
+}
+/* Percentile bars show where the 50th percentile lies. */
+.hexaco-bar {
+  position: relative;
+  overflow: visible;
+}
+.hexaco-bar::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: var(--csl-fg-3);
+}
+.questionnaire-report .hexaco-facets-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--csl-fg-3);
+  margin: 24px 0 12px;
+}
+.hexaco-facets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hexaco-facets li {
+  padding: 12px 14px;
+  background: var(--csl-bg);
+  border: 1px solid var(--csl-line);
+  scroll-margin-top: 100px;
+}
+.hexaco-facet-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.hexaco-facet-name {
+  font-weight: 600;
+  color: var(--csl-fg-1);
+}
+.hexaco-facet-heading strong {
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.hexaco-facets .hexaco-bar {
+  height: 4px;
+  margin: 6px 0 8px;
+}
+.questionnaire-report .hexaco-facet-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+.questionnaire-report .hexaco-facet-meta .report-raw-score {
+  margin: 0;
+}
+.questionnaire-report .hexaco-facet-description {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--csl-fg-3);
+}
+.questionnaire-report .hexaco-fallback {
+  margin-top: 12px;
+  font-style: italic;
+}
+.hexaco-guide-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding-left: 20px;
+  list-style: disc;
+  color: var(--csl-fg-2);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .hexaco-norms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hexaco-norms-copy {
+    grid-column: 1 / -1;
+  }
+  .hexaco-domain .report-row-heading {
+    flex-direction: row;
+    align-items: baseline;
+  }
+}
+@media (max-width: 700px) {
+  .hexaco-overview,
+  .hexaco-facets,
+  .hexaco-norms {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hexaco-domain .report-number {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,90 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HexacoReport from '~/components/react/HexacoReport';
+import { getLangFromUrl } from '~/i18n';
+import '~/assets/styles/questionnaire-report.css';
+import '~/assets/styles/hexaco-report.css';
+
+const locale = getLangFromUrl(Astro.url);
+const cz = locale === 'cz';
+const title = cz ? 'Tvůj osobnostní profil HEXACO' : 'Your HEXACO personality profile';
+const metadata = { title, robots: { index: false, follow: false } };
+const letters = ['H', 'E', 'X', 'A', 'C', 'O'];
+const colors = [
+  'var(--csl-accent-cyan)',
+  'var(--csl-accent-magenta)',
+  'var(--csl-accent-primary)',
+  'var(--csl-blue)',
+  'var(--csl-amber)',
+  'color-mix(in srgb, var(--csl-accent-magenta) 65%, var(--csl-amber))',
+];
+const vertex = (index: number, radius: number) => {
+  const angle = (index * Math.PI) / 3 - Math.PI / 2;
+  return [110 + Math.cos(angle) * radius, 110 + Math.sin(angle) * radius];
+};
+const hexagon = (radius: number) => letters.map((_, i) => vertex(i, radius).join(',')).join(' ');
+---
+
+<!-- Results live only in the query string: no analytics and no referrer leave this page. -->
+<Layout metadata={metadata} privateResults>
+  <div class="questionnaire-report">
+    <header class="report-header">
+      <div class="report-hero-copy">
+        <p class="eyebrow">
+          <span class="report-status-dot" aria-hidden="true"></span>{cz ? 'Tvůj profil' : 'Your profile'}
+        </p>
+        <h1>{title}</h1>
+        <p>
+          {
+            cz
+              ? 'Kde se nacházíš na šesti základních dimenzích osobnosti ve srovnání s ostatními lidmi.'
+              : 'Where you stand on six basic personality dimensions compared with other people.'
+          }
+        </p>
+        <div class="report-hero-tags">
+          <span>HEXACO-PI-R</span><span>{cz ? '6 dimenzí · 24 dílčích škál' : '6 domains · 24 facets'}</span>
+        </div>
+      </div>
+      <div class="report-signal" aria-hidden="true">
+        <svg viewBox="0 0 220 220" fill="none">
+          <circle cx="110" cy="110" r="101" class="report-signal-grid"></circle>
+          <polygon points={hexagon(78)} class="report-signal-grid"></polygon>
+          <polygon points={hexagon(40)} class="report-signal-inner"></polygon>
+          {
+            letters.map((letter, i) => {
+              const [x, y] = vertex(i, 78);
+              return (
+                <g>
+                  <circle cx={x} cy={y} r="13" fill="var(--csl-bg)" stroke={colors[i]} stroke-width="1.5" />
+                  <text
+                    x={x}
+                    y={y}
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    fill={colors[i]}
+                    font-size="12"
+                    font-weight="700"
+                  >
+                    {letter}
+                  </text>
+                </g>
+              );
+            })
+          }
+        </svg>
+      </div>
+    </header>
+    <HexacoReport locale={locale} client:only="react">
+      <p slot="fallback" role="status">{cz ? 'Načítání výsledků…' : 'Loading results…'}</p>
+    </HexacoReport>
+    <noscript
+      ><p>
+        {
+          cz
+            ? 'Pro zobrazení výsledků z odkazu zapni JavaScript ve svém prohlížeči.'
+            : 'Enable JavaScript in your browser to display the results from your link.'
+        }
+      </p></noscript
+    >
+  </div>
+</Layout>

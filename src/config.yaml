@@ -9,7 +9,7 @@ site:
 metadata:
   title:
     default: CyberspaceLab
-    template: '%s — AstroWind'
+    template: '%s — CyberspaceLab'
   description: "\U0001F680 Web s informacemi o hereních typologiích a profilech s možností si udělat vlastní test"
   robots:
     index: true
@@ -22,8 +22,6 @@ metadata:
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
     cardType: summary_large_image
 
 i18n:

@@ -33,7 +33,7 @@ export default defineConfig({
   },
   integrations: [tailwind({
     applyBaseStyles: false
-  }), sitemap(), mdx(), icon({
+  }), sitemap({ filter: (page) => !/\/results\/hexaco\/?$/.test(page) }), mdx(), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']

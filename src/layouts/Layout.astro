@@ -20,9 +20,11 @@ import type { MetaData as MetaDataType } from '~/types';
 
 export interface Props {
   metadata?: MetaDataType;
+  /** Pages whose URL carries personal results: skip analytics and never leak the URL as a referrer. */
+  privateResults?: boolean;
 }
 
-const { metadata = {} } = Astro.props;
+const { metadata = {}, privateResults = false } = Astro.props;
 // Get language from URL for proper lang attribute
 const locale = getLangFromUrl(Astro.url);
 const language = locale;
@@ -44,7 +46,7 @@ const enUrl = new URL(getLocalizedPath(basePath, 'en'), SITE.site).href;
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
-    <Analytics />
+    {privateResults ? <meta name="referrer" content="no-referrer" /> : <Analytics />}
 
     <!-- hreflang alternate language links for SEO -->
     <link rel="alternate" hreflang="cz" href={czUrl} />
